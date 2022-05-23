@@ -1,0 +1,144 @@
+.banner {
+  position: absolute;
+  width: 100%;
+  height: 93.8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.banner_mask {
+  height: 100%;
+  width: 100%;
+  padding-right: 70px;
+  padding-bottom: 40px;
+}
+
+.banner_logo {
+  width: 490px;
+  padding-bottom: 650px;
+  padding-right: 370px;
+}
+
+.banner_quote {
+  text-align: left;
+  color: white;
+  position: absolute;
+  padding-right: 180px;
+  padding-bottom: 100px;
+}
+
+.banner_quote h1 {
+  font-size: 50px;
+}
+
+.banner_image {
+  height: 95%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.form {
+  padding: 10em 6em;
+}
+
+.form_register {
+  padding: 9em 6em 4em !important;
+  position: absolute;
+  background-color: #f6f7f8;
+}
+
+.form_logo {
+  display: none;
+}
+
+.form_login {
+  padding-top: 2em;
+  color: #9ea0a5;
+}
+
+.form_forgot a {
+  text-decoration: none;
+  color: #1f2a36;
+}
+
+.form_button {
+  width: 100%;
+  background-color: #fbb017 !important;
+  border: none !important;
+  margin-top: 30px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 18px;
+}
+
+.register_recruiter {
+  text-align: center !important;
+  margin-top: 20px;
+}
+
+.register_recruiter a {
+  text-decoration: none !important;
+  color: #fbb017 !important;
+}
+
+.form_signUp {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.form_signUp a {
+  text-decoration: none;
+  color: #fbb017;
+}
+
+@media screen and (max-width: 480px) {
+  .form {
+    padding: 5em 2em;
+  }
+
+  .form_logo {
+    display: block;
+    width: 120px;
+    padding-bottom: 30px;
+  }
+}
+
+.window {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  background-color: #f6f7f8;
+}
+
+.window_register {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  background-color: #f6f7f8;
+  height: 150vh !important;
+}
+
+.column1 {
+  position: relative;
+  padding: 50px 0px 5px 70px !important;
+}
+
+.column2 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+@media (max-width: 480px) {
+  .window {
+    height: 100vh !important;
+  }
+
+  .window_register {
+    height: 90vh !important;
+  }
+
+  .column1 {
+    display: none !important;
+  }
+}
