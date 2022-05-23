@@ -44,9 +44,7 @@ export default function UserProfile() {
         imageClass="img-cover rounded-circle"
         imageWidth={40}
         imageHeight={40}
-        onError={(e) => {
-          e.target.src = '/images/profile-default.png';
-        }}
+        onError={() => setSrc(`${API_PROD}uploads/users/profile-default.png`)}
       />
       <ul className={`${isOpen ? 'dropdown clicked' : 'dropdown m-0 p-0'}`}>
         <li className="nav-item">
