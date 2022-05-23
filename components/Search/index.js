@@ -136,11 +136,14 @@ export default function index() {
                           : `${API_PROD}uploads/users/${item.photo}`
                       }`}
                       className={styles.card__image}
-                      altImage={item.name}W
+                      altImage={item.name}
+                      W
                       imageClass="img-cover rounded-circle"
                       imageWidth={100}
                       imageHeight={100}
-                      onError={() => setSrc(`${API_PROD}uploads/users/profile-default.png`)}
+                      onError={(e) => {
+                        e.target.src = `${API_PROD}uploads/users/profile-default.png`;
+                      }}
                     />
                     <div className={styles.card__data}>
                       <h5 className={styles.card__name}>{item.name}</h5>
