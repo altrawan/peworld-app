@@ -573,3 +573,23 @@ ul.navbar-nav .btn__action.signup {
   }
 }
 /* Not Found End */
+
+.pagination .page-item {
+  margin-right: 0.5rem;
+}
+
+.pagination .page-item.active {
+  background-color: #5e50a1;
+}
+
+.pagination .page-link {
+  border-color: #e2e5ed;
+  padding: 15px;
+  padding: 7px 15px;
+  border-radius: 0.25rem;
+}
+
+.purple {
+  height: 300px;
+  position: absolute;
+}

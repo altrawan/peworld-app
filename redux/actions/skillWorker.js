@@ -1,10 +1,10 @@
 import axios from '../../utils/axios';
 
-export const getDetailWorker = (id) => {
+export const getDetailSkill = (id) => {
   return {
-    type: 'GET_DETAIL_WORKER',
+    type: 'GET_DETAIL_SKILL',
     payload: axios({
-      url: `worker/${id}`,
+      url: `worker-skill/${id}`,
       method: 'GET',
     }),
   };

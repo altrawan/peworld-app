@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 import jwtDecoded from 'jwt-decode';
 import Image from '../Image';
 import Button from '../Button';
-import { getDetailUser } from '../../redux/actions/user';
+import { getDetailWorker } from '../../redux/actions/worker';
 import { NODE_ENV, API_DEV, API_PROD } from '../../helpers/env';
 
 export default function UserProfile() {
@@ -13,7 +13,7 @@ export default function UserProfile() {
   const router = useRouter();
   const token = Cookies.get('token');
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
+  const worker = useSelector((state) => state.worker);
 
   let decoded = '';
   if (token) {
@@ -22,7 +22,7 @@ export default function UserProfile() {
 
   useEffect(() => {
     if (decoded) {
-      dispatch(getDetailUser(decoded.user_id));
+      dispatch(getDetailWorker(decoded.user_id));
     }
   }, []);
 
@@ -37,10 +37,10 @@ export default function UserProfile() {
         className="user__profile mb-0"
         srcImage={`${
           NODE_ENV === 'development'
-            ? `${API_DEV}uploads/users/${user.data?.photo}`
-            : `${API_PROD}uploads/users/${user.data?.photo}`
+            ? `${API_DEV}uploads/users/${worker.data?.photo}`
+            : `${API_PROD}uploads/users/${worker.data?.photo}`
         }`}
-        altImage={user.data?.name}
+        altImage={worker.data?.name}
         imageClass="img-cover rounded-circle"
         imageWidth={40}
         imageHeight={40}

@@ -8,14 +8,14 @@ const initialState = {
 
 export default function user(state = initialState, action) {
   switch (action.type) {
-    case 'GET_DETAIL_USER_PENDING':
+    case 'GET_DETAIL_WORKER_PENDING':
       return {
         ...state,
         isError: false,
         isLoading: true,
         message: '',
       };
-    case 'GET_DETAIL_USER_FULFILLED':
+    case 'GET_DETAIL_WORKER_FULFILLED':
       return {
         ...state,
         isError: false,
@@ -23,7 +23,7 @@ export default function user(state = initialState, action) {
         data: action.payload.data.data,
         message: action.payload.data.message,
       };
-    case 'GET_DETAIL_USER_REJECTED': {
+    case 'GET_DETAIL_WORKER_REJECTED': {
       return {
         ...state,
         isError: true,

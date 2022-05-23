@@ -1,12 +1,35 @@
-import React from 'react';
+/* eslint-disable no-nested-ternary */
+import React, { useEffect } from 'react';
 import { Dropdown } from 'react-bootstrap';
+import ContentLoader from 'react-content-loader';
+import { useSelector, useDispatch } from 'react-redux';
+import Pagination from 'react-paginate';
+import { useRouter } from 'next/router';
+import { getAllWorker } from '../../redux/actions/workerAll';
 import Button from '../Button';
 import Card from '../Card';
 import styles from '../../styles/List.module.css';
 import FormInput from '../FormInput';
 import Image from '../Image';
+import { NODE_ENV, API_DEV, API_PROD } from '../../helpers/env';
 
 export default function index() {
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const workerAll = useSelector((state) => state.workerAll);
+  // const { skillWorker } = useSelector((state) => state);
+  // const { search } = router.query;
+
+  useEffect(() => {
+    dispatch(getAllWorker(1, 4, 'name', 'ASC'));
+  }, []);
+
+  const handlePagination = (event) => {
+    const countPage = event.selected + 1;
+    dispatch(getAllWorker(countPage, 4, 'name', 'ASC'));
+    router.push(`/home?page=${countPage}&limit=4`);
+  };
+
   // const [isOpen, setIsOpen] = React.useState(false);
 
   return (
@@ -97,80 +120,68 @@ export default function index() {
               className={styles.icon__search}
             />
           </div>
-          <Card className={styles.card__container}>
-            <div className={styles.card__content}>
-              <div className={styles.card__wrapper}>
-                <Image
-                  srcImage="/images/user-1.png"
-                  className={styles.card__image}
-                  altImage="Nama"
-                  imageClass="img-cover rounded-circle"
-                  imageWidth={100}
-                  imageHeight={100}
-                />
-                <div className={styles.card__data}>
-                  <h5 className={styles.card__name}>Louis Tomlinson</h5>
-                  <p className={styles.card__job}>Web Developer</p>
-                  <span className={styles.card__location}>
-                    <img
-                      src="/icons/icon-location.svg"
-                      alt="location"
-                      width={15}
-                      height={15}
-                      className={styles.card__icon}
+          {workerAll.isLoading ? (
+            <ContentLoader />
+          ) : workerAll.isError ? (
+            <div>{workerAll.message}</div>
+          ) : (
+            workerAll.data.map((item) => (
+              <Card className={styles.card__container} key={item.id}>
+                <div className={styles.card__content}>
+                  <div className={styles.card__wrapper}>
+                    <Image
+                      srcImage={`${
+                        NODE_ENV === 'development'
+                          ? `${API_DEV}uploads/users/${item.photo}`
+                          : `${API_PROD}uploads/users/${item.photo}`
+                      }`}
+                      className={styles.card__image}
+                      altImage={item.name}
+                      imageClass="img-cover rounded-circle"
+                      imageWidth={100}
+                      imageHeight={100}
                     />
-                    Indonesia
-                  </span>
-                  <div className={styles.card__badge}>
-                    <Button className={`btn ${styles.card__button}`}>
-                      PHP
-                    </Button>
+                    <div className={styles.card__data}>
+                      <h5 className={styles.card__name}>{item.name}</h5>
+                      <p className={styles.card__job}>{item.job_desk}</p>
+                      <span className={styles.card__location}>
+                        <img
+                          src="/icons/icon-location.svg"
+                          alt="location"
+                          width={15}
+                          height={15}
+                          className={styles.card__icon}
+                        />
+                        {item.domicile}
+                      </span>
+                      <div className={styles.card__badge}>
+                        <Button className={`btn ${styles.card__button}`}>
+                          PHP
+                        </Button>
+                      </div>
+                    </div>
                   </div>
+                  <Button className={`btn ${styles.card__view}`}>
+                    Lihat Profile
+                  </Button>
                 </div>
-              </div>
-              <Button className={`btn ${styles.card__view}`}>
-                Lihat Profile
-              </Button>
-            </div>
-            <div className="line w-100" />
-          </Card>
-          <Card className={styles.card__container}>
-            <div className={styles.card__content}>
-              <div className={styles.card__wrapper}>
-                <Image
-                  srcImage="/images/user-1.png"
-                  className={styles.card__image}
-                  altImage="Nama"
-                  imageClass="img-cover rounded-circle"
-                  imageWidth={100}
-                  imageHeight={100}
-                />
-                <div className={styles.card__data}>
-                  <h5 className={styles.card__name}>Louis Tomlinson</h5>
-                  <p className={styles.card__job}>Web Developer</p>
-                  <span className={styles.card__location}>
-                    <img
-                      src="/icons/icon-location.svg"
-                      alt="location"
-                      width={15}
-                      height={15}
-                      className={styles.card__icon}
-                    />
-                    Indonesia
-                  </span>
-                  <div className={styles.card__badge}>
-                    <Button className={`btn ${styles.card__button}`}>
-                      PHP
-                    </Button>
-                  </div>
-                </div>
-              </div>
-              <Button className={`btn ${styles.card__view}`}>
-                Lihat Profile
-              </Button>
-            </div>
-            <div className="line w-100" />
-          </Card>
+                <div className="line w-100" />
+              </Card>
+            ))
+          )}
+
+          <Pagination
+            previousLabel={false}
+            nextLabel={false}
+            breakLabel="..."
+            pageCount={2}
+            onPageChange={handlePagination}
+            containerClassName="pagination justify-content-center p-0"
+            pageClassName="page-item"
+            pageLinkClassName="page-link"
+            disabledClassName="disabled"
+            activeClassName="active"
+          />
         </div>
       </div>
     </section>

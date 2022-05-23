@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-// import { Tabs, Tab } from 'react-bootstrap';
+import { Tabs, Tab } from 'react-bootstrap';
 import styles from '../../../styles/Worker.module.css';
 import Header from '../../../components/Header';
 import PurpleBackground from '../../../components/PurpleBackground';
@@ -47,7 +47,17 @@ const index = () => {
               </div>
               <p>Freelancer</p>
             </div>
-            <div className="profile__portofolio" />
+            <div className="profile__portofolio">
+              <div className="row">
+                <Tabs
+                  defaultActiveKey="Portofolio"
+                  id="uncontrolled-tab-example"
+                  className="mb-3"
+                >
+                  <Tab eventKey="portofolio" title="Portofolio" />
+                </Tabs>
+              </div>
+            </div>
           </div>
         </div>
       </section>

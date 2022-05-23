@@ -8,14 +8,14 @@ const initialState = {
 
 export default function user(state = initialState, action) {
   switch (action.type) {
-    case 'GET_ALL_SKILL_PENDING':
+    case 'GET_DETAIL_SKILL_PENDING':
       return {
         ...state,
         isError: false,
         isLoading: true,
         message: '',
       };
-    case 'GET_ALL_SKILL_FULFILLED':
+    case 'GET_DETAIL_SKILL_FULFILLED':
       return {
         ...state,
         isError: false,
@@ -23,7 +23,7 @@ export default function user(state = initialState, action) {
         data: action.payload.data.data,
         message: action.payload.data.message,
       };
-    case 'GET_ALL_SKILL_REJECTED': {
+    case 'GET_DETAIL_SKILL_REJECTED': {
       return {
         ...state,
         isError: true,
