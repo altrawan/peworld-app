@@ -45,7 +45,7 @@ export default function UserProfile() {
         imageWidth={40}
         imageHeight={40}
         onError={(e) => {
-          e.target.src = `${API_PROD}uploads/users/profile-default.png`;
+          e.target.src = `${API_PROD}uploads/user/profile-default.png`;
         }}
       />
       <ul className={`${isOpen ? 'dropdown clicked' : 'dropdown m-0 p-0'}`}>
