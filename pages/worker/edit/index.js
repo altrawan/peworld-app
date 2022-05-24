@@ -7,6 +7,22 @@ import styles from '../../../styles/Worker.module.css';
 import PurpleBackground from '../../../components/PurpleBackground';
 import UserInfo from '../../../components/UserInfo';
 import FormInput from '../../../components/FormInput';
+import { getDataCookie } from '../../../middlewares/authorization';
+
+export async function getServerSideProps(context) {
+  const storageCookie = await getDataCookie(context);
+  if (storageCookie.token) {
+    return {
+      redirect: {
+        destination: '/worker/login',
+        permanent: false,
+      },
+    };
+  }
+  return {
+    props: {},
+  };
+}
 
 const index = () => {
   return (
