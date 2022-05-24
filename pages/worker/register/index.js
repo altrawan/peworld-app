@@ -48,8 +48,6 @@ const index = () => {
         setLoading(true);
         register(form)
           .then((res) => {
-            Cookies.set('token', res.token);
-
             router.push('/worker/login');
 
             Swal.fire({
