@@ -1,8 +1,8 @@
 import React from 'react';
 import { getDataCookie } from '../../middlewares/authorization';
-import Header from '../../components/Header';
-import TopJob from '../../components/TopJob';
-import Search from '../../components/Search';
+import Header from '../../components/atoms/Header';
+import TopJob from '../../components/molecules/TopJob';
+import Search from '../../components/organisms/Search';
 
 export async function getServerSideProps(context) {
   const storageCookie = await getDataCookie(context);

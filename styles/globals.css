@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 @import url('bootstrap/dist/css/bootstrap.min.css');
 @import url('react-toastify/dist/ReactToastify.css');
+@import '@fontsource/open-sans';
 
 :root {
   --text-purple: #5e50a1;
@@ -17,21 +18,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-.open-sans-700 {
   font-family: 'Open Sans', sans-serif;
-  font-weight: 700;
-}
-
-.open-sans-600 {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
-}
-
-.open-sans-400 {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
 }
 
 .purple__background {

@@ -1,12 +1,12 @@
 import React from 'react';
-import Header from '../../../components/Header';
-import Card from '../../../components/Card';
-import Image from '../../../components/Image';
-import Button from '../../../components/Button';
+import Header from '../../../components/atoms/Header';
+import Card from '../../../components/atoms/Card';
+import Image from '../../../components/atoms/Image';
+import Button from '../../../components/atoms/Button';
 import styles from '../../../styles/Worker.module.css';
-import PurpleBackground from '../../../components/PurpleBackground';
-import UserInfo from '../../../components/UserInfo';
-import FormInput from '../../../components/FormInput';
+import PurpleBackground from '../../../components/atoms/PurpleBackground';
+import UserInfo from '../../../components/organisms/UserInfo';
+import FormInput from '../../../components/atoms/FormInput';
 import { getDataCookie } from '../../../middlewares/authorization';
 
 export async function getServerSideProps(context) {

@@ -2,8 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import { Tabs, Tab } from 'react-bootstrap';
 import styles from '../../../styles/Worker.module.css';
-import Header from '../../../components/Header';
-import PurpleBackground from '../../../components/PurpleBackground';
+import Header from '../../../components/atoms/Header';
+import PurpleBackground from '../../../components/atoms/PurpleBackground';
 
 const index = () => {
   return (

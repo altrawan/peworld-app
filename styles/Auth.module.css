@@ -1,144 +1,188 @@
-.banner {
-  position: absolute;
-  width: 100%;
-  height: 93.8%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.login {
+  position: relative;
+  background-color: #eaeaea;
+  max-width: 100%;
+  padding: 1.875rem 1.25rem;
+  margin-bottom: 0;
 }
 
-.banner_mask {
+.forgot__password {
+  width: max-content;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-bottom: 1.875rem;
+}
+
+.forgot__password a {
+  color: var(--text-black);
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.forgot__password a:hover {
+  text-decoration: underline;
+}
+
+.btn__auth {
+  background-color: var(--text-orange);
+  width: 100%;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  color: var(--text-white);
+  font-weight: 600;
+  letter-spacing: 1px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.btn__auth:hover {
+  background-color: var(--text-white);
+  color: var(--text-orange);
+  border: 1px solid var(--text-orange);
+}
+
+.signUp {
+  text-align: center;
+  color: var(--text-black);
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 15px;
+}
+
+.signUp a {
+  color: var(--text-orange);
+  text-decoration: none;
+}
+
+.signUp a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .login {
+    padding: 2.5rem 4.675rem 4.0625rem;
+  }
+}
+
+/* Banner Start */
+.banner {
+  position: relative;
+}
+
+.banner__overlay {
+  background-color: var(--text-purple);
+  position: absolute;
   height: 100%;
   width: 100%;
-  padding-right: 70px;
-  padding-bottom: 40px;
+  top: 0;
+  left: 0;
+  opacity: 0.85;
 }
 
-.banner_logo {
-  width: 490px;
-  padding-bottom: 650px;
-  padding-right: 370px;
+.banner__content {
+  padding: 2.8125rem;
+  height: 100%;
 }
 
-.banner_quote {
-  text-align: left;
-  color: white;
+.brand__logo {
+  width: 150px;
+}
+
+.banner__text {
   position: absolute;
-  padding-right: 180px;
-  padding-bottom: 100px;
+  top: 50%;
+  left: 51%;
+  transform: translate(-50%, -50%);
+  width: 80%;
 }
 
-.banner_quote h1 {
-  font-size: 50px;
+.banner__heading {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 70px;
+  color: var(--text-white);
 }
 
-.banner_image {
-  height: 95%;
-  width: 100%;
-  object-fit: cover;
-}
-
-.form {
-  padding: 10em 6em;
-}
-
-.form_register {
-  padding: 9em 6em 4em !important;
+.left__wave {
   position: absolute;
-  background-color: #f6f7f8;
+  left: 0;
+  top: 0;
+  bottom: 0;
 }
 
-.form_logo {
-  display: none;
+.right__wave {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
-.form_login {
-  padding-top: 2em;
-  color: #9ea0a5;
-}
-
-.form_forgot a {
-  text-decoration: none;
-  color: #1f2a36;
-}
-
-.form_button {
+.banner__background {
   width: 100%;
-  background-color: #fbb017 !important;
-  border: none !important;
-  margin-top: 30px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+}
+/* Banner End */
+
+/* Right Side Start */
+.right__title {
+  color: var(--text-black);
+  font-size: 32px;
+  font-weight: 600;
+  font-size: 2rem !important;
+}
+
+.right__subtitle {
+  color: var(--text-gray);
   font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 50px;
 }
 
-.register_recruiter {
-  text-align: center !important;
-  margin-top: 20px;
-}
-
-.register_recruiter a {
-  text-decoration: none !important;
-  color: #fbb017 !important;
-}
-
-.form_signUp {
-  text-align: center;
-  margin-top: 30px;
-}
-
-.form_signUp a {
-  text-decoration: none;
-  color: #fbb017;
-}
-
-@media screen and (max-width: 480px) {
-  .form {
-    padding: 5em 2em;
+@media (min-width: 768px) {
+  .right {
+    padding: 6.25rem 0 0 3.125rem;
   }
-
-  .form_logo {
-    display: block;
-    width: 120px;
-    padding-bottom: 30px;
+  .right__title {
+    font-size: 2.375rem !important;
+  }
+  .right__subtitle {
+    font-size: 1.125rem;
   }
 }
+/* Right Side End */
 
-.window {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  background-color: #f6f7f8;
+/* Form Start */
+.form__input {
+  margin-bottom: 1.25rem;
 }
 
-.window_register {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  background-color: #f6f7f8;
-  height: 150vh !important;
+.form__input:last-of-type {
+  margin-bottom: 1.875rem;
 }
 
-.column1 {
-  position: relative;
-  padding: 50px 0px 5px 70px !important;
+.form__input label {
+  font-size: 13px;
+  color: var(--text-silver);
 }
 
-.column2 {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-@media (max-width: 480px) {
-  .window {
-    height: 100vh !important;
+@media (min-width: 768px) {
+  .form__input {
+    margin-bottom: 1.875rem;
   }
-
-  .window_register {
-    height: 90vh !important;
+  .form__input:last-of-type {
+    margin-bottom: 2.5rem;
   }
+}
+/* Form End */
 
-  .column1 {
-    display: none !important;
+/* Make it Better */
+@media screen and (max-width: 576px) {
+  .login {
+    background-color: var(--text-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
   }
 }

@@ -6,8 +6,8 @@ import Link from 'next/link';
 import { ToastContainer } from 'react-toastify';
 import { register } from '../../../redux/actions/auth';
 import styles from '../../../styles/Auth.module.css';
-import Banner from '../../../components/Banner';
-import Header from '../../../components/Header';
+import Banner from '../../../components/molecules/Banner';
+import Header from '../../../components/atoms/Header';
 import { toastr } from '../../../utils/toastr';
 
 const index = () => {

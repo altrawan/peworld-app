@@ -1,10 +1,10 @@
 import React from 'react';
-import Header from '../components/Header';
-import Hero from '../components/Hero';
-import Reason from '../components/Reason';
-import Skill from '../components/Skill';
-import Opinion from '../components/Opinion';
-import Subscribe from '../components/Subscribe';
+import Header from '../components/atoms/Header';
+import Hero from '../components/organisms/Hero';
+import Reason from '../components/organisms/Reason';
+import Skill from '../components/organisms/Skill';
+import Opinion from '../components/organisms/Opinion';
+import Subscribe from '../components/molecules/Subscribe';
 
 const index = () => {
   return (
