@@ -1,9 +1,12 @@
 import '../styles/globals.css';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { ToastContainer } from 'react-toastify';
 import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import { store, persistor } from '../redux/store';
-import secondaryLayout from '../layouts/secondaryLayout';
+import NextNProgress from 'nextjs-progressbar';
+import { wrapper, store } from '../store/store';
 import mainLayout from '../layouts/mainLayout';
+import secondaryLayout from '../layouts/secondaryLayout';
 
 const layouts = {
   mainLayout,
@@ -15,16 +18,24 @@ const noLayout = ({ children }) => {
 };
 
 function MyApp({ Component, pageProps }) {
+  const { pathname } = useRouter();
   const Layout = layouts[Component.layout] || noLayout;
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [pathname]);
+
   return (
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <Layout>
+    <>
+      <ToastContainer />
+      <Layout>
+        <Provider store={store}>
+          <NextNProgress color="#5e50a1" />
           <Component {...pageProps} />
-        </Layout>
-      </PersistGate>
-    </Provider>
+        </Provider>
+      </Layout>
+    </>
   );
 }
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);

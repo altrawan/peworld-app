@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../../styles/Home.module.css';
+import styles from '../../../styles/Style.module.css';
 import Image from '../../atoms/Image';
 
 export default function index() {

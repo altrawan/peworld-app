@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from '../../../styles/Home.module.css';
+import Link from 'next/link';
+import styles from '../../../styles/Style.module.css';
 import Card from '../../atoms/Card';
-import Button from '../../atoms/Button';
 
 export default function index() {
   return (
@@ -12,9 +12,11 @@ export default function index() {
             <h2 className={styles.subscribe__text}>
               Ayo <span>Daftar Sekarang</span>
             </h2>
-            <Button className={`btn ${styles.btn__started_white}`}>
-              Mulai Dari Sekarang
-            </Button>
+            <Link href="/auth/register">
+              <button className={`btn ${styles.btn__started_white}`}>
+                Mulai Dari Sekarang
+              </button>
+            </Link>
           </div>
           <div className={styles.wave}>
             <img src="/images/wave.svg" alt="" className="img-cover" />

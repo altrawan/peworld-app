@@ -1,9 +1,9 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import { NODE_ENV, API_DEV, API_PROD } from '../helpers/env';
+import { API_URL } from '../helpers/env';
 
 const axiosInterceptors = axios.create({
-  baseURL: `${NODE_ENV === 'development' ? API_DEV : API_PROD}`,
+  baseURL: `${API_URL}`,
 });
 
 axiosInterceptors.interceptors.request.use(
@@ -27,8 +27,7 @@ axiosInterceptors.interceptors.response.use(
       Cookies.remove('token');
       localStorage.clear();
       if (Cookies.get('token')) {
-        alert(error.response.data.msg);
-        window.location.href = '/worker/login';
+        window.location.href = '/auth/login';
       }
     }
     return Promise.reject(error);

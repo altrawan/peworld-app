@@ -1,17 +1,15 @@
 import React from 'react';
 import Cookies from 'js-cookie';
-import Navbar from '../components/organisms/Navbar';
+import Navbar from '../components/organisms/Navigation';
 import Footer from '../components/organisms/Footer';
 
 export default function layout({ children }) {
   const token = Cookies.get('token');
   return (
     <>
-      <div className="secondary-layout">
-        <Navbar token={token} />
-        <main>{children}</main>
-        <Footer />
-      </div>
+      <Navbar token={token} />
+      <main>{children}</main>
+      <Footer />
     </>
   );
 }

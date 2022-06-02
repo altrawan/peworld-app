@@ -11,6 +11,7 @@ const index = (props) => {
         className={props.imageClass}
         width={props.imageWidth}
         height={props.imageHeight}
+        onError={props.onErrorImage}
       />
     </figure>
   );

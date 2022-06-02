@@ -1,0 +1,388 @@
+.profile {
+  background-color: #e5e5e5;
+}
+
+.recruiter {
+  background-color: #e5e5e5;
+  padding-top: 80px;
+}
+
+.hire {
+  background-color: #e5e5e5;
+}
+
+.profile__user {
+  background-color: #fff;
+  position: relative;
+  margin-top: 100px;
+  margin-bottom: 150px;
+  border-radius: 8px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  margin-right: 20px;
+  /* width: 26vw; */
+}
+
+.profile__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 32px 0;
+}
+
+.profile__name {
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--text-black);
+  line-height: 46px;
+}
+
+.profile__job {
+  color: var(--text-black);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.profile__location {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.profile__location span {
+  color: var(--text-silver);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.profile__type {
+  font-size: 14px;
+  font-weight: 400;
+  color: #9ea0a5;
+  line-height: 20px;
+}
+
+.profile__description {
+  font-size: 14px;
+  font-weight: 400;
+  color: #9ea0a5;
+  line-height: 24px;
+}
+
+.button__main {
+  background-color: var(--text-purple);
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  width: 100%;
+  border-radius: 4px;
+  padding: 15px;
+  border: none;
+}
+
+.button__main:hover {
+  background-color: transparent;
+  color: var(--text-purple);
+  border: 1px solid var(--text-purple);
+}
+
+.button__secondary {
+  background-color: transparent;
+  color: var(--text-purple);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  width: 100%;
+  border-radius: 4px;
+  padding: 15px;
+  border: none;
+  border: 1px solid var(--text-purple);
+}
+
+.button__secondary:hover {
+  background-color: var(--text-purple);
+  color: var(--text-white);
+}
+
+.profile__skill {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--text-black);
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.profile__list button {
+  background-color: rgba(251, 176, 23, 0.6);
+  border: 1px solid #fbb017;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--text-white);
+  font-weight: 600;
+  padding: 8px 18px;
+}
+
+.profile__tab {
+  background-color: #fff;
+  position: relative;
+  margin-top: 100px;
+  border-radius: 8px;
+  /* width: 55vw; */
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 30px;
+  margin-bottom: 550px;
+  height: auto;
+}
+
+/* Edit Profile */
+
+.edit__profile {
+  background-color: #e5e5e5;
+}
+
+.edit__decoration {
+  height: 400px;
+  position: absolute;
+  left: 0;
+}
+
+.card__padding {
+  padding: 50px 0;
+}
+
+.card__profile {
+  position: relative;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 1.875rem;
+  margin-bottom: 1.25rem;
+}
+
+.card__image {
+  margin-bottom: 1.875rem;
+}
+
+.btn__edit {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-silver);
+}
+
+.btn__main {
+  padding: 0.9375rem;
+  font-weight: 600;
+  background-color: #5e50a1;
+  color: #fff;
+  margin: 1.25rem 0;
+  border-radius: 4px;
+}
+
+.btn__back {
+  padding: 0.9375rem;
+  font-weight: 600;
+  background-color: transparent;
+  color: #5e50a1;
+  border: 1px solid #5e50a1;
+}
+
+/* Form Input */
+.form__input {
+  margin-bottom: 1rem;
+}
+
+.form__description:last-of-type,
+.form__input:last-of-type {
+  margin-bottom: 1.625rem;
+}
+
+.form__description,
+.form__input label {
+  font-size: 13px;
+  color: var(--text-silver);
+}
+
+.form__input textarea {
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 0.9375rem;
+  height: 140px;
+  margin-bottom: -1.5rem;
+}
+
+.form__description textarea {
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 0.9375rem;
+  height: 200px;
+  margin-bottom: -1.5rem;
+}
+
+.form__description textarea:focus,
+.form__input textarea:focus {
+  outline: none;
+}
+
+.form__description::placeholder,
+.form__input textarea::placeholder {
+  font-size: 0.875rem;
+}
+
+.form__input optgroup {
+  font-size: 0.875rem;
+  color: var(--text-silver);
+}
+
+.form__input select {
+  font-size: 0.875rem;
+  color: #858d96;
+  height: 50px;
+}
+
+@media (min-width: 768px) {
+  .form__input {
+    margin-bottom: 1.625rem;
+  }
+  .form__input:last-of-type {
+    margin-bottom: 2.25rem;
+  }
+}
+
+.content__title {
+  /* padding-bottom: 1.875rem; */
+}
+
+.content__heading {
+  margin-bottom: 0;
+  font-size: 1.375rem;
+  font-weight: 600;
+}
+
+.btn__warning {
+  padding: 0.9375rem;
+  font-weight: 700;
+  font-size: 16px;
+  background-color: transparent;
+  color: var(--text-orange);
+  border: 1px solid var(--text-orange);
+  width: 100%;
+  border-radius: 8px;
+}
+
+.btn__warning:hover {
+  background-color: var(--text-orange);
+  color: var(--text-white);
+}
+
+.form__radio {
+  border: 1px solid var(--text-light-gray);
+  /* width: 20px;
+  height: 20px;
+  text-align: center;
+  margin-top: 2px; */
+  border-radius: 4px;
+  background-color: var(--text-white);
+}
+
+.latar {
+  height: 170px;
+  border-radius: 8px 8px 0px 0px;
+}
+
+.company {
+  background-color: var(--text-white);
+  border-radius: 0px 0px 8px 8px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 90px;
+  padding-bottom: 100px;
+  height: auto;
+  margin-bottom: 200px;
+}
+
+.company__image {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  position: absolute;
+  top: 30px;
+  object-fit: cover;
+}
+
+.company__name {
+  color: var(--text-black);
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 45px;
+}
+
+.company__field {
+  color: var(--text-black);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.hire__card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 12px 30px !important;
+  /* margin: 20px 0; */
+  margin-bottom: -500px;
+  height: auto;
+}
+
+.hire__content h1 {
+  font-size: 32px;
+  color: var(--text-black);
+  font-weight: 600;
+  line-height: 44px;
+}
+
+.hire__content h6 {
+  font-size: 18px;
+  color: var(--text-gray);
+  font-weight: 400;
+  line-height: 25px;
+}
+
+.hire__form {
+  margin-top: 50px;
+}
+
+.btn__hire {
+  margin-top: 50px;
+}
+
+.btn__hire button {
+  background-color: var(--text-orange);
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  padding: 15px;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text-white);
+}
+
+.btn__hire button:hover {
+  background-color: var(--text-white);
+  color: var(--text-orange);
+  border: 1px solid var(--text-orange);
+}
+/* @media (max-width: 768px) {
+  .card__padding {
+    padding: 100px 0;
+  }
+} */

@@ -4,6 +4,7 @@ import propTypes from 'prop-types';
 const InputText = React.forwardRef(
   (
     {
+      id,
       name,
       type,
       value,
@@ -17,6 +18,7 @@ const InputText = React.forwardRef(
       onKeyUp,
       onKeyPress,
       onChange,
+      max,
     },
     ref
   ) => (
@@ -30,6 +32,7 @@ const InputText = React.forwardRef(
           )}
           <input
             type={type}
+            id={id}
             name={name}
             value={value}
             disabled={isDisabled}
@@ -39,6 +42,7 @@ const InputText = React.forwardRef(
             onKeyUp={onKeyUp}
             onKeyPress={onKeyPress}
             ref={ref}
+            max={max}
           />
           {append && (
             <div className="input-group-append">
@@ -62,6 +66,7 @@ InputText.defaultProps = {
 };
 
 InputText.propTypes = {
+  id: propTypes.string,
   name: propTypes.string,
   type: propTypes.string,
   value: propTypes.string,

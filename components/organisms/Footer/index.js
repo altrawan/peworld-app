@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from '../../atoms/Image';
-import Contact from '../../molecules/Contact';
 
 export default function index() {
   return (
@@ -20,7 +19,25 @@ export default function index() {
           </p>
         </div>
 
-        <Contact />
+        <footer className="footer">
+          <div className="footer__content">
+            <p className="footer__copyright">
+              &copy; 2022 Peworld. All right reserved
+            </p>
+            <p className="footer__info">
+              <a href="tel:+620123456789" target="_blank" rel="noreferrer">
+                Telepon
+              </a>
+              <a
+                href="mailto:support@peworld.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Email
+              </a>
+            </p>
+          </div>
+        </footer>
       </div>
     </section>
   );

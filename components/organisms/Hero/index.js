@@ -1,7 +1,7 @@
 import React from 'react';
+import Link from 'next/link';
 import Image from '../../atoms/Image';
-import styles from '../../../styles/Home.module.css';
-import Button from '../../atoms/Button';
+import styles from '../../../styles/Style.module.css';
 
 export default function index() {
   return (
@@ -18,9 +18,11 @@ export default function index() {
                   Mari bergabung dengan kami untuk merekrut calon karyawan di
                   perusahaan anda dengan standar perusahaan
                 </p>
-                <Button className={`btn ${styles.btn__started}`}>
-                  Mulai Dari Sekarang
-                </Button>
+                <Link href="/auth/register">
+                  <button className={`btn ${styles.btn__started}`}>
+                    Mulai Dari Sekarang
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

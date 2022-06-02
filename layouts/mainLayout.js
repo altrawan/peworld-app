@@ -4,6 +4,7 @@ import Navbar from '../components/organisms/Navbar';
 import Footer from '../components/organisms/Footer';
 
 export default function layout({ children }) {
+  // alert(data);
   const token = Cookies.get('token');
   return (
     <>

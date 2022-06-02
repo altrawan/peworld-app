@@ -1,4 +1,6 @@
-.login {
+.login,
+.reg__recruiter,
+.reg__worker {
   position: relative;
   background-color: #eaeaea;
   max-width: 100%;
@@ -44,7 +46,25 @@
   border: 1px solid var(--text-orange);
 }
 
-.signUp {
+.btn__option {
+  width: 100%;
+  color: var(--text-white);
+  font-weight: 600;
+  font-size: 16px;
+  padding-top: 0.8375rem;
+  padding-bottom: 0.8375rem;
+  border-radius: 4px;
+  border: none;
+  background-color: var(--text-purple);
+}
+
+.btn__option:hover {
+  background-color: var(--text-white);
+  color: var(--text-purple);
+  border: 1px solid var(--text-purple);
+}
+
+.option {
   text-align: center;
   color: var(--text-black);
   font-size: 16px;
@@ -52,18 +72,25 @@
   margin-top: 15px;
 }
 
-.signUp a {
+.option a {
   color: var(--text-orange);
   text-decoration: none;
 }
 
-.signUp a:hover {
+.option a:hover {
   text-decoration: underline;
 }
 
 @media (min-width: 768px) {
-  .login {
+  .login,
+  .reg__recruiter,
+  .reg__worker {
     padding: 2.5rem 4.675rem 4.0625rem;
+  }
+  .btn__auth {
+    font-size: 1rem;
+    padding-top: 0.9375rem;
+    padding-bottom: 0.9375rem;
   }
 }
 
@@ -178,11 +205,24 @@
 
 /* Make it Better */
 @media screen and (max-width: 576px) {
-  .login {
+  .login,
+  .reg__recruiter,
+  .reg__worker {
     background-color: var(--text-white);
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .login {
     height: 100vh;
+  }
+
+  .reg__recruiter {
+    height: 170vh;
+  }
+
+  .reg__worker {
+    height: 150vh;
   }
 }

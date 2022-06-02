@@ -1,11 +1,12 @@
 import React from 'react';
+import ContentLoader from 'react-content-loader';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import styles from '../../../styles/Home.module.css';
+import styles from '../../../styles/Style.module.css';
+import { API_URL } from '../../../helpers/env';
 
 const responsive = {
   superLargeDesktop: {
-    // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 3000 },
     items: 5,
   },
@@ -23,7 +24,7 @@ const responsive = {
   },
 };
 
-const index = () => {
+const index = ({ data }) => {
   return (
     <>
       <div className={styles.testimonial}>
@@ -34,22 +35,32 @@ const index = () => {
             Their opinion about peworld hire
           </h1>
           <Carousel responsive={responsive}>
-            <div className={styles.testimonial_card}>
-              <div className="text-center">
-                <img
-                  src="/images/user-1.png"
-                  alt="Harry Styles"
-                  width="120px"
-                />
-                <h5 className="open-sans-600">Harry Styles</h5>
-                <p className="mb-3 text-secondary">Web Developer</p>
-                <p className={`${styles.testimonial_desc} open-sans-serif`}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                  euismod ipsum et dui rhoncus auctor.
-                </p>
-              </div>
-            </div>
-            <div className={styles.testimonial_card}>
+            {!data.length ? (
+              <ContentLoader />
+            ) : (
+              data.map((item) => (
+                <div className={styles.testimonial_card}>
+                  <div className="text-center">
+                    <img
+                      src={`${
+                        item.image
+                          ? `${API_URL}uploads/opinion/${item.image}`
+                          : `${API_URL}uploads/opinion/default.png`
+                      }`}
+                      alt={item.name}
+                      width="120px"
+                    />
+                    <h5 className="open-sans-600">{item.name}</h5>
+                    <p className="mb-3 text-secondary">{item.job}</p>
+                    <p className={`${styles.testimonial_desc} open-sans-serif`}>
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              ))
+            )}
+
+            {/* <div className={styles.testimonial_card}>
               <div className="text-center">
                 <img src="/images/user-2.png" alt="Niall Horan" width="120px" />
                 <h5 className="open-sans-600">Niall Horan</h5>
@@ -87,7 +98,7 @@ const index = () => {
                   euismod ipsum et dui rhoncus auctor.
                 </p>
               </div>
-            </div>
+            </div> */}
           </Carousel>
         </div>
       </div>
