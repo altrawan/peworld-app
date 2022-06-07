@@ -8,7 +8,7 @@ import Opinion from '../components/organisms/Opinion';
 import Subscribe from '../components/molecules/Subscribe';
 import { API_URL } from '../helpers/env';
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   const response = await axios({
     method: 'GET',
     url: `${API_URL}opinion`,

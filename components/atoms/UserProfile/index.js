@@ -25,8 +25,6 @@ export default function UserProfile({ token }) {
     }
   }, []);
 
-  console.log(recruiter);
-
   if (decoded.role) {
     return (
       <>
