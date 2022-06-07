@@ -10,25 +10,16 @@ import Subscribe from '../components/molecules/Subscribe';
 import { API_URL } from '../helpers/env';
 
 export async function getStaticProps(context) {
-  try {
-    const response = await axios({
-      method: 'GET',
-      url: `${API_URL}opinion`,
-    });
-    return {
-      props: {
-        data: response.data.data,
-      },
-      revalidate: 15,
-    };
-  } catch (error) {
-    return {
-      props: {
-        data: [],
-      },
-      revalidate: 15,
-    };
-  }
+  const response = await axios({
+    method: 'GET',
+    url: `${API_URL}opinion`,
+  });
+  return {
+    props: {
+      data: response.data.data,
+    },
+    revalidate: 15,
+  };
 }
 
 const index = ({ data }) => {
