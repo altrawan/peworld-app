@@ -10,7 +10,7 @@
   <h3 align="center">Peworld Hire</h3>
 
   <p align="center">
-    Talenta terbaik negeri untuk perubahan revolusi 4.0.
+    Find talented & best developers in various fields.
     <br />
     <a href="#table-of-contents"><strong>Explore the docs »</strong></a>
     <br />
