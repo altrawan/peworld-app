@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
-import styles from '../../../styles/Reason.module.css';
-import { Reason, IconCheck } from '../../../assets';
+import styles from 'styles/components/Reason.module.css';
+import { Reason, IconCheck } from 'assets';
 
 export default function index() {
   return (

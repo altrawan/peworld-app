@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
 import Link from 'next/link';
-import { registerRecruiter, registerWorker } from '../../../store/actions/auth';
-import styles from '../../../styles/Auth.module.css';
-import Banner from '../../../components/molecules/Banner';
-import Button from '../../../components/atoms/Button';
-import Header from '../../../components/atoms/Header';
-import { getDataCookie } from '../../../middlewares/authorization';
-import { toastr } from '../../../utils/toastr';
-import SideAuth from '../../../components/molecules/SideAuth';
-import FormRegisterWorker from '../../../components/organisms/FormRegisterWorker';
-import FormRegisterRecruiter from '../../../components/organisms/FormRegisterRecruiter';
+import { registerRecruiter, registerWorker } from 'store/actions/auth';
+import styles from 'styles/Auth.module.css';
+import Banner from 'components/molecules/Banner';
+import Button from 'components/atoms/Button';
+import Header from 'components/atoms/Header';
+import { getDataCookie } from 'middlewares/authorization';
+import { toastr } from 'utils/toastr';
+import SideAuth from 'components/molecules/SideAuth';
+import FormRegisterWorker from 'components/organisms/FormRegisterWorker';
+import FormRegisterRecruiter from 'components/organisms/FormRegisterRecruiter';
 
 export async function getServerSideProps(context) {
   const storageCookie = await getDataCookie(context);

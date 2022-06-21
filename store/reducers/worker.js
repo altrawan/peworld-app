@@ -2,7 +2,7 @@ import {
   GET_DETAIL_WORKER_PENDING,
   GET_DETAIL_WORKER_SUCCESS,
   GET_DETAIL_WORKER_FAILED,
-} from '../types';
+} from 'store/types';
 
 const initialState = {
   isLoading: false,

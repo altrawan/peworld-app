@@ -5,12 +5,12 @@ import Cookies from 'js-cookie';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { API_URL } from '../../helpers/env';
-// import { getDataCookie } from '../../middlewares/authorization';
-import styles from '../../styles/Profile.module.css';
-import Header from '../../components/atoms/Header';
-import PurpleBackground from '../../components/atoms/PurpleBackground';
-import SocialMedia from '../../components/molecules/SocialMedia';
+import { API_URL } from 'helpers/env';
+// import { getDataCookie } from 'middlewares/authorization';
+import styles from 'styles/Profile.module.css';
+import Header from 'components/atoms/Header';
+import PurpleBackground from 'components/atoms/PurpleBackground';
+import SocialMedia from 'components/molecules/SocialMedia';
 
 export async function getServerSideProps(context) {
   try {

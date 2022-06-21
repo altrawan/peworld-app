@@ -1,6 +1,6 @@
 import React from 'react';
-import PurpleBackground from '../PurpleBackground';
-import styles from '../../../styles/Home.module.css';
+import { PurpleBackground } from 'components';
+import styles from 'styles/Home.module.css';
 
 export default function index() {
   return (

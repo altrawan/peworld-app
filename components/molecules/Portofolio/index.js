@@ -1,8 +1,8 @@
 import React from 'react';
 import { Row, Col, Card } from 'react-bootstrap';
 import Swal from 'sweetalert2';
-import { API_URL } from '../../../helpers/env';
-import { deletePortofolio } from '../../../store/actions/portofolio';
+import { API_URL } from 'helpers/env';
+import { deletePortofolio } from 'store/actions/portofolio';
 
 export default function index({ data }) {
   const handleDelete = (e, id) => {

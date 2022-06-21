@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from '../../../styles/Subscribe.module.css';
-import Card from '../../atoms/Card';
-import { Wave } from '../../../assets';
+import styles from 'styles/components/Subscribe.module.css';
+import { Card } from 'components';
+import { Wave } from 'assets';
 
 export default function index() {
   return (

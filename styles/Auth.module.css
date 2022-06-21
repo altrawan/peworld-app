@@ -8,6 +8,40 @@
   margin-bottom: 0;
 }
 
+/* .bgImage {
+  object-fit: cover;
+  position: relative;
+}
+
+.bgImage::after {
+  content: '';
+  background-color: rgba(94, 80, 161, 0.7);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 600px;
+  width: 600px;
+}
+
+.image {
+  position: absolute;
+  margin-top: -20px;
+  display: none;
+}
+
+.relative {
+  position: fixed;
+}
+
+.logo {
+  position: absolute !important;
+  top: 40px;
+  left: 40px;
+  z-index: 10;
+} */
+
 .forgot__password {
   width: max-content;
   margin-top: 15px;
@@ -95,9 +129,9 @@
 }
 
 /* Banner Start */
-.banner {
+/* .banner {
   position: relative;
-}
+} */
 
 .banner__overlay {
   background-color: var(--text-purple);
@@ -107,6 +141,7 @@
   top: 0;
   left: 0;
   opacity: 0.85;
+  z-index: 99;
 }
 
 .banner__content {
@@ -148,6 +183,8 @@
 
 .banner__background {
   width: 100%;
+  position: absolute;
+  /* z-index: -1; */
 }
 /* Banner End */
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import UserProfile from '../../atoms/UserProfile';
+import { UserProfile } from 'components';
 
 const index = ({ token = false }) => {
   const [isOpen, setIsOpen] = useState(false);

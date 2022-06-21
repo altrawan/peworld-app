@@ -3,14 +3,11 @@ import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
 import Link from 'next/link';
-import { getDataCookie } from '../../../middlewares/authorization';
-import { toastr } from '../../../utils/toastr';
-import { login } from '../../../store/actions/auth';
-import styles from '../../../styles/Auth.module.css';
-import Header from '../../../components/atoms/Header';
-import Banner from '../../../components/molecules/Banner';
-import SideAuth from '../../../components/molecules/SideAuth';
-import FormLogin from '../../../components/organisms/FormLogin';
+import { getDataCookie } from 'middlewares/authorization';
+import { toastr } from 'utils/toastr';
+import { login } from 'store/actions/auth';
+import styles from 'styles/Auth.module.css';
+import { Header, Banner, SideAuth, FormLogin } from 'components';
 
 export async function getServerSideProps(context) {
   const storageCookie = await getDataCookie(context);

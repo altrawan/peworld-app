@@ -1,6 +1,6 @@
 import React from 'react';
 import Cookies from 'js-cookie';
-import { Navbar, Footer } from '../components';
+import { Navbar, Footer } from 'components';
 
 export default function layout({ children }) {
   const token = Cookies.get('token');

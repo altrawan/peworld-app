@@ -3,17 +3,17 @@ import Cookies from 'js-cookie';
 import jwtDecode from 'jwt-decode';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { toastr } from '../../utils/toastr';
-import Header from '../../components/atoms/Header';
-import Card from '../../components/atoms/Card';
-import Image from '../../components/atoms/Image';
-import Button from '../../components/atoms/Button';
-import styles from '../../styles/Profile.module.css';
-import PurpleBackground from '../../components/atoms/PurpleBackground';
-import FormInput from '../../components/atoms/FormInput';
-import { getDataCookie } from '../../middlewares/authorization';
-import { updateUser, updatePhoto } from '../../store/actions/recruiter';
-import { API_URL } from '../../helpers/env';
+import { toastr } from 'utils/toastr';
+import Header from 'components/atoms/Header';
+import Card from 'components/atoms/Card';
+import Image from 'components/atoms/Image';
+import Button from 'components/atoms/Button';
+import styles from 'styles/Profile.module.css';
+import PurpleBackground from 'components/atoms/PurpleBackground';
+import FormInput from 'components/atoms/FormInput';
+import { getDataCookie } from 'middlewares/authorization';
+import { updateUser, updatePhoto } from 'store/actions/recruiter';
+import { API_URL } from 'helpers/env';
 
 export async function getServerSideProps(context) {
   try {

@@ -1,4 +1,4 @@
-import axios from '../../utils/axios';
+import axios from 'utils/axios';
 
 export const login = (data) => {
   return new Promise((resolve, reject) => {

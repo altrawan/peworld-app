@@ -6,13 +6,13 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import { useRouter } from 'next/router';
 import { Tabs, Tab } from 'react-bootstrap';
-import { API_URL } from '../../helpers/env';
-import styles from '../../styles/Profile.module.css';
-import Header from '../../components/atoms/Header';
-import PurpleBackground from '../../components/atoms/PurpleBackground';
-import SocialMedia from '../../components/molecules/SocialMedia';
-import Portofolio from '../../components/molecules/Portofolio';
-import WorkExperience from '../../components/molecules/WorkExperience';
+import { API_URL } from 'helpers/env';
+import styles from 'styles/Profile.module.css';
+import Header from 'components/atoms/Header';
+import PurpleBackground from 'components/atoms/PurpleBackground';
+import SocialMedia from 'components/molecules/SocialMedia';
+import Portofolio from 'components/molecules/Portofolio';
+import WorkExperience from 'components/molecules/WorkExperience';
 
 export async function getServerSideProps(context) {
   try {

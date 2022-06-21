@@ -1,8 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from '../../../styles/Hero.module.css';
-import { Hero } from '../../../assets';
+import styles from 'styles/components/Hero.module.css';
+import { Hero } from 'assets';
 
 export default function index() {
   return (

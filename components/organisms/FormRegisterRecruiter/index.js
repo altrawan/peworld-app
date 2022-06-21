@@ -1,8 +1,8 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import styles from '../../../styles/Auth.module.css';
-import FormInput from '../../atoms/FormInput';
-import Button from '../../atoms/Button';
+import styles from 'styles/Auth.module.css';
+import FormInput from 'atoms/FormInput';
+import Button from 'atoms/Button';
 
 export default function index(props) {
   return (

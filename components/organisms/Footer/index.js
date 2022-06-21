@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { LogoWhite } from '../../../assets';
+import { LogoWhite } from 'assets';
 
 export default function index() {
   return (

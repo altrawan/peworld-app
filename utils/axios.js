@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import { API_URL } from '../helpers/env';
+import { API_URL } from 'helpers/env';
 
 const axiosInterceptors = axios.create({
   baseURL: `${API_URL}`,

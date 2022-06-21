@@ -1,13 +1,16 @@
 import React from 'react';
-import styles from '../../../styles/Auth.module.css';
+import Image from 'next/image';
+import styles from 'styles/Auth.module.css';
+import { LogoWhite, WaveLeft, WaveRight, Banner } from 'assets';
 
 export default function index() {
   return (
-    <div className={`${styles.banner} d-none d-md-block`}>
+    <div className="position-relative d-none d-md-block">
+      {/* <div className="position-relative"> */}
       <div className={styles.banner__overlay}>
         <div className={styles.banner__content}>
-          <img
-            src="/images/logo-white.svg"
+          <Image
+            src={LogoWhite}
             alt="Peworld Hire"
             className={`${styles.brand__logo} img-cover`}
           />
@@ -19,25 +22,18 @@ export default function index() {
           </div>
         </div>
         <div className={styles.left__wave}>
-          <img
-            src="/icons/icon-wave-left.svg"
-            alt="Icon"
-            className="img-cover"
-          />
+          <Image src={WaveLeft} alt="Icon" className="img-cover" />
         </div>
         <div className={styles.right__wave}>
-          <img
-            src="/icons/icon-wave-right.svg"
-            alt="Icon"
-            className="img-cover"
-          />
+          <Image src={WaveRight} alt="Icon" className="img-cover" />
         </div>
       </div>
-      <img
-        src="/images/banner.png"
+      <Image
+        src={Banner}
         alt="Peworld Hire"
         className={`${styles.banner__background} img-cover`}
       />
+      {/* </div> */}
     </div>
   );
 }

@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import axios from 'axios';
-import Header from '../components/atoms/Header';
-import { Hero, Reason, Skill, Opinion, Subscribe } from '../components';
-import { API_URL } from '../helpers/env';
+import Header from 'components/atoms/Header';
+import { Hero, Reason, Skill, Opinion, Subscribe } from 'components';
+import { API_URL } from 'helpers/env';
 
 export async function getStaticProps(context) {
   const response = await axios({

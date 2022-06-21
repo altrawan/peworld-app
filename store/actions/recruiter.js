@@ -1,9 +1,9 @@
-import axios from '../../utils/axios';
+import axios from 'utils/axios';
 import {
   GET_DETAIL_RECRUITER_PENDING,
   GET_DETAIL_RECRUITER_SUCCESS,
   GET_DETAIL_RECRUITER_FAILED,
-} from '../types';
+} from 'store/types';
 
 export const getDetailRecruiter = (id) => async (dispatch) => {
   try {

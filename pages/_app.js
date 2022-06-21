@@ -1,13 +1,13 @@
-import '../styles/globals.css';
+import 'styles/globals.css';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { ToastContainer } from 'react-toastify';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import NextNProgress from 'nextjs-progressbar';
-import { wrapper, store, persistor } from '../store/store';
-import mainLayout from '../layouts/mainLayout';
-import secondaryLayout from '../layouts/secondaryLayout';
+import { wrapper, store, persistor } from 'store/store';
+import mainLayout from 'layouts/mainLayout';
+import secondaryLayout from 'layouts/secondaryLayout';
 
 const layouts = {
   mainLayout,

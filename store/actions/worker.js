@@ -1,9 +1,9 @@
-import axios from '../../utils/axios';
+import axios from 'utils/axios';
 import {
   GET_DETAIL_WORKER_PENDING,
   GET_DETAIL_WORKER_SUCCESS,
   GET_DETAIL_WORKER_FAILED,
-} from '../types';
+} from 'store/types';
 
 export const getDetailWorker = (id) => async (dispatch) => {
   try {

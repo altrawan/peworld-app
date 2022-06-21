@@ -2,8 +2,8 @@ import React from 'react';
 import moment from 'moment';
 import { Card } from 'react-bootstrap';
 import Swal from 'sweetalert2';
-import { API_URL } from '../../../helpers/env';
-import { deleteExperience } from '../../../store/actions/experience';
+import { API_URL } from 'helpers/env';
+import { deleteExperience } from 'store/actions/experience';
 
 export default function index({ data }) {
   const handleDelete = (e, id) => {

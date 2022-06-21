@@ -2,7 +2,7 @@ import {
   GET_DETAIL_RECRUITER_PENDING,
   GET_DETAIL_RECRUITER_SUCCESS,
   GET_DETAIL_RECRUITER_FAILED,
-} from '../types';
+} from 'store/types';
 
 const initialState = {
   isLoading: false,

@@ -39,7 +39,13 @@
     "consistent-return": "off",
     "default-param-last": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "import/no-unresolved": [2, { "caseSensitive": false }],
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "moduleDirectory": ["node_modules", "/"]
+        }
+      }
+    },
     "prettier/prettier": [
       "error",
       {

@@ -5,8 +5,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { createWrapper } from 'next-redux-wrapper';
-import rootReducers from './reducers';
-import { NODE_ENV } from '../helpers/env';
+import rootReducers from 'store/reducers';
+import { NODE_ENV } from 'helpers/env';
 
 const persistConfig = {
   key: 'root',

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import UserProfile from '../../atoms/UserProfile';
-import { IconClose, IconToggler, LogoPurple } from '../../../assets';
+import { UserProfile } from 'components';
+import { IconClose, IconToggler, LogoPurple } from 'assets';
 
 const index = ({ token = false }) => {
   const [isOpen, setIsOpen] = useState(false);

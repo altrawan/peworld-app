@@ -3,11 +3,11 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { toastr } from '../../utils/toastr';
-import styles from '../../styles/Profile.module.css';
-import FormInput from '../../components/atoms/FormInput';
-import { API_URL } from '../../helpers/env';
-import { hireWorker } from '../../store/actions/recruiter';
+import { toastr } from 'utils/toastr';
+import styles from 'styles/Profile.module.css';
+import FormInput from 'components/atoms/FormInput';
+import { API_URL } from 'helpers/env';
+import { hireWorker } from 'store/actions/recruiter';
 
 export async function getServerSideProps(context) {
   try {

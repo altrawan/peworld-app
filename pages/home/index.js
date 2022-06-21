@@ -4,15 +4,15 @@ import ContentLoader from 'react-content-loader';
 import { useRouter } from 'next/router';
 import Pagination from 'react-paginate';
 import Link from 'next/link';
-import TopJob from '../../components/atoms/TopJob';
-import Header from '../../components/atoms/Header';
-import Button from '../../components/atoms/Button';
-import styles from '../../styles/Home.module.css';
-import FormInput from '../../components/atoms/FormInput';
-import Card from '../../components/atoms/Card';
-import Image from '../../components/atoms/Image';
-import { getDataCookie } from '../../middlewares/authorization';
-import { API_URL } from '../../helpers/env';
+import TopJob from 'components/atoms/TopJob';
+import Header from 'components/atoms/Header';
+import Button from 'components/atoms/Button';
+import styles from 'styles/Home.module.css';
+import FormInput from 'components/atoms/FormInput';
+import Card from 'components/atoms/Card';
+import Image from 'components/atoms/Image';
+import { getDataCookie } from 'middlewares/authorization';
+import { API_URL } from 'helpers/env';
 
 export async function getServerSideProps(context) {
   try {

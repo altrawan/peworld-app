@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { APP_NAME } from '../../../helpers/env';
+import { APP_NAME } from 'helpers/env';
 
 export default function index({ title }) {
   return (

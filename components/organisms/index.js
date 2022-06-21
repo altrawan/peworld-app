@@ -1,8 +1,9 @@
-import Navbar from './Navbar';
-import Footer from './Footer';
-import Hero from './Hero';
-import Reason from './Reason';
-import Skill from './Skill';
-import Opinion from './Opinion';
+import Navbar from 'components/organisms/Navbar';
+import Footer from 'components/organisms/Footer';
+import Hero from 'components/organisms/Hero';
+import Reason from 'components/organisms/Reason';
+import Skill from 'components/organisms/Skill';
+import Opinion from 'components/organisms/Opinion';
+import FormLogin from 'components/organisms/FormLogin';
 
-export { Navbar, Footer, Hero, Reason, Skill, Opinion };
+export { Navbar, Footer, Hero, Reason, Skill, Opinion, FormLogin };

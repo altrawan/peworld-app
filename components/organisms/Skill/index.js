@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
-import styles from '../../../styles/Skill.module.css';
-import { Skill, IconCheck } from '../../../assets';
+import styles from 'styles/components/Skill.module.css';
+import { Skill, IconCheck } from 'assets';
 
 export default function index() {
   return (

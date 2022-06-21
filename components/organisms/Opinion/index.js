@@ -1,14 +1,11 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable no-shadow */
-/* eslint-disable import/no-unresolved */
 import React from 'react';
 import { Instagram } from 'react-content-loader';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper';
-import styles from '../../../styles/Opinion.module.css';
-import { API_URL } from '../../../helpers/env';
+import styles from 'styles/components/Opinion.module.css';
+import { API_URL } from 'helpers/env';
 
 const index = ({ data }) => {
   return (
