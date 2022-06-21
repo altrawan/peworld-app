@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
 import jwtDecode from 'jwt-decode';
 import { getDetailWorker } from '../../../store/actions/worker';
 import { getDetailRecruiter } from '../../../store/actions/recruiter';
-import Image from '../Image';
 import { API_URL } from '../../../helpers/env';
 
 export default function UserProfile({ token }) {

@@ -1,6 +1,7 @@
 import React from 'react';
-import styles from '../../../styles/Style.module.css';
-import Image from '../../atoms/Image';
+import Image from 'next/image';
+import styles from '../../../styles/Reason.module.css';
+import { Reason, IconCheck } from '../../../assets';
 
 export default function index() {
   return (
@@ -10,77 +11,51 @@ export default function index() {
           <div className="col-12 col-md-6 p-md-0">
             <div className={styles.reason__left}>
               <Image
-                srcImage="/images/reason.png"
-                altImage="Peworld Hire"
-                className={`${styles.reason__image} mx-auto mx-md-0`}
-                imageClass="img-cover"
-                imageWidth={500}
-                imageHeight={400}
+                src={Reason}
+                alt="Peworld Hire"
+                className={`${styles.reason__image} mx-auto mx-md-0 img-cover`}
+                width={500}
+                height={500}
               />
             </div>
           </div>
           <div className="col-12 col-md-6 p-md-0">
-            <div className={styles.reason__right}>
-              <div className={styles.reason__wrapper}>
-                <div className={styles.reason_content}>
-                  <h2 className={styles.reason_title}>
-                    Kenapa harus mencari tallent di peworld
-                  </h2>
-
-                  <div className={styles.reason__list}>
-                    <div className={styles.list}>
-                      <div className={`${styles.check} rounded-circle`}>
-                        <img
-                          src="/icons/icon-check.svg"
-                          alt=""
-                          width="10"
-                          height="10"
-                        />
-                      </div>
-                      <span className={styles.text}>
-                        Lorem ipsum dolor sit amet.
-                      </span>
-                    </div>
-                    <div className={styles.list}>
-                      <div className={`${styles.check} rounded-circle`}>
-                        <img
-                          src="/icons/icon-check.svg"
-                          alt=""
-                          width="10"
-                          height="10"
-                        />
-                      </div>
-                      <span className={styles.text}>
-                        Lorem ipsum dolor sit amet.
-                      </span>
-                    </div>
-                    <div className={styles.list}>
-                      <div className={`${styles.check} rounded-circle`}>
-                        <img
-                          src="/icons/icon-check.svg"
-                          alt=""
-                          width="10"
-                          height="10"
-                        />
-                      </div>
-                      <span className={styles.text}>
-                        Lorem ipsum dolor sit amet.
-                      </span>
-                    </div>
-                    <div className={styles.list}>
-                      <div className={`${styles.check} rounded-circle`}>
-                        <img
-                          src="/icons/icon-check.svg"
-                          alt=""
-                          width="10"
-                          height="10"
-                        />
-                      </div>
-                      <span className={styles.text}>
-                        Lorem ipsum dolor sit amet.
-                      </span>
-                    </div>
+            <div className={styles.reason_right}>
+              <h2 className={styles.reason_title}>
+                Kenapa harus mencari tallent di peworld
+              </h2>
+              <div className="mt-5">
+                <div className={styles.reason_list}>
+                  <div className={`${styles.reason_check} rounded-circle`}>
+                    <Image src={IconCheck} alt="Icon" width={10} height={10} />
                   </div>
+                  <span className={styles.reason_text}>
+                    Lorem ipsum dolor sit amet.
+                  </span>
+                </div>
+                <div className={styles.reason_list}>
+                  <div className={`${styles.reason_check} rounded-circle`}>
+                    <Image src={IconCheck} alt="Icon" width={10} height={10} />
+                  </div>
+                  <span className={styles.reason_text}>
+                    Lorem ipsum dolor sit amet.
+                  </span>
+                </div>
+                <div className={styles.reason_list}>
+                  <div className={`${styles.reason_check} rounded-circle`}>
+                    <Image src={IconCheck} alt="Icon" width={10} height={10} />
+                  </div>
+                  <span className={styles.reason_text}>
+                    Lorem ipsum dolor sit amet.
+                  </span>
+                </div>
+                <div className={styles.reason_list}>
+                  <div className={`${styles.reason_check} rounded-circle`}>
+                    <Image src={IconCheck} alt="Icon" width={10} height={10} />
+                  </div>
+                  <span className={styles.reason_text}>
+                    Lorem ipsum dolor sit amet.
+                  </span>
                 </div>
               </div>
             </div>

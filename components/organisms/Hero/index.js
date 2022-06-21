@@ -1,7 +1,8 @@
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
-import Image from '../../atoms/Image';
-import styles from '../../../styles/Style.module.css';
+import styles from '../../../styles/Hero.module.css';
+import { Hero } from '../../../assets';
 
 export default function index() {
   return (
@@ -9,17 +10,17 @@ export default function index() {
       <div className="container">
         <div className="row">
           <div className="col-12 col-md-6 col-lg-6">
-            <div className={styles.hero__left}>
-              <div className={styles.hero__wrapper}>
-                <h1 className={styles.hero__title}>
+            <div className={styles.hero_left}>
+              <div className={styles.hero_wrapper}>
+                <h1 className={styles.hero_title}>
                   Talenta terbaik negeri untuk perubahan revolusi 4.0
                 </h1>
-                <p className={styles.hero__subtitle}>
-                  Mari bergabung dengan kami untuk merekrut calon karyawan di
-                  perusahaan anda dengan standar perusahaan
+                <p className={styles.hero_subtitle}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
+                  euismod ipsum et dui rhoncus auctor.
                 </p>
                 <Link href="/auth/register">
-                  <button className={`btn ${styles.btn__started}`}>
+                  <button className={`btn ${styles.hero_button}`}>
                     Mulai Dari Sekarang
                   </button>
                 </Link>
@@ -29,12 +30,11 @@ export default function index() {
           <div className="col-12 col-md-6 col-lg-6">
             <div>
               <Image
-                srcImage="/images/hero.png"
-                altImage="Peworld Hire"
-                className={`${styles.hero__image} mx-auto mx-md-0`}
-                imageClass="img-cover"
-                imageWidth={500}
-                imageHeight={500}
+                src={Hero}
+                alt="Peworld Hire"
+                className={`${styles.hero_image} mx-auto mx-md-0 img-cover`}
+                width={500}
+                height={500}
               />
             </div>
           </div>

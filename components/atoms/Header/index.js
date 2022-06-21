@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import { APP_NAME } from '../../../helpers/env';
 
-const index = ({ title }) => {
+export default function index({ title }) {
   return (
     <Head>
       {/* Setting the viewport to make website look good on all devices */}
@@ -24,6 +24,4 @@ const index = ({ title }) => {
       </title>
     </Head>
   );
-};
-
-export default index;
+}

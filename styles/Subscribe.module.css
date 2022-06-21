@@ -1,0 +1,80 @@
+.subscribe {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.subscribe_card {
+  display: flex;
+  position: relative;
+  background-color: var(--text-purple);
+  border-radius: 2.5rem 0.5rem;
+  height: 200px;
+}
+
+.subscribe_content {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+  width: 100%;
+}
+
+.subscribe_button {
+  background-color: var(--text-white);
+  padding: 1rem 1.6rem;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: capitalize;
+  color: var(--text-purple);
+  z-index: 99;
+}
+
+.subscribe_button:hover {
+  cursor: pointer;
+  color: var(--text-white);
+  border: 1px solid var(--text-white);
+  background-color: var(--text-purple);
+}
+
+.subscribe_text {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 56px;
+  color: var(--text-white);
+}
+
+.subscribe_text span {
+  display: flex;
+  flex-direction: column;
+}
+
+.subscribe_wave {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .subscribe_content {
+    padding: 0 4.375rem;
+    flex-flow: row;
+    justify-content: space-between;
+  }
+
+  .subscribe_text {
+    font-size: 2.375rem !important;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .subscribe {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .subscribe_text {
+    font-size: 26px;
+  }
+}

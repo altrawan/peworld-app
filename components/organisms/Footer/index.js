@@ -1,30 +1,33 @@
 import React from 'react';
-import Image from '../../atoms/Image';
+import Image from 'next/image';
+import { LogoWhite } from '../../../assets';
 
 export default function index() {
   return (
-    <section className="footer__container">
+    <footer className="footer">
       <div className="container">
-        <div className="footer__wrapper">
-          <Image
-            srcImage="/images/logo-white.svg"
-            altImage="Peworld Hire"
-            className="footer__image"
-            imageClass="img-cover"
-            imageWidth={200}
-            imageHeight={200}
-          />
-          <p className="footer__text">
-            Temukan developer berbakat &amp; terbaik di berbagai bidang keahlian
+        <div className="footer_wrapper">
+          <div className="footer_image">
+            <Image
+              src={LogoWhite}
+              alt="Peworld Hire"
+              width={200}
+              height={200}
+            />
+          </div>
+
+          <p className="footer_text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod
+            ipsum et dui rhoncus auctor.
           </p>
         </div>
 
-        <footer className="footer">
-          <div className="footer__content">
-            <p className="footer__copyright">
+        <section className="footer_section">
+          <div className="footer_content">
+            <p className="footer_copyright">
               &copy; 2022 Peworld. All right reserved
             </p>
-            <p className="footer__info">
+            <p className="footer_info">
               <a href="tel:+620123456789" target="_blank" rel="noreferrer">
                 Telepon
               </a>
@@ -37,8 +40,8 @@ export default function index() {
               </a>
             </p>
           </div>
-        </footer>
+        </section>
       </div>
-    </section>
+    </footer>
   );
 }

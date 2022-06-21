@@ -1,6 +1,7 @@
 import React from 'react';
-import Image from '../../atoms/Image';
-import styles from '../../../styles/Style.module.css';
+import Image from 'next/image';
+import styles from '../../../styles/Skill.module.css';
+import { Skill, IconCheck } from '../../../assets';
 
 export default function index() {
   return (
@@ -8,102 +9,102 @@ export default function index() {
       <div className="container">
         <div className="row">
           <div className="col-12 col-md-6 col-lg-6 p-md-0">
-            <div className={styles.skill__wrapper}>
-              <div className={styles.skill__content}>
-                <h2 className={styles.skill__title}>Skill Tallent</h2>
-                <p className={styles.skill__subtitle}>
+            <div className={styles.skill_wrapper}>
+              <div className={styles.skill_content}>
+                <h2 className={styles.skill_title}>Skill Tallent</h2>
+                <p className={styles.skill_subtitle}>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
                   euismod ipsum et dui rhoncus auctor.
                 </p>
 
-                <div className={styles.skill__container}>
-                  <div className={styles.skill__list}>
-                    <div className={`${styles.skill__check} rounded-circle`}>
-                      <img
-                        src="/icons/icon-check.svg"
-                        alt=""
+                <div className={styles.skill_container}>
+                  <div className={styles.skill_list}>
+                    <div className={`${styles.skill_check} rounded-circle`}>
+                      <Image
+                        src={IconCheck}
+                        alt="Icon"
                         width="10"
                         height="10"
                       />
                     </div>
-                    <span className={styles.skill__name}>Java</span>
+                    <span className={styles.skill_name}>Java</span>
                   </div>
-                  <div className={styles.skill__list}>
-                    <div className={`${styles.skill__check} rounded-circle`}>
-                      <img
-                        src="/icons/icon-check.svg"
-                        alt=""
+                  <div className={styles.skill_list}>
+                    <div className={`${styles.skill_check} rounded-circle`}>
+                      <Image
+                        src={IconCheck}
+                        alt="Icon"
                         width="10"
                         height="10"
                       />
                     </div>
-                    <span className={styles.skill__name}>Golang</span>
+                    <span className={styles.skill_name}>Golang</span>
                   </div>
-                  <div className={styles.skill__list}>
-                    <div className={`${styles.skill__check} rounded-circle`}>
-                      <img
-                        src="/icons/icon-check.svg"
-                        alt=""
+                  <div className={styles.skill_list}>
+                    <div className={`${styles.skill_check} rounded-circle`}>
+                      <Image
+                        src={IconCheck}
+                        alt="Icon"
                         width="10"
                         height="10"
                       />
                     </div>
-                    <span className={styles.skill__name}>Kotlin</span>
+                    <span className={styles.skill_name}>Kotlin</span>
                   </div>
-                  <div className={styles.skill__list}>
-                    <div className={`${styles.skill__check} rounded-circle`}>
-                      <img
-                        src="/icons/icon-check.svg"
-                        alt=""
+                  <div className={styles.skill_list}>
+                    <div className={`${styles.skill_check} rounded-circle`}>
+                      <Image
+                        src={IconCheck}
+                        alt="Icon"
                         width="10"
                         height="10"
                       />
                     </div>
-                    <span className={styles.skill__name}>C++</span>
+                    <span className={styles.skill_name}>C++</span>
                   </div>
-                  <div className={styles.skill__list}>
-                    <div className={`${styles.skill__check} rounded-circle`}>
-                      <img
-                        src="/icons/icon-check.svg"
-                        alt=""
+                  <div className={styles.skill_list}>
+                    <div className={`${styles.skill_check} rounded-circle`}>
+                      <Image
+                        src={IconCheck}
+                        alt="Icon"
                         width="10"
                         height="10"
                       />
                     </div>
-                    <span className={styles.skill__name}>PHP</span>
+                    <span className={styles.skill_name}>PHP</span>
                   </div>
-                  <div className={styles.skill__list}>
-                    <div className={`${styles.skill__check} rounded-circle`}>
-                      <img
-                        src="/icons/icon-check.svg"
-                        alt=""
+                  <div className={styles.skill_list}>
+                    <div className={`${styles.skill_check} rounded-circle`}>
+                      <Image
+                        src={IconCheck}
+                        alt="Icon"
                         width="10"
                         height="10"
                       />
                     </div>
-                    <span className={styles.skill__name}>Ruby</span>
+                    <span className={styles.skill_name}>Ruby</span>
                   </div>
-                  <div className={styles.skill__list}>
-                    <div className={`${styles.skill__check} rounded-circle`}>
-                      <img
-                        src="/icons/icon-check.svg"
-                        alt=""
+                  <div className={styles.skill_list}>
+                    <div className={`${styles.skill_check} rounded-circle`}>
+                      <Image
+                        src={IconCheck}
+                        alt="Icon"
                         width="10"
                         height="10"
                       />
                     </div>
-                    <span className={styles.skill__name}>Javascript</span>
+                    <span className={styles.skill_name}>Javascript</span>
                   </div>
-                  <div className={styles.skill__list}>
-                    <div className={`${styles.skill__check} rounded-circle`}>
-                      <img
-                        src="/icons/icon-check.svg"
-                        alt=""
+                  <div className={styles.skill_list}>
+                    <div className={`${styles.skill_check} rounded-circle`}>
+                      <Image
+                        src={IconCheck}
+                        alt="Icon"
                         width="10"
                         height="10"
                       />
                     </div>
-                    <span className={styles.skill__name}>
+                    <span className={styles.skill_name}>
                       10+ Bahasa lainnya
                     </span>
                   </div>
@@ -112,14 +113,13 @@ export default function index() {
             </div>
           </div>
           <div className="col-12 col-md-6 col-lg-6 p-md-0">
-            <div className={styles.skill__right}>
+            <div className={styles.skill_right}>
               <Image
-                srcImage="/images/skill.png"
-                altImage="Peworld Hire"
-                className={`${styles.skill__image} mx-auto mx-md-0`}
-                imageClass="img-cover"
-                imageWidth={500}
-                imageHeight={500}
+                src={Skill}
+                alt="Peworld Hire"
+                className={`${styles.skill_image} mx-auto mx-md-0 img-cover`}
+                width={500}
+                height={500}
               />
             </div>
           </div>

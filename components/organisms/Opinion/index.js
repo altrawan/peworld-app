@@ -1,105 +1,62 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable no-shadow */
+/* eslint-disable import/no-unresolved */
 import React from 'react';
-import ContentLoader from 'react-content-loader';
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
-import styles from '../../../styles/Style.module.css';
+import { Instagram } from 'react-content-loader';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { Navigation } from 'swiper';
+import styles from '../../../styles/Opinion.module.css';
 import { API_URL } from '../../../helpers/env';
-
-const responsive = {
-  superLargeDesktop: {
-    breakpoint: { max: 4000, min: 3000 },
-    items: 5,
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 1,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-  },
-};
 
 const index = ({ data }) => {
   return (
     <>
-      <div className={styles.testimonial}>
+      <div className={styles.opinion}>
         <div className="container">
-          <h1
-            className={`${styles.testimonial_title} open-sans-600 text-center`}
+          <h1 className={styles.opinion_title}>Their opinion about peworld</h1>
+          <Swiper
+            slidesPerView={3}
+            slidesPerGroup={1}
+            loopFillGroupWithBlank
+            navigation
+            modules={[Navigation]}
+            breakpoints={{
+              100: {
+                slidesPerView: 1,
+              },
+              768: {
+                slidesPerView: 3,
+              },
+            }}
           >
-            Their opinion about peworld hire
-          </h1>
-          <Carousel responsive={responsive}>
             {!data.length ? (
-              <ContentLoader />
+              <Instagram />
             ) : (
-              data.map((item) => (
-                <div className={styles.testimonial_card}>
-                  <div className="text-center">
-                    <img
-                      src={`${
-                        item.image
-                          ? `${API_URL}uploads/opinion/${item.image}`
-                          : `${API_URL}uploads/opinion/default.png`
-                      }`}
-                      alt={item.name}
-                      width="120px"
-                    />
-                    <h5 className="open-sans-600">{item.name}</h5>
-                    <p className="mb-3 text-secondary">{item.job}</p>
-                    <p className={`${styles.testimonial_desc} open-sans-serif`}>
-                      {item.description}
-                    </p>
+              data.map((item, index) => (
+                <SwiperSlide key={index}>
+                  <div className={styles.opinion_card}>
+                    <div className={styles.opinion_image}>
+                      <img
+                        src={`${
+                          item.image
+                            ? `${API_URL}uploads/opinion/${item.image}`
+                            : `${API_URL}uploads/opinion/default.png`
+                        }`}
+                        alt={item.name}
+                        width={120}
+                        height={120}
+                      />
+                    </div>
+                    <h5>{item.name}</h5>
+                    <p className={styles.opinion_job}>{item.job}</p>
+                    <p className={styles.opinion_desc}>{item.description}</p>
                   </div>
-                </div>
+                </SwiperSlide>
               ))
             )}
-
-            {/* <div className={styles.testimonial_card}>
-              <div className="text-center">
-                <img src="/images/user-2.png" alt="Niall Horan" width="120px" />
-                <h5 className="open-sans-600">Niall Horan</h5>
-                <p className="mb-3 text-secondary">Web Developer</p>
-                <p className={`${styles.testimonial_desc} open-sans-serif`}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-              </div>
-            </div>
-            <div className={styles.testimonial_card}>
-              <div className="text-center">
-                <img
-                  src="/images/user-1.png"
-                  alt="Louis Tomlinson"
-                  width="120px"
-                />
-                <h5 className="open-sans-600">Louis Tomlinson</h5>
-                <p className="mb-3 text-secondary">Web Developer</p>
-                <p className={`${styles.testimonial_desc} open-sans-serif`}>
-                  Lorem ipsum dolor sit amet, consectetur
-                </p>
-              </div>
-            </div>
-            <div className={styles.testimonial_card}>
-              <div className="text-center">
-                <img
-                  src="/images/user-1.png"
-                  alt="Harry Styles"
-                  width="120px"
-                />
-                <h5 className="open-sans-600">Harry Styles</h5>
-                <p className="mb-3 text-secondary">Web Developer</p>
-                <p className={`${styles.testimonial_desc} open-sans-serif`}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                  euismod ipsum et dui rhoncus auctor.
-                </p>
-              </div>
-            </div> */}
-          </Carousel>
+          </Swiper>
         </div>
       </div>
     </>

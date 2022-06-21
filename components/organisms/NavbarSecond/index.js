@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import BrandLogo from '../../atoms/BrandLogo';
 import UserProfile from '../../atoms/UserProfile';
 
 const index = ({ token = false }) => {
@@ -15,9 +14,7 @@ const index = ({ token = false }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-shadow">
       <div className="container">
-        <div className="navbar-brand">
-          <BrandLogo token={token} />
-        </div>
+        <div className="navbar-brand">{/* <BrandLogo token={token} /> */}</div>
         <button
           className="navbar-toggler"
           type="button"

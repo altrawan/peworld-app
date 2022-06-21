@@ -234,11 +234,7 @@ const index = (props) => {
                   <div className={styles.card__content}>
                     <div className={styles.card__wrapper}>
                       <Image
-                        srcImage={`${
-                          item.user.photo
-                            ? `${API_URL}uploads/worker/${item.user.photo}`
-                            : `${API_URL}uploads/worker/default.png`
-                        }`}
+                        srcImage={item.user.photo}
                         className={styles.card__image}
                         altImage={item.user.name}
                         imageClass="img-cover rounded-circle"

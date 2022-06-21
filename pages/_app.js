@@ -3,8 +3,9 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { ToastContainer } from 'react-toastify';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import NextNProgress from 'nextjs-progressbar';
-import { wrapper, store } from '../store/store';
+import { wrapper, store, persistor } from '../store/store';
 import mainLayout from '../layouts/mainLayout';
 import secondaryLayout from '../layouts/secondaryLayout';
 
@@ -30,8 +31,10 @@ function MyApp({ Component, pageProps }) {
       <ToastContainer />
       <Layout>
         <Provider store={store}>
-          <NextNProgress color="#5e50a1" />
-          <Component {...pageProps} />
+          <PersistGate loading={null} persistor={persistor}>
+            <NextNProgress color="#5e50a1" />
+            <Component {...pageProps} />
+          </PersistGate>
         </Provider>
       </Layout>
     </>

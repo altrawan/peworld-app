@@ -1,23 +1,41 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import BrandLogo from '../../atoms/BrandLogo';
 import UserProfile from '../../atoms/UserProfile';
+import { IconClose, IconToggler, LogoPurple } from '../../../assets';
 
 const index = ({ token = false }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [navbar, setNavbar] = useState(false);
+
+  const changeBackground = () => {
+    if (window.scrollY >= 90) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
 
   useEffect(() => {
     setLoading(false);
+    changeBackground();
+    window.addEventListener('scroll', changeBackground);
   }, []);
 
   return (
-    <nav className="navbar navbar-expand-lg">
+    <nav
+      className={`navbar navbar-expand-lg fixed-top bg-white ${
+        navbar ? 'navbar-shrink' : ''
+      }`}
+      id="navigation"
+    >
       <div className="container">
-        <div className="navbar-brand">
-          <BrandLogo token={token} />
-        </div>
+        <Link href={token ? '/home' : '/'}>
+          <div className="navbar-brand">
+            <Image src={LogoPurple} alt="Peworld" quality={100} />
+          </div>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -26,9 +44,9 @@ const index = ({ token = false }) => {
           }}
         >
           {isOpen ? (
-            <Image src="/icons/icon-close.svg" width={18} height={18} />
+            <Image src={IconClose} width={18} height={18} />
           ) : (
-            <Image src="/icons/icon-toggler.svg" width={25} height={25} />
+            <Image src={IconToggler} width={25} height={25} />
           )}
         </button>
         <div className={`${!isOpen ? 'collapse' : ''} navbar-collapse`}>
@@ -52,14 +70,10 @@ const index = ({ token = false }) => {
             ) : (
               <>
                 <Link href="/auth/login">
-                  <button className="btn btn__action signin me-md-4">
-                    Masuk
-                  </button>
+                  <button className="btn_auth signin">Masuk</button>
                 </Link>
                 <Link href="/auth/register">
-                  <button className="btn btn__action signup mx-md-3">
-                    Daftar
-                  </button>
+                  <button className="btn_auth signup">Daftar</button>
                 </Link>
               </>
             )}

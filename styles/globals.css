@@ -2,6 +2,9 @@
 @import url('react-toastify/dist/ReactToastify.css');
 @import url('@fortawesome/fontawesome-free/css/all.min.css');
 @import '@fontsource/open-sans';
+@import 'navbar.css';
+@import 'footer.css';
+@import 'swiper.css';
 
 :root {
   --text-purple: #5e50a1;
@@ -21,164 +24,14 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+/* Cukup Sampai Disini Saja untuk global CSS */
+
 .purple__background {
   background-color: #5e50a1;
   width: 100%;
 }
 
-/* Navbar Start */
-.navbar {
-  /* margin-top: -25px; */
-  /* margin-bottom: -40px; */
-  /* padding: -50px 0; */
-}
-
-.navbar.navbar-shadow {
-  box-shadow: 0 10px 50px rgba(132, 132, 132, 0.25);
-  /* background-color: red; */
-  /* padding: 1rem 0; */
-  /* margin-bottom: -5px; */
-}
-
-.navbar-brand {
-  line-height: -100px;
-  margin-top: -40px;
-  margin-bottom: -40px;
-}
-
-.navbar-brand:hover {
-  cursor: pointer;
-}
-
-.navbar-toggler {
-  padding: 0 !important;
-  border: none;
-  outline: none;
-}
-
-.navbar-toggler:focus {
-  box-shadow: none;
-}
-
-ul.navbar-nav {
-  align-items: center;
-  flex-flow: row;
-  justify-content: space-around;
-  /* padding: 1.875rem 0; */
-}
-
-ul.navbar-nav .btn__action {
-  margin-top: -25px;
-  /* padding: 0.625rem 1.25rem; */
-  font-weight: bold;
-  color: #5e50a1;
-  letter-spacing: 1px;
-  font-size: 0.875rem;
-}
-
-ul.navbar-nav .btn__action.signin {
-  border: 1px solid #5e50a1;
-}
-
-ul.navbar-nav .btn__action.signup {
-  background-color: #5e50a1;
-  color: #fff;
-}
-
-@media screen and (min-width: 768px) {
-  .ul.navbar-nav {
-    padding: 0;
-  }
-}
-
-.user__profile {
-  width: 3.125rem;
-  height: 3.125rem;
-  margin-bottom: 0;
-}
-
-.user__profile:hover {
-  cursor: pointer;
-}
-/* Navbar End */
-
 /* Footer Start */
-.footer__container {
-  background-color: #5e50a1;
-  /* padding-top: 3.125rem; */
-  margin-bottom: 0;
-}
-
-.footer__wrapper {
-  margin-bottom: 3.125rem;
-  max-width: 350px;
-}
-
-.footer__image {
-  /* width: 150px; */
-  /* margin-bottom: 1.875rem; */
-}
-
-.footer__text {
-  font-size: 1rem;
-  color: #fff;
-  margin-bottom: 0;
-  margin-top: -60px;
-}
-
-.footer {
-  border-top: 1px solid #fff;
-  padding-top: 1.875rem;
-  padding-bottom: 2.625rem;
-}
-
-.footer__content {
-  display: flex;
-  align-items: center;
-  color: #fff;
-  flex-flow: column;
-}
-
-.footer__copyright {
-  font-size: 1rem;
-}
-
-.footer__info {
-  font-size: 1rem;
-}
-
-.footer__info a {
-  margin-right: 5rem;
-  text-decoration: none;
-  color: #fff;
-}
-
-.footer__info a:last-child {
-  margin-right: 0;
-}
-
-@media (min-width: 768px) {
-  .footer__container {
-    /* padding-top: 4.375rem; */
-  }
-  .footer__content {
-    justify-content: space-between;
-    flex-flow: row;
-  }
-
-  .footer__copyright {
-    font-size: 1.125rem;
-    margin-bottom: 0;
-  }
-
-  .footer__info {
-    font-size: 1.125rem;
-  }
-
-  .footer__text {
-    font-size: 1.125rem;
-  }
-}
 /* Footer End */
 
 .line {
