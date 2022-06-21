@@ -1,0 +1,52 @@
+.banner_overlay {
+  background-color: var(--text-purple);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.85;
+  z-index: 99;
+}
+
+.banner_content {
+  padding: 2.8125rem;
+  height: 100%;
+}
+
+.brand_logo {
+  width: 50px;
+}
+
+.banner_text {
+  position: absolute;
+  top: 50%;
+  left: 51%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+}
+
+.banner_heading {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 70px;
+  color: var(--text-white);
+}
+
+.left_wave {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.right_wave {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.banner_background {
+  width: 100%;
+  position: absolute;
+}

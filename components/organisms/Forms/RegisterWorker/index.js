@@ -1,13 +1,12 @@
 import React from 'react';
-import propTypes from 'prop-types';
-import styles from 'styles/Auth.module.css';
-import FormInput from 'atoms/FormInput';
-import Button from 'atoms/Button';
+// import propTypes from 'prop-types';
+import styles from 'styles/components/Form.module.css';
+import { FormInput, Button } from 'components';
 
 export default function index(props) {
   return (
     <form onSubmit={props.onSubmit}>
-      <div className={`form-group position-relative ${styles.form__input}`}>
+      <div className={`form-group position-relative ${styles.form_input}`}>
         <label htmlFor="name">Nama</label>
         <FormInput
           placeholder="Masukan nama panjang"
@@ -17,7 +16,7 @@ export default function index(props) {
           onChange={props.onChange}
         />
       </div>
-      <div className={`form-group position-relative ${styles.form__input}`}>
+      <div className={`form-group position-relative ${styles.form_input}`}>
         <label htmlFor="email">Email</label>
         <FormInput
           placeholder="Masukan alamat email"
@@ -27,7 +26,7 @@ export default function index(props) {
           onChange={props.onChange}
         />
       </div>
-      <div className={`form-group position-relative ${styles.form__input}`}>
+      <div className={`form-group position-relative ${styles.form_input}`}>
         <label htmlFor="phoneNumber">Phone Number</label>
         <FormInput
           placeholder="Masukan no handphone"
@@ -37,7 +36,7 @@ export default function index(props) {
           onChange={props.onChange}
         />
       </div>
-      <div className={`form-group position-relative ${styles.form__input}`}>
+      <div className={`form-group position-relative ${styles.form_input}`}>
         <label htmlFor="password">Kata Sandi</label>
         <FormInput
           placeholder="Masukan kata sandi"
@@ -47,7 +46,7 @@ export default function index(props) {
           onChange={props.onChange}
         />
       </div>
-      <div className={`form-group position-relative ${styles.form__input}`}>
+      <div className={`form-group position-relative ${styles.form_input}`}>
         <label htmlFor="passwordConfirmation">Konfirmasi Kata Sandi</label>
         <FormInput
           placeholder="Masukan konfirmasi kata sandi"
@@ -68,10 +67,10 @@ export default function index(props) {
   );
 }
 
-FormInput.propTypes = {
-  onChange: propTypes.func,
-  valueName: propTypes.string,
-  valuePhoneNumber: propTypes.number,
-  valuePassword: propTypes.string,
-  valuePasswordConfirmation: propTypes.string,
-};
+// FormInput.propTypes = {
+//   onChange: propTypes.func,
+//   valueName: propTypes.string,
+//   valuePhoneNumber: propTypes.number,
+//   valuePassword: propTypes.string,
+//   valuePasswordConfirmation: propTypes.string,
+// };

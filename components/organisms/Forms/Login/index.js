@@ -1,12 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
-import styles from 'styles/Auth.module.css';
+import styles from 'styles/components/Form.module.css';
 import { Button, FormInput } from 'components';
 
 export default function index(props) {
   return (
     <form onSubmit={props.onSubmit}>
-      <div className={`form-group position-relative ${styles.form__input}`}>
+      <div className={`form-group position-relative ${styles.form_input}`}>
         <label htmlFor="email">Email</label>
         <FormInput
           placeholder="Masukan alamat email"
@@ -16,10 +16,10 @@ export default function index(props) {
           onChange={props.onChange}
         />
       </div>
-      <div className={`form-group position-relative ${styles.form__input}`}>
+      <div className={`form-group position-relative ${styles.form_input}`}>
         <label htmlFor="password">Kata Sandi</label>
         <FormInput
-          placeholder="Masukan Kata Sandi"
+          placeholder="Masukan kata sandi"
           name="password"
           type="password"
           value={props.valuePassword}

@@ -1,0 +1,21 @@
+.form_input {
+  margin-bottom: 1.25rem;
+}
+
+.form_input:last-of-type {
+  margin-bottom: 1.875rem;
+}
+
+.form_input label {
+  font-size: 13px;
+  color: var(--text-silver);
+}
+
+@media (min-width: 768px) {
+  .form_input {
+    margin-bottom: 1.875rem;
+  }
+  .form_input:last-of-type {
+    margin-bottom: 2.5rem;
+  }
+}

@@ -7,7 +7,7 @@ import { getDataCookie } from 'middlewares/authorization';
 import { toastr } from 'utils/toastr';
 import { login } from 'store/actions/auth';
 import styles from 'styles/Auth.module.css';
-import { Header, Banner, SideAuth, Login } from 'components';
+import { Header, Banner, SideAuth, ResetPassword } from 'components';
 
 export async function getServerSideProps(context) {
   const storageCookie = await getDataCookie(context);
@@ -97,22 +97,17 @@ const index = () => {
 
             <div className="col-md-5 col-lg-5 p-0">
               <SideAuth
-                greeting="Halo, Pewpeople"
-                subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor."
+                greeting="Reset Password"
+                subtitle="You need to change your password to activate your account"
               >
-                <Login
+                <ResetPassword
                   onSubmit={handleSubmitLogged}
                   classForgot={styles.forgot_password}
                   classBtn={`btn ${styles.btn_auth}`}
                   onChange={handleChange}
-                  valueEmail={form.email}
                   valuePassword={form.password}
                   isLoading={loading}
                 />
-                <div div className={styles.option}>
-                  Anda sudah punya akun?{' '}
-                  <Link href="/auth/register">Daftar disini</Link>
-                </div>
               </SideAuth>
             </div>
           </div>

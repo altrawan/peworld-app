@@ -4,14 +4,16 @@ import Swal from 'sweetalert2';
 import Link from 'next/link';
 import { registerRecruiter, registerWorker } from 'store/actions/auth';
 import styles from 'styles/Auth.module.css';
-import Banner from 'components/molecules/Banner';
-import Button from 'components/atoms/Button';
-import Header from 'components/atoms/Header';
+import {
+  Banner,
+  Button,
+  Header,
+  SideAuth,
+  RegisterWorker,
+  RegisterRecruiter,
+} from 'components';
 import { getDataCookie } from 'middlewares/authorization';
 import { toastr } from 'utils/toastr';
-import SideAuth from 'components/molecules/SideAuth';
-import FormRegisterWorker from 'components/organisms/FormRegisterWorker';
-import FormRegisterRecruiter from 'components/organisms/FormRegisterRecruiter';
 
 export async function getServerSideProps(context) {
   const storageCookie = await getDataCookie(context);
@@ -206,7 +208,7 @@ const index = () => {
       <Header title="Register Page" />
 
       <section
-        className={formRecruiter ? styles.reg__recruiter : styles.reg__worker}
+        className={formRecruiter ? styles.reg_recruiter : styles.reg_worker}
       >
         <div className="container-fluid">
           <div className="row">
@@ -220,9 +222,9 @@ const index = () => {
                 subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor."
               >
                 {formRecruiter ? (
-                  <FormRegisterRecruiter
+                  <RegisterRecruiter
                     onSubmit={handleSubmitRecruiter}
-                    classBtn={`btn ${styles.btn__auth}`}
+                    classBtn={`btn ${styles.btn_auth}`}
                     onChange={handleChange}
                     valueName={form.name}
                     valueEmail={form.email}
@@ -234,9 +236,9 @@ const index = () => {
                     isLoading={loading}
                   />
                 ) : (
-                  <FormRegisterWorker
+                  <RegisterWorker
                     onSubmit={handleSubmitWorker}
-                    classBtn={`btn ${styles.btn__auth}`}
+                    classBtn={`btn ${styles.btn_auth}`}
                     onChange={handleChange}
                     valueName={form.name}
                     valueEmail={form.email}
@@ -249,7 +251,7 @@ const index = () => {
 
                 <hr />
                 <Button
-                  className={`${styles.btn__option}`}
+                  className={`${styles.btn_option}`}
                   onClick={handleShowForm}
                 >
                   Daftar Sebagai {formRecruiter ? 'Pekerja' : 'Perekrut'}
