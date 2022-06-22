@@ -169,6 +169,8 @@ Contributions are what make the open source community such an amazing place to b
 
 :rocket: [`Frontend Peworld Hire`](https://github.com/altrawan/peworld-app)
 
+:rocket: [`Web Service`](https://peworld-hire.herokuapp.com/)
+
 :rocket: [`Demo Peworld Hire`](https://bit.ly/peworld-hire)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
