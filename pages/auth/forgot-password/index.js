@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
-import Link from 'next/link';
 import { getDataCookie } from 'middlewares/authorization';
 import { toastr } from 'utils/toastr';
 import { login } from 'store/actions/auth';

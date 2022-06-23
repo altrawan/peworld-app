@@ -1,3 +1,5 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable no-shadow */
 import React from 'react';
 import { Instagram } from 'react-content-loader';
 import { Swiper, SwiperSlide } from 'swiper/react';
