@@ -1,12 +1,12 @@
 import React, { useState, useRef } from 'react';
 import Cookies from 'js-cookie';
+import Image from 'next/image';
 import jwtDecode from 'jwt-decode';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { toastr } from 'utils/toastr';
 import Header from 'components/atoms/Header';
 import Card from 'components/atoms/Card';
-import Image from 'components/atoms/Image';
 import Button from 'components/atoms/Button';
 import styles from 'styles/Profile.module.css';
 import PurpleBackground from 'components/atoms/PurpleBackground';
@@ -195,15 +195,15 @@ const index = ({ data }) => {
                   className={`${styles.card__image} d-flex flex-column justify-content-center align-items-center`}
                 >
                   <Image
-                    srcImage={`${
+                    src={`${
                       data.user.photo
                         ? `${API_URL}uploads/recruiter/${data.user.photo}`
                         : `${API_URL}uploads/recruiter/default.png`
                     }`}
-                    altImage={data.user.name}
-                    imageClass="img-cover rounded-circle"
-                    imageWidth={150}
-                    imageHeight={150}
+                    alt={data.user.name}
+                    className="img-cover rounded-circle"
+                    width={150}
+                    height={150}
                   />
                   <div className="d-flex align-items-center justify-content-center">
                     <img
