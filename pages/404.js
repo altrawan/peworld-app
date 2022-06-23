@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
+// Handling
 const NotFound = () => {
   return (
     <div id="notfound">
