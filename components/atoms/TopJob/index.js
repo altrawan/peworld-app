@@ -4,12 +4,14 @@ import styles from 'styles/Home.module.css';
 
 export default function index() {
   return (
-    <PurpleBackground className="sticky-top">
-      <div className="container">
-        <div className={styles.topjob__content}>
-          <h3 className={styles.topjob__title}>Top Jobs</h3>
+    <div style={{ marginTop: '90px' }}>
+      <PurpleBackground>
+        <div className="container">
+          <div className={styles.topjob__content}>
+            <h3 className={styles.topjob__title}>Top Jobs</h3>
+          </div>
         </div>
-      </div>
-    </PurpleBackground>
+      </PurpleBackground>
+    </div>
   );
 }

@@ -36,16 +36,15 @@ export default function UserProfile({ token }) {
           <Link href="/recruiter">
             <div>
               <Image
-                className="user__profile mb-0"
-                srcImage={`${
+                className="user__profile mb-0 img-cover rounded-circle"
+                src={`${
                   recruiter.data?.user?.photo
                     ? `${API_URL}uploads/recruiter/${recruiter.data?.user?.photo}`
                     : `${API_URL}uploads/recruiter/default.png`
                 }`}
-                altImage={recruiter.data?.user?.name}
-                imageClass="img-cover rounded-circle"
-                imageWidth={40}
-                imageHeight={40}
+                alt={recruiter.data?.user?.name}
+                width={40}
+                height={40}
               />
             </div>
           </Link>
@@ -64,16 +63,15 @@ export default function UserProfile({ token }) {
         <Link href="/worker">
           <div>
             <Image
-              className="user__profile mb-0"
-              srcImage={`${
+              className="user__profile mb-0 img-cover rounded-circle"
+              src={`${
                 recruiter.data?.user?.photo
                   ? `${API_URL}uploads/recruiter/${recruiter.data?.user?.photo}`
                   : `${API_URL}uploads/recruiter/default.png`
               }`}
-              altImage={worker.data?.user?.name}
-              imageClass="img-cover rounded-circle"
-              imageWidth={40}
-              imageHeight={40}
+              alt={worker.data?.user?.name}
+              width={40}
+              height={40}
             />
           </div>
         </Link>

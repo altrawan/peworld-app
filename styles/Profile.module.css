@@ -1,5 +1,6 @@
 .profile {
   background-color: #e5e5e5;
+  margin-top: 90px;
 }
 
 .recruiter {
@@ -143,8 +144,26 @@
 
 /* Edit Profile */
 
+.btn_skill {
+  background-color: var(--text-orange);
+  border-radius: 4px;
+  border: 0;
+  padding: 10px 15px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 19px;
+  color: var(--text-white);
+}
+
+.btn_skill:hover {
+  background-color: var(--text-white);
+  border: 1px solid var(--text-orange);
+  color: var(--text-orange);
+}
+
 .edit__profile {
   background-color: #e5e5e5;
+  margin-top: 90px;
 }
 
 .edit__decoration {
@@ -252,10 +271,6 @@
   .form__input:last-of-type {
     margin-bottom: 2.25rem;
   }
-}
-
-.content__title {
-  /* padding-bottom: 1.875rem; */
 }
 
 .content__heading {

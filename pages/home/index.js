@@ -1,18 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
+import Image from 'next/image';
 import ContentLoader from 'react-content-loader';
 import { useRouter } from 'next/router';
 import Pagination from 'react-paginate';
 import Link from 'next/link';
-import TopJob from 'components/atoms/TopJob';
-import Header from 'components/atoms/Header';
-import Button from 'components/atoms/Button';
+import { TopJob, Header, Button, FormInput, Card } from 'components';
 import styles from 'styles/Home.module.css';
-import FormInput from 'components/atoms/FormInput';
-import Card from 'components/atoms/Card';
-import Image from 'components/atoms/Image';
 import { getDataCookie } from 'middlewares/authorization';
 import { API_URL } from 'helpers/env';
+import { User, IconLocation, IconNext, IconPrevious } from 'assets';
 
 export async function getServerSideProps(context) {
   try {
@@ -83,7 +80,8 @@ export async function getServerSideProps(context) {
 const index = (props) => {
   const router = useRouter();
   const { page, limit, search, sort, sortType } = router.query;
-  const [searchQuery, setSearchQuery] = React.useState('');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [imageError, setImageError] = useState(false);
 
   const handleSort = (e) => {
     let url = `/home?`;
@@ -216,13 +214,13 @@ const index = (props) => {
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
               </form>
-              {/* <img
-              src="/icons/icon-search.svg"
-              alt="search"
-              width={20}
-              height={20}
-              className={styles.icon__search}
-            /> */}
+              {/* <Image
+                src={IconSearch}
+                alt="search"
+                width={20}
+                height={20}
+                className={styles.icon__search}
+              /> */}
             </div>
             {props.error ? (
               <p className="text-center">Data tidak ditemukan</p>
@@ -233,33 +231,54 @@ const index = (props) => {
                 <Card className={styles.card__container} key={item.user.id}>
                   <div className={styles.card__content}>
                     <div className={styles.card__wrapper}>
-                      <Image
-                        srcImage={item.user.photo}
-                        className={styles.card__image}
-                        altImage={item.user.name}
-                        imageClass="img-cover rounded-circle"
-                        imageWidth={100}
-                        imageHeight={100}
-                      />
+                      <div className={styles.card__avatar}>
+                        <Image
+                          src={
+                            imageError
+                              ? User
+                              : `https://drive.google.com/uc?export=view&id=${item.user?.photo}`
+                          }
+                          className={`${styles.card__image} img-cover rounded-circle`}
+                          alt={item.user.name}
+                          height="100px"
+                          width="100px"
+                          onError={() => setImageError(true)}
+                        />
+                      </div>
                       <div className={styles.card__data}>
-                        <h5 className={styles.card__name}>{item.user.name}</h5>
-                        <p className={styles.card__job}>{item.user.job_desk}</p>
+                        <h5 className={styles.card__name}>
+                          {item.user.name
+                            ? item.user.name
+                            : 'User belum menentukan nama'}
+                        </h5>
+                        <p className={styles.card__job}>
+                          {item.user.job_desk
+                            ? item.user.job_desk
+                            : 'User belum menentukan jobdesk'}
+                        </p>
                         <span className={styles.card__location}>
-                          <img
-                            src="/icons/icon-location.svg"
+                          <Image
+                            src={IconLocation}
                             alt="location"
                             width={15}
                             height={15}
                             className={styles.card__icon}
                           />
-                          {item.user.domicile}
+                          &nbsp;
+                          {item.user.domicile
+                            ? item.user.domicile
+                            : 'User belum menentukan lokasi'}
                         </span>
                         <div className={styles.card__badge}>
-                          {item.skill.map((skill) => (
-                            <Button className={`btn ${styles.card__button}`}>
-                              {skill.skill_name}
-                            </Button>
-                          ))}
+                          {item.skill.length === 0 ? (
+                            <div>User tidak memiliki skill</div>
+                          ) : (
+                            item.skill.map((skill) => (
+                              <Button className={`btn ${styles.card__button}`}>
+                                {skill.skill_name}
+                              </Button>
+                            ))
+                          )}
                         </div>
                       </div>
                     </div>
@@ -274,37 +293,39 @@ const index = (props) => {
               ))
             )}
 
-            <Pagination
-              previousLabel={
-                <>
-                  <img
-                    src="/icons/icon-previous.svg"
-                    alt="Previous"
-                    width={20}
-                    height={20}
-                  />
-                </>
-              }
-              nextLabel={
-                <>
-                  <img
-                    src="/icons/icon-next.svg"
-                    alt="Previous"
-                    width={20}
-                    height={20}
-                  />
-                </>
-              }
-              breakLabel="..."
-              pageCount={props.pagination.totalPage}
-              onPageChange={handlePagination}
-              initialPage={Number(page)}
-              containerClassName="homepage__pagination"
-              previousClassName="homepage__pagination-previous"
-              nextClassName="homepage__pagination-next"
-              pageClassName="homepage__pagination-previous"
-              activeClassName="home__pagination-active"
-            />
+            <div className={styles.card__pagination}>
+              <Pagination
+                previousLabel={
+                  <>
+                    <Image
+                      src={IconPrevious}
+                      alt="Previous"
+                      width={20}
+                      height={20}
+                    />
+                  </>
+                }
+                nextLabel={
+                  <>
+                    <Image
+                      src={IconNext}
+                      alt="Previous"
+                      width={20}
+                      height={20}
+                    />
+                  </>
+                }
+                breakLabel="..."
+                pageCount={props.pagination.totalPage}
+                onPageChange={handlePagination}
+                initialPage={Number(page) - 1}
+                containerClassName="homepage__pagination"
+                previousClassName="homepage__pagination-previous"
+                nextClassName="homepage__pagination-next"
+                pageClassName="homepage__pagination-previous"
+                activeClassName="home__pagination-active"
+              />
+            </div>
           </div>
         </div>
       </section>

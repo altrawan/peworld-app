@@ -1,22 +1,19 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useRef } from 'react';
+import Image from 'next/image';
 import CreatableSelect from 'react-select/creatable';
 import jwtDecode from 'jwt-decode';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import moment from 'moment';
 import { toastr } from 'utils/toastr';
-import Header from 'components/atoms/Header';
-import Card from 'components/atoms/Card';
-import Image from 'components/atoms/Image';
-import Button from 'components/atoms/Button';
+import { Header, Card, Button, PurpleBackground, FormInput } from 'components';
 import styles from 'styles/Profile.module.css';
-import PurpleBackground from 'components/atoms/PurpleBackground';
-import FormInput from 'components/atoms/FormInput';
 import { getDataCookie } from 'middlewares/authorization';
 import { updateUser, updatePhoto } from 'store/actions/worker';
 import { API_URL } from 'helpers/env';
+import { IconLocation, IconPencil } from 'assets';
 
 export async function getServerSideProps(context) {
   try {
@@ -242,6 +239,13 @@ const editUser = ({ data, token, error, message }) => {
     });
   };
 
+  const customStyles = {
+    container: (provided) => ({
+      ...provided,
+      width: 580,
+    }),
+  };
+
   const handleSubmit = () => {
     if (
       !form.name ||
@@ -344,19 +348,19 @@ const editUser = ({ data, token, error, message }) => {
                           className={`${styles.card__image} d-flex flex-column justify-content-center align-items-center`}
                         >
                           <Image
-                            srcImage={`${
+                            src={`${
                               data.user.photo
                                 ? `${API_URL}uploads/worker/${data.user.photo}`
                                 : `${API_URL}uploads/worker/default.png`
                             }`}
-                            altImage={data.user.name}
-                            imageClass="img-cover rounded-circle"
-                            imageWidth={150}
-                            imageHeight={150}
+                            alt={data.user.name}
+                            className="img-cover rounded-circle"
+                            width={150}
+                            height={150}
                           />
                           <div className="d-flex align-items-center justify-content-center">
-                            <img
-                              src="/icons/icon-pencil.svg"
+                            <Image
+                              src={IconPencil}
                               alt="Icon"
                               width={18}
                               height={18}
@@ -408,8 +412,8 @@ const editUser = ({ data, token, error, message }) => {
 
                         {data.user.domicile ? (
                           <div className={styles.profile__location}>
-                            <img
-                              src="/icons/icon-location.svg"
+                            <Image
+                              src={IconLocation}
                               alt="Icon"
                               width={15}
                               height={15}
@@ -418,8 +422,8 @@ const editUser = ({ data, token, error, message }) => {
                           </div>
                         ) : (
                           <div className={styles.profile__location}>
-                            <img
-                              src="/icons/icon-location.svg"
+                            <Image
+                              src={IconLocation}
                               alt="Icon"
                               width={15}
                               height={15}
@@ -619,13 +623,15 @@ const editUser = ({ data, token, error, message }) => {
                           <h5 className={styles.content__heading}>Skill</h5>
                           <hr />
                         </div>
-                        <div className="position-relative">
+                        <div className="d-flex justify-content-between">
                           <CreatableSelect
+                            styles={customStyles}
                             isMulti
                             onChange={(e) => {
                               setForm({ ...form, skill: e });
                             }}
                           />
+                          <button className={styles.btn_skill}>Simpan</button>
                         </div>
                       </Card>
 

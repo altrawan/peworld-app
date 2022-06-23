@@ -7,6 +7,7 @@ import LogoWhite from 'assets/images/logo-white.svg';
 import WaveLeft from 'assets/images/wave-left.svg';
 import WaveRight from 'assets/images/wave-right.svg';
 import Banner from 'assets/images/banner.png';
+import User from 'assets/images/user.png';
 
 export {
   Hero,
@@ -18,4 +19,5 @@ export {
   WaveLeft,
   WaveRight,
   Banner,
+  User,
 };

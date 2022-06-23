@@ -8,11 +8,14 @@ import { useRouter } from 'next/router';
 import { Tabs, Tab } from 'react-bootstrap';
 import { API_URL } from 'helpers/env';
 import styles from 'styles/Profile.module.css';
-import Header from 'components/atoms/Header';
-import PurpleBackground from 'components/atoms/PurpleBackground';
-import SocialMedia from 'components/molecules/SocialMedia';
-import Portofolio from 'components/molecules/Portofolio';
-import WorkExperience from 'components/molecules/WorkExperience';
+import {
+  Header,
+  PurpleBackground,
+  SocialMedia,
+  Portofolio,
+  WorkExperience,
+} from 'components';
+import { IconLocation } from 'assets';
 
 export async function getServerSideProps(context) {
   try {
@@ -78,7 +81,7 @@ const index = ({ data }) => {
                 <h6>{data.user.job_desk}</h6>
               </div>
               <div className={styles.profile__location}>
-                <Image src="/icons/icon-location.svg" width={15} height={15} />
+                <Image src={IconLocation} width={15} height={15} />
                 <span>{data.user.domicile}</span>
               </div>
               <p className={styles.profile__type}>{data.user.job_status}</p>

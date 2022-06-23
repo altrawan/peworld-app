@@ -1,8 +1,11 @@
+.search {
+  background-color: #e5e5e5;
+}
 .topjob__content {
   position: sticky;
   top: 0;
   padding: 1.255rem 0;
-  margin-bottom: 3.125rem;
+  /* margin-bottom: 3.125rem; */
 }
 
 .topjob__title {
@@ -12,8 +15,9 @@
 }
 
 .form__search {
+  margin-top: 40px;
   width: 100%;
-  margin-bottom: 3.125rem;
+  margin-bottom: 35px;
 }
 
 .input__sort .input__column {
@@ -91,8 +95,10 @@
 .card__container {
   position: relative;
   box-shadow: 0px 1px 20px rgba(197, 197, 197, 0.25);
-  padding: 1.25rem;
-  margin-bottom: 3.125rem;
+  background-color: var(--text-white);
+  width: 98%;
+  /* padding: 1.25rem; */
+  /* margin-bottom: 3.125rem; */
 }
 
 .card__content {
@@ -109,52 +115,75 @@
 .card__wrapper {
   display: flex;
   flex-flow: column;
+  gap: 10px;
 }
 
 .card__image {
-  width: 100px;
-  height: 100px;
+  width: 10%;
+  height: 10%;
   margin-left: auto;
   margin-right: auto;
 }
+
 .card__data {
   text-align: center;
 }
+
 .card__name {
-  font-size: 1.375rem;
-  color: #1f2a36;
   font-weight: 600;
+  font-size: 22px;
+  line-height: 36px;
+  color: var(--text-black);
 }
+
 .card__job {
-  font-size: 0.875rem;
-  color: #9ea0a5;
-  margin-bottom: 0.375rem;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-silver);
 }
+
 .card__location {
-  font-size: 0.875rem;
-  color: #9ea0a5;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-silver);
 }
+
 .card__icon {
   margin-right: 0.8125rem;
 }
+
 .card__badge {
   margin-top: 1rem;
   display: flex;
   overflow-x: scroll;
   margin-bottom: 1.875rem;
 }
+
 .card__badge::-webkit-scrollbar {
   display: none;
 }
+
 .card__button {
   background-color: rgba(251, 176, 23, 0.6);
   border: 1px solid #fbb017;
-  color: #fff;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--text-white);
+  padding: 0.375rem 0.75rem;
+  /* color: #fff;
   padding: 0.375rem 0.75rem;
   font-weight: 600;
   font-size: 0.875rem;
-  margin-right: 0.8125rem;
+  margin-right: 0.8125rem; */
 }
+
 .card__view {
   padding: 0.625rem 1.875rem;
   background-color: #5e50a1;
@@ -162,10 +191,20 @@
   font-weight: 600;
   font-size: 0.875rem;
 }
+
+.card__pagination {
+  margin-top: 40px;
+  margin-bottom: 45px;
+}
+
+.card__avatar {
+  width: 100px;
+  height: 100px;
+}
 @media (min-width: 768px) {
   .card__container {
     border-radius: 8px;
-    padding: 2.5rem 4.375rem 2.5rem 1.25rem;
+    padding: 2.5rem 4.375rem 0.1rem 1.25rem;
   }
   .card__content {
     align-items: center;
@@ -193,5 +232,16 @@
     margin-right: 0;
     padding: 0.375rem 1.25rem;
     font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .card__container {
+    padding: 2.5rem 1.25rem 0.1rem 1.25rem;
+  }
+
+  .card__avatar {
+    width: 100%;
+    text-align: center;
   }
 }

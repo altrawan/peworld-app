@@ -63,7 +63,7 @@ const index = () => {
             text: res.message,
             icon: 'success',
           });
-          router.push('/home');
+          router.push('/');
         })
         .catch((err) => {
           if (err.response.data.code === 422) {
