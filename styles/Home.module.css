@@ -72,6 +72,12 @@
   border-radius: 5px;
 }
 
+.btn__search:hover {
+  background-color: transparent;
+  color: var(--text-purple);
+  border: 1px solid var(--text-purple);
+}
+
 .icon__search {
   position: absolute;
   top: 1.125rem;
@@ -190,6 +196,12 @@
   color: #fff;
   font-weight: 600;
   font-size: 0.875rem;
+}
+
+.card__view:hover {
+  background-color: transparent;
+  color: var(--text-purple);
+  border: 1px solid var(--text-purple);
 }
 
 .card__pagination {
