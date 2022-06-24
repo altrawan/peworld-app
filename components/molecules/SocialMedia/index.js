@@ -21,31 +21,19 @@ export default function index(props) {
         </div>
         <div className="sosmed__vector">
           <Image src={IconInstagram} width={25} height={25} />
-          <a
-            href={`https://www.instagram.com/${props.instagram}`}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href={`${props.instagram}`} target="_blank" rel="noreferrer">
             {props.instagram}
           </a>
         </div>
         <div className="sosmed__vector">
           <Image src={IconGithub} width={25} height={25} />
-          <a
-            href={`https://github.com/${props.github}`}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href={props.github} target="_blank" rel="noreferrer">
             {props.github}
           </a>
         </div>
         <div className="sosmed__vector">
           <Image src={IconGitlab} width={25} height={25} />
-          <a
-            href={`https://gitlab.com/${props.github}`}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href={props.github} target="_blank" rel="noreferrer">
             {props.gitlab}
           </a>
         </div>
@@ -63,11 +51,7 @@ export default function index(props) {
       </div>
       <div className="sosmed__vector">
         <Image src={IconInstagram} width={25} height={25} />
-        <a
-          href={`https://www.instagram.com/${props.instagram}`}
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href={props.instagram} target="_blank" rel="noreferrer">
           {props.instagram}
         </a>
       </div>
@@ -79,11 +63,7 @@ export default function index(props) {
       </div>
       <div className="sosmed__vector">
         <Image src={IconLinkedin} width={25} height={25} />
-        <a
-          href={`https://linkedin.in/${props.linkedin}`}
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href={props.linkedin} target="_blank" rel="noreferrer">
           {props.linkedin}
         </a>
       </div>

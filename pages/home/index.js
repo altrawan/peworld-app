@@ -240,6 +240,11 @@ const index = (props) => {
                             : 'User belum menentukan nama'}
                         </h5>
                         <p className={styles.card__job}>
+                          {item.user.job_status
+                            ? item.user.job_status
+                            : 'User belum menentukan job status'}
+                        </p>
+                        <p className={styles.card__job}>
                           {item.user.job_desk
                             ? item.user.job_desk
                             : 'User belum menentukan jobdesk'}
@@ -262,7 +267,7 @@ const index = (props) => {
                             <div>User tidak memiliki skill</div>
                           ) : (
                             item.skill.map((skill) => (
-                              <Button className={`btn ${styles.card__button}`}>
+                              <Button className={styles.card__button}>
                                 {skill.skill_name}
                               </Button>
                             ))

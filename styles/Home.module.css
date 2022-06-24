@@ -121,7 +121,7 @@
 .card__wrapper {
   display: flex;
   flex-flow: column;
-  gap: 10px;
+  gap: 15px;
 }
 
 .card__image {
@@ -138,14 +138,12 @@
 .card__name {
   font-weight: 600;
   font-size: 22px;
-  line-height: 36px;
   color: var(--text-black);
 }
 
 .card__job {
   font-weight: 400;
   font-size: 14px;
-  line-height: 20px;
   color: var(--text-silver);
 }
 
@@ -155,7 +153,6 @@
   gap: 5px;
   font-weight: 400;
   font-size: 14px;
-  line-height: 20px;
   color: var(--text-silver);
 }
 

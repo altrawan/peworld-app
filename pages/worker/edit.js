@@ -111,8 +111,6 @@ const editUser = ({ data, token, error, message }) => {
     }
   };
 
-  console.log(data);
-
   const handleClick = () => {
     hiddenFileInput.current.click();
   };
@@ -182,7 +180,6 @@ const editUser = ({ data, token, error, message }) => {
   const handleInputExp = (e, index) => {
     const newExp = form.experience.map((item, i) => {
       if (i === index) {
-        console.log(e.target.files[0]);
         return {
           ...item,
           [e.target.id]:
@@ -765,7 +762,7 @@ const editUser = ({ data, token, error, message }) => {
                             </div>
                             {index ? (
                               <Button
-                                className={`${styles.btn__warning}`}
+                                className={`${styles.btn__danger}`}
                                 onClick={() => handleDeleteExp(index)}
                               >
                                 Hapus pengalaman kerja
@@ -876,7 +873,7 @@ const editUser = ({ data, token, error, message }) => {
                             </div>
                             {index ? (
                               <Button
-                                className={`${styles.btn__warning}`}
+                                className={`${styles.btn__danger}`}
                                 onClick={() => handleDeletePorto(index)}
                               >
                                 Hapus portofolio

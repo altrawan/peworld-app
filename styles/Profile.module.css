@@ -296,6 +296,22 @@
   color: var(--text-white);
 }
 
+.btn__danger {
+  padding: 0.9375rem;
+  font-weight: 700;
+  font-size: 16px;
+  background-color: transparent;
+  color: rgb(220, 20, 9);
+  border: 1px solid rgb(220, 20, 9);
+  width: 100%;
+  border-radius: 8px;
+}
+
+.btn__danger:hover {
+  background-color: rgb(220, 20, 9);
+  color: var(--text-white);
+}
+
 .form__radio {
   border: 1px solid var(--text-light-gray);
   /* width: 20px;
