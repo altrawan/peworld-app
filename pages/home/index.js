@@ -185,7 +185,7 @@ const index = (props) => {
                   append={
                     <div className={styles.input__column}>
                       <select className="form-select" onChange={handleSort}>
-                        <option value="name">Sort</option>
+                        <option value="created_at">Sort</option>
                         <option value="name">Nama</option>
                         <option value="domicile">Lokasi</option>
                         <option value="freelance">Freelance</option>
