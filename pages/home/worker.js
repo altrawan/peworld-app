@@ -76,7 +76,7 @@ const index = (props) => {
   const decoded = jwtDecode(props.token);
 
   const handleSort = (e) => {
-    let url = `/home?`;
+    let url = `/home/worker?`;
 
     const queryPage = page || '';
     if (queryPage) {
@@ -107,7 +107,7 @@ const index = (props) => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    let url = `/home?`;
+    let url = `/home/worker?`;
 
     const queryPage = page || '';
     if (queryPage) {
@@ -139,7 +139,7 @@ const index = (props) => {
 
   const handlePagination = (e) => {
     const selected = e.selected + 1;
-    let url = `/home?`;
+    let url = `/home/worker?`;
 
     const queryPage = selected || page;
     if (queryPage) {

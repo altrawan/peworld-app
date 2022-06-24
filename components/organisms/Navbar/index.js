@@ -75,16 +75,25 @@ const index = ({ token = false }) => {
               <UserProfile token={token} />
             </ul>
           ) : token && router.pathname === '/' ? (
-            <ul className="navbar-nav ms-auto auth">
-              <li className="nav-item">
-                <Link href="/home">
-                  <a className="nav-link">Home</a>
-                </Link>
-              </li>
+            <>
+              <ul className="navbar-nav me-auto">
+                <li className="nav-item">
+                  <Link href="/home/worker">
+                    <a className="nav-link">List Pekerja</a>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link href="/home/recruiter">
+                    <a className="nav-link">List Perekrut</a>
+                  </Link>
+                </li>
+              </ul>
               <Link href={decoded.role === 1 ? '/recruiter' : '/worker'}>
-                <button className="btn_auth signup">Profile</button>
+                <button className="btn_auth signup d-flex justify-content-end">
+                  Profile
+                </button>
               </Link>
-            </ul>
+            </>
           ) : (
             <ul className="navbar-nav ms-auto start">
               <Link href="/auth/login">
