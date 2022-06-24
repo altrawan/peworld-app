@@ -302,66 +302,60 @@ const editUser = ({ data, token, error, message }) => {
       });
     } else {
       setEdit(true);
-      try {
-        const formData = new FormData();
-        // DATA USER
-        formData.append('name', form.name);
-        formData.append('email', form.email);
-        formData.append('phoneNumber', form.phoneNumber);
-        formData.append('jobDesk', form.jobDesk);
-        formData.append('jobStatus', form.jobStatus);
-        formData.append('domicile', form.domicile);
-        formData.append('workPlace', form.workPlace);
-        formData.append('description', form.description);
-        formData.append('instagram', form.instagram);
-        formData.append('github', form.github);
-        formData.append('gitlab', form.gitlab);
-        formData.append('linkedin', form.linkedin);
-        formData.append('experience', JSON.stringify(form.experience));
-        if (form.experience) {
-          for (let i = 0; i < form.experience.length; i++) {
-            formData.append('logo', form.experience[i].image);
-          }
+      const formData = new FormData();
+      // DATA USER
+      formData.append('name', form.name);
+      formData.append('email', form.email);
+      formData.append('phoneNumber', form.phoneNumber);
+      formData.append('jobDesk', form.jobDesk);
+      formData.append('jobStatus', form.jobStatus);
+      formData.append('domicile', form.domicile);
+      formData.append('workPlace', form.workPlace);
+      formData.append('description', form.description);
+      formData.append('instagram', form.instagram);
+      formData.append('github', form.github);
+      formData.append('gitlab', form.gitlab);
+      formData.append('linkedin', form.linkedin);
+      formData.append('experience', JSON.stringify(form.experience));
+      if (form.experience) {
+        for (let i = 0; i < form.experience.length; i++) {
+          formData.append('logo', form.experience[i].image);
         }
-        console.log(form.experience[0].image);
-        console.log(form.portofolio.image);
-        // formData.append('logo', form.experience.image);
-        formData.append('portofolio', JSON.stringify(form.portofolio));
-        if (form.portofolio.image) {
-          for (let i = 0; i < form.portofolio.image.length; i++) {
-            formData.append('photo', form.portofolio.image[i]);
-          }
-        }
-
-        updateUser(formData)
-          .then((res) => {
-            Swal.fire({
-              title: 'Success!',
-              text: res.message,
-              icon: 'success',
-            }).then(() => {
-              window.location.reload();
-            });
-          })
-          .catch((err) => {
-            if (err.response.data.code === 422) {
-              const errors = err.response.data.error;
-              errors.map((e) => toastr(e, 'error'));
-            } else {
-              Swal.fire({
-                title: 'Error!',
-                text: err.response.data.message,
-                icon: 'error',
-              });
-            }
-          })
-          .finally(() => {
-            setEdit(false);
-            handleReset();
-          });
-      } catch (err) {
-        alert(err.message);
       }
+      // formData.append('logo', form.experience.image);
+      formData.append('portofolio', JSON.stringify(form.portofolio));
+      if (form.portofolio.image) {
+        for (let i = 0; i < form.portofolio.image.length; i++) {
+          formData.append('photo', form.portofolio.image[i]);
+        }
+      }
+
+      updateUser(formData)
+        .then((res) => {
+          Swal.fire({
+            title: 'Success!',
+            text: res.message,
+            icon: 'success',
+          }).then(() => {
+            window.location.reload();
+          });
+        })
+        .catch((err) => {
+          if (err.response.data.code === 422) {
+            const errors = err.response.data.error;
+            errors.map((e) => toastr(e, 'error'));
+          } else {
+            Swal.fire({
+              title: 'Error!',
+              text: err.response.data.message,
+              icon: 'error',
+            });
+          }
+        })
+        .finally(() => {
+          setEdit(false);
+          handleReset();
+        });
     }
   };
 
