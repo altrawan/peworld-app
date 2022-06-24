@@ -19,6 +19,7 @@ const InputText = React.forwardRef(
       onKeyPress,
       onChange,
       max,
+      multiple,
     },
     ref
   ) => (
@@ -43,6 +44,7 @@ const InputText = React.forwardRef(
             onKeyPress={onKeyPress}
             ref={ref}
             max={max}
+            multiple={multiple}
           />
           {append && (
             <div className="input-group-append">

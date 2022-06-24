@@ -7,11 +7,9 @@ import { PersistGate } from 'redux-persist/integration/react';
 import NextNProgress from 'nextjs-progressbar';
 import { wrapper, store, persistor } from 'store/store';
 import mainLayout from 'layouts/mainLayout';
-import secondaryLayout from 'layouts/secondaryLayout';
 
 const layouts = {
   mainLayout,
-  secondaryLayout,
 };
 
 const noLayout = ({ children }) => {

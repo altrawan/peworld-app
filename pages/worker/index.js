@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import Cookies from 'js-cookie';
 import axios from 'axios';
@@ -14,8 +13,9 @@ import {
   SocialMedia,
   Portofolio,
   WorkExperience,
+  Image,
 } from 'components';
-import { IconLocation } from 'assets';
+import { IconLocation, User } from 'assets';
 
 export async function getServerSideProps(context) {
   try {
@@ -64,16 +64,13 @@ const index = ({ data }) => {
           <div className="row">
             <div className={`col-lg-4 col-md-4 col-12 ${styles.profile__user}`}>
               <div className={styles.profile__image}>
-                <img
-                  src={`${
-                    data.user.photo
-                      ? `${API_URL}uploads/worker/${data.user.photo}`
-                      : `${API_URL}uploads/worker/default.png`
-                  }`}
+                <Image
+                  src={`https://drive.google.com/uc?export=view&id=${data?.user?.photo}`}
                   className="rounded-circle"
                   alt={data.user.name}
                   width={150}
                   height={150}
+                  fallbackSrc={User}
                 />
               </div>
               <div className={styles.profile__content}>

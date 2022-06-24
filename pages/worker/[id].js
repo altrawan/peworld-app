@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Tabs, Tab } from 'react-bootstrap';
 import axios from 'axios';
@@ -7,11 +6,15 @@ import Cookies from 'js-cookie';
 import jwtDecode from 'jwt-decode';
 import { API_URL } from 'helpers/env';
 import styles from 'styles/Profile.module.css';
-import Header from 'components/atoms/Header';
-import PurpleBackground from 'components/atoms/PurpleBackground';
-import SocialMedia from 'components/molecules/SocialMedia';
-import Portofolio from 'components/molecules/Portofolio';
-import WorkExperience from 'components/molecules/WorkExperience';
+import {
+  Header,
+  PurpleBackground,
+  SocialMedia,
+  Portofolio,
+  WorkExperience,
+  Image,
+} from 'components';
+import { User, IconLocation } from 'assets';
 
 export async function getServerSideProps(context) {
   try {
@@ -66,15 +69,12 @@ const index = ({ data }) => {
             <div className={`col-lg-4 col-md-4 col-12 ${styles.profile__user}`}>
               <div className={styles.profile__image}>
                 <Image
-                  src={`${
-                    data.user.photo
-                      ? `${API_URL}uploads/worker/${data.user.photo}`
-                      : `${API_URL}uploads/worker/default.png`
-                  }`}
+                  src={`https://drive.google.com/uc?export=view&id=${data?.user?.photo}`}
                   className="rounded-circle"
                   alt={data.user.name}
                   width={150}
                   height={150}
+                  fallbackSrc={User}
                 />
               </div>
               <div className={styles.profile__content}>
@@ -82,7 +82,7 @@ const index = ({ data }) => {
                 <h6>{data.user.job_desk}</h6>
               </div>
               <div className={styles.profile__location}>
-                <Image src="/icons/icon-location.svg" width={15} height={15} />
+                <Image src={IconLocation} width={15} height={15} />
                 <span>{data.user.domicile}</span>
               </div>
               <p className={styles.profile__type}>{data.user.job_status}</p>

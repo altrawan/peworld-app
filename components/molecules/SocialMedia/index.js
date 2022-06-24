@@ -1,6 +1,13 @@
 import React from 'react';
-import Image from 'next/image';
-import { IconMail, IconInstagram, IconGithub, IconGitlab } from 'assets';
+import { Image } from 'components';
+import {
+  IconMail,
+  IconInstagram,
+  IconGithub,
+  IconGitlab,
+  IconPhone,
+  IconLinkedin,
+} from 'assets';
 
 export default function index(props) {
   if (props.worker) {
@@ -49,13 +56,13 @@ export default function index(props) {
   return (
     <div className="mt-5">
       <div className="sosmed__vector">
-        <Image src="/icons/icon-mail.svg" width={25} height={25} />
+        <Image src={IconMail} width={25} height={25} />
         <a href={`mailto:${props.email}`} target="_blank" rel="noreferrer">
           {props.email}
         </a>
       </div>
       <div className="sosmed__vector">
-        <Image src="/icons/icon-instagram.svg" width={25} height={25} />
+        <Image src={IconInstagram} width={25} height={25} />
         <a
           href={`https://www.instagram.com/${props.instagram}`}
           target="_blank"
@@ -65,13 +72,13 @@ export default function index(props) {
         </a>
       </div>
       <div className="sosmed__vector">
-        <Image src="/icons/icon-phone.svg" width={25} height={25} />
+        <Image src={IconPhone} width={25} height={25} />
         <a href={`tel:${props.phone}`} target="_blank" rel="noreferrer">
           {props.phone}
         </a>
       </div>
       <div className="sosmed__vector">
-        <Image src="/icons/icon-linkedin.svg" width={25} height={25} />
+        <Image src={IconLinkedin} width={25} height={25} />
         <a
           href={`https://linkedin.in/${props.linkedin}`}
           target="_blank"

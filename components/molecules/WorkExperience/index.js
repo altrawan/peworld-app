@@ -2,7 +2,8 @@ import React from 'react';
 import moment from 'moment';
 import { Card } from 'react-bootstrap';
 import Swal from 'sweetalert2';
-import { API_URL } from 'helpers/env';
+import { Experience } from 'assets';
+import { Image } from 'components';
 import { deleteExperience } from 'store/actions/experience';
 
 export default function index({ data }) {
@@ -47,13 +48,12 @@ export default function index({ data }) {
             <Card className="border-0" key={item.id}>
               <Card.Body className="p-0">
                 <div className="col work__image">
-                  <img
-                    src={`${
-                      item.image
-                        ? `${API_URL}uploads/experience/${item.image}`
-                        : `${API_URL}uploads/experience/default.png`
-                    }`}
+                  <Image
+                    src={`https://drive.google.com/uc?export=view&id=${item.image}`}
                     alt={item.company}
+                    width={100}
+                    height={100}
+                    fallbackSrc={Experience}
                   />
                   <div className="col-10 ps-5 work__content">
                     <h2>{item.position}</h2>
@@ -63,17 +63,15 @@ export default function index({ data }) {
                         'MMMM YYYY'
                       )}{' '}
                       -{' '}
-                      {moment(item.end_date, 'YYYY-MM-DD').format('MMMM YYYY')}{' '}
+                      {moment(item.end_date, 'YYYY-MM-DD').format('MMMM YYYY')}
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <span>
-                        {Number(
-                          (moment(item.start_date, 'YYYY-MM-DD').diff(
-                            item.start_date,
-                            'YYYY-MM-DD'
-                          ),
-                          'months',
-                          true)
-                        )}
-                        Month
+                        {moment
+                          .duration(
+                            moment(item.end_date).diff(moment(item.start_date))
+                          )
+                          .months()}
+                        &nbsp; Month
                       </span>
                     </h6>
                     <p>{item.description}</p>

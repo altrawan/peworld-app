@@ -8,6 +8,8 @@ import WaveLeft from 'assets/images/wave-left.svg';
 import WaveRight from 'assets/images/wave-right.svg';
 import Banner from 'assets/images/banner.png';
 import User from 'assets/images/user.png';
+import Portofolio from 'assets/images/portofolio.jpg';
+import Experience from 'assets/images/experience.jpg';
 
 export {
   Hero,
@@ -20,4 +22,6 @@ export {
   WaveRight,
   Banner,
   User,
+  Portofolio,
+  Experience,
 };

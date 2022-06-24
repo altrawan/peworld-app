@@ -262,6 +262,6 @@ const index = ({ data }) => {
   );
 };
 
-index.layout = 'secondaryLayout';
+index.layout = 'mainLayout';
 
 export default index;

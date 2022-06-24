@@ -2,15 +2,12 @@ import React from 'react';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import Cookies from 'js-cookie';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { API_URL } from 'helpers/env';
-// import { getDataCookie } from 'middlewares/authorization';
 import styles from 'styles/Profile.module.css';
-import Header from 'components/atoms/Header';
-import PurpleBackground from 'components/atoms/PurpleBackground';
-import SocialMedia from 'components/molecules/SocialMedia';
+import { Header, PurpleBackground, SocialMedia, Image } from 'components';
+import { IconLocation, User } from 'assets';
 
 export async function getServerSideProps(context) {
   try {
@@ -59,30 +56,33 @@ const profile = ({ data }) => {
             <div className={styles.company}>
               <div className={styles.company__image}>
                 <Image
-                  src={`${
-                    data.user.photo
-                      ? `${API_URL}uploads/recruiter/${data.user.photo}`
-                      : `${API_URL}uploads/recruiter/default.png`
-                  }`}
+                  src={`https://drive.google.com/uc?export=view&id=${data?.user?.photo}`}
                   className="rounded-circle"
                   alt={data.user.name}
                   width={150}
                   height={150}
+                  fallbackSrc={User}
                 />
               </div>
               <h2 className={styles.company__name}>{data.user.company}</h2>
               <h6 className={styles.company__field}>
-                {data.user.company_field}
+                {data.user.company_field
+                  ? data.user.company_field
+                  : 'Masukan bidang perusahaan anda'}
               </h6>
               <div className={styles.profile__location}>
-                <Image src="/icons/icon-location.svg" width={15} height={15} />
-                <span>{data.user.city}</span>
+                <Image src={IconLocation} width={15} height={15} />
+                <span>
+                  {data.user.city ? data.user.city : 'Masukan lokasi anda'}
+                </span>
               </div>
               <p
                 className={styles.profile__description}
                 style={{ width: '60%', textAlign: 'center' }}
               >
-                {data.user.description}
+                {data.user.description
+                  ? data.user.description
+                  : 'Masukan deskripsi anda'}
               </p>
               <Link href="/recruiter/edit">
                 <button
@@ -101,39 +101,26 @@ const profile = ({ data }) => {
               </button>
               <SocialMedia
                 email={data.login[0].email}
-                instagram={data.user.instagram}
+                instagram={
+                  data.user.instagram
+                    ? data.user.instagram
+                    : 'Masukan instagram anda'
+                }
                 phone={data.login[0].phone_number}
-                linkedin={data.user.linkedin}
+                linkedin={
+                  data.user.linkedin
+                    ? data.user.linkedin
+                    : 'Masukan linkedin anda'
+                }
               />
             </div>
           </div>
         </div>
-
-        {/* <PurpleBackground className="purple" />
-
-        <div className="container">
-          <div className="row">
-            <div className={styles.company}>
-              <div className={styles.company__image}>
-                <Image
-                  src="/images/user-3.png"
-                  className="rounded-circle"
-                  alt="My Name"
-                  width={150}
-                  height={150}
-                />
-              </div>
-              <div className={styles.company__content}>
-                <h2>PT. Martabat Jaya Abadi</h2>
-              </div>
-            </div>
-          </div>
-        </div> */}
       </section>
     </>
   );
 };
 
-profile.layout = 'secondaryLayout';
+profile.layout = 'mainLayout';
 
 export default profile;

@@ -1,28 +1,17 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Image from 'next/image';
 import ContentLoader from 'react-content-loader';
+import jwtDecode from 'jwt-decode';
 import { useRouter } from 'next/router';
 import Pagination from 'react-paginate';
 import Link from 'next/link';
-import { TopJob, Header, Button, FormInput, Card } from 'components';
+import { TopJob, Header, Button, FormInput, Card, Image } from 'components';
 import styles from 'styles/Home.module.css';
-import { getDataCookie } from 'middlewares/authorization';
 import { API_URL } from 'helpers/env';
 import { User, IconLocation, IconNext, IconPrevious } from 'assets';
 
 export async function getServerSideProps(context) {
   try {
-    const storageCookie = await getDataCookie(context);
-    if (!storageCookie.token) {
-      return {
-        redirect: {
-          destination: '/auth/login',
-          permanent: false,
-        },
-      };
-    }
-
     const { page, limit, search, sort, sortType } = context.query;
 
     let url = `${API_URL}worker?`;
@@ -62,6 +51,7 @@ export async function getServerSideProps(context) {
       props: {
         data: response.data.data,
         pagination: response.data.pagination,
+        token: context.req.cookies.token,
         error: false,
         message: 'Success get data',
       },
@@ -71,6 +61,7 @@ export async function getServerSideProps(context) {
       props: {
         data: null,
         error: true,
+        token: context.req.cookies.token,
         message: error.message,
       },
     };
@@ -81,7 +72,8 @@ const index = (props) => {
   const router = useRouter();
   const { page, limit, search, sort, sortType } = router.query;
   const [searchQuery, setSearchQuery] = useState('');
-  const [imageError, setImageError] = useState(false);
+
+  const decoded = jwtDecode(props.token);
 
   const handleSort = (e) => {
     let url = `/home?`;
@@ -233,16 +225,12 @@ const index = (props) => {
                     <div className={styles.card__wrapper}>
                       <div className={styles.card__avatar}>
                         <Image
-                          src={
-                            imageError
-                              ? User
-                              : `https://drive.google.com/uc?export=view&id=${item.user?.photo}`
-                          }
+                          src={`https://drive.google.com/uc?export=view&id=${item.user.photo}`}
                           className={`${styles.card__image} img-cover rounded-circle`}
                           alt={item.user.name}
-                          height="100px"
-                          width="100px"
-                          onError={() => setImageError(true)}
+                          height={100}
+                          width={100}
+                          fallbackSrc={User}
                         />
                       </div>
                       <div className={styles.card__data}>
@@ -282,7 +270,13 @@ const index = (props) => {
                         </div>
                       </div>
                     </div>
-                    <Link href={`/worker/${item.user.id}`}>
+                    <Link
+                      href={
+                        decoded.user_id === item.user.id
+                          ? '/worker'
+                          : `/worker/${item.user.id}`
+                      }
+                    >
                       <button className={`btn ${styles.card__view}`}>
                         Lihat Profile
                       </button>

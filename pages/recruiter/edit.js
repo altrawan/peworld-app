@@ -1,31 +1,24 @@
 import React, { useState, useRef } from 'react';
 import Cookies from 'js-cookie';
-import Image from 'next/image';
 import jwtDecode from 'jwt-decode';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { toastr } from 'utils/toastr';
-import Header from 'components/atoms/Header';
-import Card from 'components/atoms/Card';
-import Button from 'components/atoms/Button';
-import styles from 'styles/Profile.module.css';
-import PurpleBackground from 'components/atoms/PurpleBackground';
-import FormInput from 'components/atoms/FormInput';
-import { getDataCookie } from 'middlewares/authorization';
-import { updateUser, updatePhoto } from 'store/actions/recruiter';
+import {
+  Header,
+  Card,
+  Button,
+  PurpleBackground,
+  FormInput,
+  Image,
+} from 'components';
 import { API_URL } from 'helpers/env';
+import styles from 'styles/Profile.module.css';
+import { updateUser, updatePhoto } from 'store/actions/recruiter';
+import { User, IconPencil, IconLocation } from 'assets';
 
 export async function getServerSideProps(context) {
   try {
-    const storageCookie = await getDataCookie(context);
-    if (!storageCookie.token) {
-      return {
-        redirect: {
-          destination: '/auth/login',
-          permanent: false,
-        },
-      };
-    }
     const decoded = jwtDecode(context.req.cookies.token);
 
     const response = await axios.get(`${API_URL}recruiter/${decoded.user_id}`, {
@@ -195,23 +188,15 @@ const index = ({ data }) => {
                   className={`${styles.card__image} d-flex flex-column justify-content-center align-items-center`}
                 >
                   <Image
-                    src={`${
-                      data.user.photo
-                        ? `${API_URL}uploads/recruiter/${data.user.photo}`
-                        : `${API_URL}uploads/recruiter/default.png`
-                    }`}
+                    src={`https://drive.google.com/uc?export=view&id=${data?.user?.photo}`}
                     alt={data.user.name}
                     className="img-cover rounded-circle"
                     width={150}
                     height={150}
+                    fallbackSrc={User}
                   />
                   <div className="d-flex align-items-center justify-content-center">
-                    <img
-                      src="/icons/icon-pencil.svg"
-                      alt="Icon"
-                      width={18}
-                      height={18}
-                    />
+                    <Image src={IconPencil} alt="Icon" width={18} height={18} />
                     {loading ? (
                       <button className={`btn ${styles.btn__edit}`} disabled>
                         <span
@@ -238,18 +223,18 @@ const index = ({ data }) => {
                   </div>
                 </div>
 
-                <div className={styles.profile__content}>
-                  <h2>{data.user.company}</h2>
-                  <h6>{data.user.company_field}</h6>
-                </div>
+                <h2 className={styles.profile__name}>{data.user.company}</h2>
+                <h6 className={styles.profile__job}>
+                  {data.user.company_field
+                    ? data.user.company_field
+                    : 'Masukan bidang perusahaan anda'}
+                </h6>
+
                 <div className={styles.profile__location}>
-                  <img
-                    src="/icons/icon-location.svg"
-                    alt="Icon"
-                    width={15}
-                    height={15}
-                  />
-                  <span>{data.user.city}</span>
+                  <Image src={IconLocation} alt="Icon" width={15} height={15} />
+                  <span>
+                    {data.user.city ? data.user.city : 'Masukan lokasi anda'}
+                  </span>
                 </div>
               </Card>
               <div

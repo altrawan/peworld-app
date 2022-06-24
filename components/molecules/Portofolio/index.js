@@ -1,7 +1,10 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable no-shadow */
 import React from 'react';
 import { Row, Col, Card } from 'react-bootstrap';
 import Swal from 'sweetalert2';
-import { API_URL } from 'helpers/env';
+import { Portofolio } from 'assets';
+import { Image } from 'components';
 import { deletePortofolio } from 'store/actions/portofolio';
 
 export default function index({ data }) {
@@ -39,20 +42,18 @@ export default function index({ data }) {
   return (
     <Row className="row-cols-1 row-cols-md-2 row-cols-lg-3 mt-5">
       {!data.length ? (
-        <p className="text-center">Tidak ada portfolio</p>
+        <p className="text-center">Tidak ada portofolio</p>
       ) : (
-        data.map((item) => (
-          <Col key={item.id}>
+        data.map((item, index) => (
+          <Col key={index}>
             <Card className="border-0">
               <Card.Body className="p-0">
-                <img
-                  src={`${
-                    item.image
-                      ? `${API_URL}uploads/portofolio/${item.image}`
-                      : `${API_URL}uploads/portofolio/default.png`
-                  }`}
+                <Image
+                  src={`https://drive.google.com/uc?export=view&id=${item.image}`}
                   alt={item.name}
-                  style={{ width: 'auto', height: '124px' }}
+                  width={250}
+                  height={150}
+                  fallbackSrc={Portofolio}
                 />
                 <p className="text-center mt-1">{item.app_name}</p>
                 <div className="portofolio__action">

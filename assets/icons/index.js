@@ -11,6 +11,8 @@ import IconInstagram from 'assets/icons/icon-instagram.svg';
 import IconGithub from 'assets/icons/icon-github.svg';
 import IconGitlab from 'assets/icons/icon-gitlab.svg';
 import IconPencil from 'assets/icons/icon-pencil.svg';
+import IconPhone from 'assets/icons/icon-phone.svg';
+import IconLinkedin from 'assets/icons/icon-linkedin.svg';
 
 export {
   IconCheck,
@@ -26,4 +28,6 @@ export {
   IconGithub,
   IconGitlab,
   IconPencil,
+  IconPhone,
+  IconLinkedin,
 };

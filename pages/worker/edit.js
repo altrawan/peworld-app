@@ -1,31 +1,29 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable array-callback-return */
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useRef } from 'react';
-import Image from 'next/image';
 import CreatableSelect from 'react-select/creatable';
 import jwtDecode from 'jwt-decode';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import moment from 'moment';
 import { toastr } from 'utils/toastr';
-import { Header, Card, Button, PurpleBackground, FormInput } from 'components';
+import {
+  Header,
+  Card,
+  Button,
+  PurpleBackground,
+  FormInput,
+  Image,
+} from 'components';
 import styles from 'styles/Profile.module.css';
-import { getDataCookie } from 'middlewares/authorization';
 import { updateUser, updatePhoto } from 'store/actions/worker';
 import { API_URL } from 'helpers/env';
-import { IconLocation, IconPencil } from 'assets';
+import { IconLocation, IconPencil, User } from 'assets';
+import { addSkill } from 'store/actions/skill';
 
 export async function getServerSideProps(context) {
   try {
-    const storageCookie = await getDataCookie(context);
-    if (!storageCookie.token) {
-      return {
-        redirect: {
-          destination: '/auth/login',
-          permanent: false,
-        },
-      };
-    }
     const decoded = jwtDecode(context.req.cookies.token);
 
     const response = await axios.get(`${API_URL}worker/${decoded.user_id}`, {
@@ -71,10 +69,49 @@ const editUser = ({ data, token, error, message }) => {
     github: data.user.github || '',
     gitlab: data.user.gitlab || '',
     linkedin: data.user.linkedin || '',
-    skill: [],
     experience: data.experience || [],
     portofolio: data.portofolio || [],
   });
+  const [skills, setSkills] = useState([]);
+  const [loadingSkill, setLoadingSkill] = useState(false);
+
+  // Get Skill
+  const getSkill = data.skill.map((item) => {
+    return { value: item.skill_name, label: item.skill_name };
+  });
+
+  const handleSkill = (e) => {
+    const skill = e.map((item) => item.value);
+    setSkills(skill);
+  };
+
+  // Add Skill
+  const handleAddSkill = (e) => {
+    e.preventDefault();
+    if (!skills.length) {
+      Swal.fire('Error!', 'Skill must be filled', 'error');
+    } else {
+      setLoadingSkill(true);
+      addSkill({ skillName: skills })
+        .then((res) => {
+          Swal.fire('Success!', res.message, 'success');
+          window.location.reload();
+        })
+        .catch((err) => {
+          if (err.response.data.code === 422) {
+            const errors = err.response.data.error;
+            errors.map((el) => toastr(el, 'error'));
+          } else {
+            Swal.fire('Error!', err.response.data.message, 'error');
+          }
+        })
+        .finally(() => {
+          setLoadingSkill(false);
+        });
+    }
+  };
+
+  console.log(data);
 
   const handleClick = () => {
     hiddenFileInput.current.click();
@@ -136,7 +173,7 @@ const editUser = ({ data, token, error, message }) => {
           start_date: '',
           end_date: '',
           description: '',
-          image: '',
+          image: null,
         },
       ],
     });
@@ -145,6 +182,7 @@ const editUser = ({ data, token, error, message }) => {
   const handleInputExp = (e, index) => {
     const newExp = form.experience.map((item, i) => {
       if (i === index) {
+        console.log(e.target.files[0]);
         return {
           ...item,
           [e.target.id]:
@@ -194,7 +232,7 @@ const editUser = ({ data, token, error, message }) => {
         return {
           ...item,
           [e.target.id]:
-            e.target.id === 'image' ? e.target.files[0] : e.target.value,
+            e.target.id === 'image' ? e.target.files : e.target.value,
         };
       }
       return item;
@@ -279,26 +317,23 @@ const editUser = ({ data, token, error, message }) => {
         formData.append('github', form.github);
         formData.append('gitlab', form.gitlab);
         formData.append('linkedin', form.linkedin);
+        formData.append('experience', JSON.stringify(form.experience));
+        if (form.experience) {
+          for (let i = 0; i < form.experience.length; i++) {
+            formData.append('logo', form.experience[i].image);
+          }
+        }
+        console.log(form.experience[0].image);
+        console.log(form.portofolio.image);
+        // formData.append('logo', form.experience.image);
+        formData.append('portofolio', JSON.stringify(form.portofolio));
+        if (form.portofolio.image) {
+          for (let i = 0; i < form.portofolio.image.length; i++) {
+            formData.append('photo', form.portofolio.image[i]);
+          }
+        }
 
-        // DATA EXPERIENCE
-        form.experience.map((item) => {
-          formData.append('position', item.position);
-          formData.append('company', item.company);
-          formData.append('start_date', item.start_date);
-          formData.append('end_date', item.end_date);
-          formData.append('description', item.description);
-          formData.append('image', item.image);
-        });
-
-        // DATA PORTOFOLIO
-        form.portofolio.map((item) => {
-          formData.append('app_name', item.app_name);
-          formData.append('link_repository', item.link_repository);
-          formData.append('type_portofolio', item.typePortofolio);
-          formData.append('image', item.image);
-        });
-
-        updateUser(form)
+        updateUser(formData)
           .then((res) => {
             Swal.fire({
               title: 'Success!',
@@ -348,15 +383,12 @@ const editUser = ({ data, token, error, message }) => {
                           className={`${styles.card__image} d-flex flex-column justify-content-center align-items-center`}
                         >
                           <Image
-                            src={`${
-                              data.user.photo
-                                ? `${API_URL}uploads/worker/${data.user.photo}`
-                                : `${API_URL}uploads/worker/default.png`
-                            }`}
+                            src={`https://drive.google.com/uc?export=view&id=${data?.user?.photo}`}
                             alt={data.user.name}
                             className="img-cover rounded-circle"
                             width={150}
                             height={150}
+                            fallbackSrc={User}
                           />
                           <div className="d-flex align-items-center justify-content-center">
                             <Image
@@ -501,6 +533,7 @@ const editUser = ({ data, token, error, message }) => {
                               id="email"
                               value={form.email}
                               onChange={handleInput}
+                              isDisabled
                             />
                           </div>
                           <div
@@ -627,11 +660,25 @@ const editUser = ({ data, token, error, message }) => {
                           <CreatableSelect
                             styles={customStyles}
                             isMulti
-                            onChange={(e) => {
-                              setForm({ ...form, skill: e });
-                            }}
+                            defaultValue={getSkill}
+                            onChange={(e) => handleSkill(e, 'value')}
                           />
-                          <button className={styles.btn_skill}>Simpan</button>
+                          {loadingSkill ? (
+                            <button className={styles.btn_skill} disabled>
+                              <span
+                                className="spinner-border spinner-border-sm"
+                                role="status"
+                                aria-hidden="true"
+                              />
+                            </button>
+                          ) : (
+                            <button
+                              onClick={handleAddSkill}
+                              className={styles.btn_skill}
+                            >
+                              Simpan
+                            </button>
+                          )}
                         </div>
                       </Card>
 
@@ -699,7 +746,7 @@ const editUser = ({ data, token, error, message }) => {
                                 <div
                                   className={`form-group position-relative ${styles.form__input}`}
                                 >
-                                  <label htmlFor="endDate">
+                                  <label htmlFor="end_date">
                                     Tanggal Selesai
                                   </label>
                                   <FormInput
@@ -782,23 +829,23 @@ const editUser = ({ data, token, error, message }) => {
                               className={`form-group position-relative ${styles.form__input}`}
                               key={item.id}
                             >
-                              <label htmlFor="appName">Nama aplikasi</label>
+                              <label htmlFor="app_name">Nama aplikasi</label>
                               <FormInput
                                 placeholder="Masukan nama aplikasi"
-                                id="appName"
-                                value={item.app_ame}
+                                id="app_name"
+                                value={item.app_name}
                                 onChange={(e) => handleInputPorto(e, index)}
                               />
                             </div>
                             <div
                               className={`form-group position-relative ${styles.form__input}`}
                             >
-                              <label htmlFor="linkRepository">
+                              <label htmlFor="link_repository">
                                 Link repository
                               </label>
                               <FormInput
                                 placeholder="Masukan link repository"
-                                id="linkRepository"
+                                id="link_repository"
                                 value={item.link_repository}
                                 onChange={(e) => handleInputPorto(e, index)}
                               />
@@ -818,7 +865,10 @@ const editUser = ({ data, token, error, message }) => {
                                       onChange={(e) =>
                                         handleInputPorto(e, index)
                                       }
-                                      checked={item.type_portofolio === 0}
+                                      value="Mobile"
+                                      checked={
+                                        item.type_portofolio === 'Mobile'
+                                      }
                                     />
                                     <label htmlFor="type_portofolio">
                                       Aplikasi Mobile
@@ -832,7 +882,8 @@ const editUser = ({ data, token, error, message }) => {
                                       onChange={(e) =>
                                         handleInputPorto(e, index)
                                       }
-                                      checked={item.type_portofolio === 1}
+                                      value="Web"
+                                      checked={item.type_portofolio === 'Web'}
                                     />
                                     <label htmlFor="type_portofolio">
                                       Aplikasi Web
@@ -848,9 +899,8 @@ const editUser = ({ data, token, error, message }) => {
                               <FormInput
                                 type="file"
                                 id="image"
-                                onChange={(e) =>
-                                  handleInputPorto(e.target.files[0], index)
-                                }
+                                onChange={(e) => handleInputPorto(e, index)}
+                                multiple
                               />
                             </div>
                             {index ? (

@@ -1,10 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import jwtDecode from 'jwt-decode';
 import { useRouter } from 'next/router';
-import { UserProfile } from 'components';
+import { UserProfile, Image } from 'components';
 import { IconClose, IconToggler, LogoPurple, IconBell, IconMail } from 'assets';
 
 const index = ({ token = false }) => {
@@ -36,7 +35,7 @@ const index = ({ token = false }) => {
     <nav
       className={`navbar navbar-expand-lg fixed-top bg-white ${
         navbar ? 'navbar-shrink' : ''
-      }`}
+      } ${decoded.role === 1 ? 'navbar-shadow' : ''}`}
       id="navigation"
     >
       <div className="container">

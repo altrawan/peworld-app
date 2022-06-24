@@ -12,24 +12,7 @@ import {
   RegisterWorker,
   RegisterRecruiter,
 } from 'components';
-import { getDataCookie } from 'middlewares/authorization';
 import { toastr } from 'utils/toastr';
-
-export async function getServerSideProps(context) {
-  const storageCookie = await getDataCookie(context);
-  if (storageCookie.token) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
-
-  return {
-    props: {},
-  };
-}
 
 const initialState = {
   name: '',
@@ -101,7 +84,7 @@ const index = () => {
         passwordConfirmation,
       })
         .then((res) => {
-          router.push('/login');
+          router.push('/auth/login');
 
           Swal.fire({
             title: 'Success!',
