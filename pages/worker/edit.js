@@ -426,53 +426,30 @@ const editUser = ({ data, token, error, message }) => {
                           </div>
                         </div>
 
-                        {data.user.name ? (
-                          <h2 className={styles.profile__name}>
-                            {data.user.name}
-                          </h2>
-                        ) : (
-                          <h2 className={styles.profile__name}>Your Name</h2>
-                        )}
+                        <h2 className={styles.profile__name}>
+                          {data.user.name}
+                        </h2>
 
-                        {data.user.job_desk ? (
-                          <h6 className={styles.profile__job}>
-                            {data.user.job_desk}
-                          </h6>
-                        ) : (
-                          <h6 className={styles.profile__job}>Your Job Desk</h6>
-                        )}
+                        <h6 className={styles.profile__job}>
+                          {data.user.job_desk
+                            ? data.user.job_desk
+                            : 'Masukan job desk anda'}
+                        </h6>
 
-                        {data.user.domicile ? (
-                          <div className={styles.profile__location}>
-                            <Image
-                              src={IconLocation}
-                              alt="Icon"
-                              width={15}
-                              height={15}
-                            />
-                            <span>{data.user.domicile}</span>
-                          </div>
-                        ) : (
-                          <div className={styles.profile__location}>
-                            <Image
-                              src={IconLocation}
-                              alt="Icon"
-                              width={15}
-                              height={15}
-                            />
-                            <span>Your Domicile</span>
-                          </div>
-                        )}
+                        <div className={styles.profile__location}>
+                          <Image src={IconLocation} width={15} height={15} />
+                          <span>
+                            {data.user.domicile
+                              ? data.user.domicile
+                              : 'Masukan lokasi anda'}
+                          </span>
+                        </div>
 
-                        {data.user.job_status ? (
-                          <p className={`${styles.profile__type} mt-2`}>
-                            {data.user.job_status}
-                          </p>
-                        ) : (
-                          <p className={`${styles.profile__type} mt-2`}>
-                            Your Job Status
-                          </p>
-                        )}
+                        <p className={`${styles.profile__type} mt-2`}>
+                          {data.user.job_status
+                            ? data.user.job_status
+                            : 'Masukan job status anda'}
+                        </p>
                       </Card>
                       <div
                         className="d-flex flex-column"

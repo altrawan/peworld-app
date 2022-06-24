@@ -73,17 +73,29 @@ const index = ({ data }) => {
                   fallbackSrc={User}
                 />
               </div>
-              <div className={styles.profile__content}>
-                <h2>{data.user.name}</h2>
-                <h6>{data.user.job_desk}</h6>
-              </div>
+              <h2 className={styles.profile__name}>{data.user.name}</h2>
+              <h6 className={styles.profile__job}>
+                {data.user.job_desk
+                  ? data.user.job_desk
+                  : 'Masukan job desk anda'}
+              </h6>
               <div className={styles.profile__location}>
                 <Image src={IconLocation} width={15} height={15} />
-                <span>{data.user.domicile}</span>
+                <span>
+                  {data.user.domicile
+                    ? data.user.domicile
+                    : 'Masukan lokasi anda'}
+                </span>
               </div>
-              <p className={styles.profile__type}>{data.user.job_status}</p>
+              <p className={`${styles.profile__type} mt-2`}>
+                {data.user.job_status
+                  ? data.user.job_status
+                  : 'Masukan job status anda'}
+              </p>
               <p className={styles.profile__description}>
-                {data.user.description}
+                {data.user.description
+                  ? data.user.description
+                  : 'Masukan deskripsi anda'}
               </p>
               <Link href="/worker/edit">
                 <button className={styles.button__main}>Edit Profile</button>
@@ -96,19 +108,31 @@ const index = ({ data }) => {
               </button>
               <h2 className={styles.profile__skill}>Skill</h2>
               <div className={`row ${styles.profile__list}`}>
-                {data.skill.map((skill) => (
-                  <div className="col-auto mb-3">
-                    <button>{skill.skill_name}</button>
-                  </div>
-                ))}
+                {!data.skill.length ? (
+                  <div>Masukan skill anda</div>
+                ) : (
+                  data.skill.map((skill) => (
+                    <div className="col-auto mb-3">
+                      <button>{skill.skill_name}</button>
+                    </div>
+                  ))
+                )}
               </div>
 
               <SocialMedia
                 worker
                 email={data.login[0].email}
-                instagram={data.user.instagram}
-                github={data.user.github}
-                gitlab={data.user.gitlab}
+                instagram={
+                  data.user.instagram
+                    ? data.user.instagram
+                    : 'Masukan instagram anda'
+                }
+                github={
+                  data.user.github ? data.user.github : 'Masukan github anda'
+                }
+                gitlab={
+                  data.user.gitlab ? data.user.gitlab : 'Masukan gitlab anda'
+                }
               />
             </div>
 
