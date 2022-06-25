@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { toastr } from 'utils/toastr';
 import styles from 'styles/Profile.module.css';
-import FormInput from 'components/atoms/FormInput';
+import { FormInput, Image } from 'components';
 import { API_URL } from 'helpers/env';
 import { hireWorker } from 'store/actions/recruiter';
+import { User, IconLocation } from 'assets';
 
 export async function getServerSideProps(context) {
   try {
@@ -120,47 +120,53 @@ const index = ({ data }) => {
     <section className={styles.hire}>
       <div className="container">
         <div className="row">
-          <div
-            className={`col-lg-4 col-md-4 col-12 mt-5 mb-5 ${styles.hire__card}`}
-            style={{ marginRight: '60px' }}
-          >
+          <div className={`col-lg-4 col-md-4 col-12 ${styles.hire__card}`}>
             <div className={styles.profile__image}>
               <Image
-                src={`${
-                  data.user.photo
-                    ? `${API_URL}uploads/worker/${data.user.photo}`
-                    : `${API_URL}uploads/worker/default.png`
-                }`}
+                src={`https://drive.google.com/uc?export=view&id=${data?.user?.photo}`}
                 className="rounded-circle"
                 alt={data.user.name}
                 width={150}
                 height={150}
+                fallbackSrc={User}
               />
             </div>
-            <div className={styles.profile__content}>
-              <h2>{data.user.name}</h2>
-              <h6>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum erat orci.
-              </h6>
-            </div>
-            <div className={`${styles.profile__location} mt-3 mb-3`}>
-              <Image src="/icons/icon-location.svg" width={15} height={15} />
-              <span>{data.user.domicile}</span>
+            <h2 className={styles.profile__name}>{data.user.name}</h2>
+            <h6 className={styles.profile__job}>
+              {data.user.job_desk
+                ? data.user.job_desk
+                : 'User belum menentukan job desk'}
+            </h6>
+            <div className={styles.profile__location}>
+              <Image src={IconLocation} width={15} height={15} />
+              <span>
+                {data.user.domicile
+                  ? data.user.domicile
+                  : 'User belum menentukan lokasi'}
+              </span>
             </div>
             <p className={styles.profile__description}>
-              {data.user.description}
+              {data.user.description
+                ? data.user.description
+                : 'User belum menentukan deskripsi'}
             </p>
             <h2 className={styles.profile__skill}>Skill</h2>
             <div className={`row ${styles.profile__list}`}>
-              {data.skill.map((skill) => (
-                <div className="col-auto mb-3">
-                  <button>{skill.skill_name}</button>
-                </div>
-              ))}
+              {!data.skill.length ? (
+                <div>User belum menentukan skill</div>
+              ) : (
+                data.skill.map((skill) => (
+                  <div className="col-auto mb-3">
+                    <button>{skill.skill_name}</button>
+                  </div>
+                ))
+              )}
             </div>
           </div>
-          <div className="col-lg-7 col-md-7 col-12 mt-5 mb-5">
+          <div
+            className={`col-lg-8 col-md-8 col-12 ${styles.hire__wrapper}`}
+            style={{ width: '54.1vw' }}
+          >
             <div className={styles.hire__content}>
               <h1>Hubungi {data.user.name}</h1>
               <h6>

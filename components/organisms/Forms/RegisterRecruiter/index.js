@@ -51,7 +51,7 @@ export default function index(props) {
         <FormInput
           placeholder="Masukan no handphone"
           name="phoneNumber"
-          type="number"
+          type="text"
           value={props.valuePhoneNumber}
           onChange={props.onChange}
         />

@@ -50,6 +50,8 @@ const index = ({ data }) => {
   const [edit, setEdit] = useState(false);
   const hiddenFileInput = useRef(null);
   const [form, setForm] = useState({
+    name: data.user.name || '',
+    position: data.user.position || '',
     company: data.user.company || '',
     companyField: data.user.company_field || '',
     city: data.user.city || '',
@@ -112,6 +114,8 @@ const index = ({ data }) => {
 
   const handleReset = () => {
     setForm({
+      name: data.user.name || '',
+      position: data.user.position || '',
       company: data.user.company || '',
       companyField: data.user.company_field || '',
       city: data.user.city || '',
@@ -125,6 +129,8 @@ const index = ({ data }) => {
 
   const handleSubmit = () => {
     if (
+      !form.name ||
+      !form.position ||
       !form.company ||
       !form.companyField ||
       !form.city ||
@@ -278,6 +284,28 @@ const index = ({ data }) => {
                   <div
                     className={`form-group position-relative ${styles.form__input}`}
                   >
+                    <label htmlFor="company">Nama Lengkap</label>
+                    <FormInput
+                      placeholder="Masukan nama lengkap"
+                      id="name"
+                      value={form.name}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div
+                    className={`form-group position-relative ${styles.form__input}`}
+                  >
+                    <label htmlFor="company">Jabatan</label>
+                    <FormInput
+                      placeholder="Posisi di perusahaan Anda"
+                      id="position"
+                      value={form.position}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div
+                    className={`form-group position-relative ${styles.form__input}`}
+                  >
                     <label htmlFor="company">Nama Perusahaan</label>
                     <FormInput
                       placeholder="Masukan nama perusahaan"
@@ -291,7 +319,7 @@ const index = ({ data }) => {
                   >
                     <label htmlFor="companyField">Bidang</label>
                     <FormInput
-                      placeholder="Masukan bidang perusahaan ex: Financia"
+                      placeholder="Masukan bidang perusahaan ex: Financial"
                       id="companyField"
                       value={form.companyField}
                       onChange={handleChange}
@@ -329,6 +357,7 @@ const index = ({ data }) => {
                       id="email"
                       value={form.email}
                       onChange={handleChange}
+                      isDisabled
                     />
                   </div>
                   <div

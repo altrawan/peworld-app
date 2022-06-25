@@ -10,7 +10,9 @@
 }
 
 .hire {
+  margin-top: 90px;
   background-color: #e5e5e5;
+  margin-bottom: -300px;
 }
 
 .profile__user {
@@ -24,6 +26,7 @@
   padding-bottom: 30px;
   margin-right: 20px;
   /* width: 26vw; */
+  height: auto;
 }
 
 .profile__image {
@@ -131,7 +134,7 @@
 }
 
 .profile__tab {
-  background-color: #fff;
+  background-color: transparent;
   position: relative;
   margin-top: 100px;
   border-radius: 8px;
@@ -368,11 +371,40 @@
 
 .hire__card {
   background-color: #fff;
+  position: relative;
+  margin-top: 90px;
+  margin-bottom: 800px;
   border-radius: 8px;
-  padding: 12px 30px !important;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  margin-right: 20px;
+
+  /* background-color: #fff;
+  position: relative;
+  margin-top: 100px;
+  margin-bottom: 150px;
+  border-radius: 8px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  margin-right: 20px;
+  height: auto; */
   /* margin: 20px 0; */
-  margin-bottom: -500px;
-  height: auto;
+  /* margin-bottom: -500px; */
+  /* height: auto; */
+}
+
+.hire__wrapper {
+  background-color: transparent;
+  position: relative;
+  margin-top: 60px;
+  border-radius: 8px;
+  /* width: 55vw; */
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 30px;
+  margin-bottom: 550px;
 }
 
 .hire__content h1 {

@@ -35,7 +35,12 @@ const index = ({ token = false }) => {
     <nav
       className={`navbar navbar-expand-lg fixed-top bg-white ${
         navbar ? 'navbar-shrink' : ''
-      } ${decoded.role === 1 ? 'navbar-shadow' : ''}`}
+      } ${
+        decoded.role === 1 &&
+        (router.pathname === '/recruiter' || router.pathname === '/hire')
+          ? 'navbar-shadow'
+          : ''
+      }`}
       id="navigation"
     >
       <div className="container">
