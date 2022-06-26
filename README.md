@@ -156,6 +156,42 @@ NEXT_PUBLIC_API_URL = [API_URL]
     <td>List Worker Page</td>
     <td>List Recruiter Page</td>
   </tr>
+  
+  <tr>
+    <td><image src="https://lh3.googleusercontent.com/d/1rAB9MAE1YXduQR54z2GV4-LIUjULrlHt" alt="Profile Worker - Portofolio Page" width=100%/></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1kK97he_sI5VXQu386PCdWMa5mIOMrJof" alt="Profile Worker - Experience Page" width=100%></td>
+  </tr>
+  <tr>
+    <td>Profile Worker - Portofolio Page</td>
+    <td>Profile Worker - Experience Page</td>
+  </tr>
+  
+  <tr>
+    <td><image src="https://lh3.googleusercontent.com/d/1oTLyZFCPOmI-X_uFeXBGRpQDWZNByOkT" alt="Detail Worker Page" width=100%/></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1QK4Afeh7zSm9q2x2Rv2qDsX4KZ2DoACB" alt="Edit Profile Worker Page" width=100%></td>
+  </tr>
+  <tr>
+    <td>Detail Worker Page</td>
+    <td>Edit Profile Worker Page</td>
+  </tr>
+  
+  <tr>
+    <td><image src="https://lh3.googleusercontent.com/d/195duVxQ7WRKUqBoCvlh5U0jikw9hHNTG" alt="Profile Recruiter Page" width=100%/></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1jGf0lJsONzDFKwXjV0ymZlPO1tQfdd7j" alt="Detail Recruiter Page" width=100%></td>
+  </tr>
+  <tr>
+    <td>Profile Recruiter Page</td>
+    <td>Detail Recruiter Page</td>
+  </tr>
+  
+  <tr>
+    <td><image src="https://lh3.googleusercontent.com/d/1Mk8190i3EEdXx39ReK12zq23a80gHLeY" alt="Edit Profile Recruiter Page" width=100%/></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1f_AUAzw2cVNNIp7EZ27snqve0ze1udI7" alt="Hire Page" width=100%></td>
+  </tr>
+  <tr>
+    <td>Edit Profile Recruiter Page</td>
+    <td>Hire Page</td>
+  </tr>
 
 </table>
       
