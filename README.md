@@ -113,8 +113,8 @@ NEXT_PUBLIC_API_URL = [API_URL]
 
 <table>
  <tr>
-    <td><image src="https://lh3.googleusercontent.com/d/1u_Z3cEGUYH_8uP3CYKp3hLm-bZICErTD" alt="Landing Page" width=100%></td>
-    <td><image src="https://lh3.googleusercontent.com/d/1gnnX8qT4o6fwPjxh4oKzOYr_ZVf49AE3" alt="Landing Page After Login" width=100%/></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1tzS8NBQtMGku6cXficIW5wQClduek1KQ" alt="Landing Page" width=100%></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1vALeDMD_fNkAKQqqqRuFDHt11nGbSBh6" alt="Landing Page After Login" width=100%/></td>
   </tr>
    <tr>
     <td>Landing Page</td>
@@ -122,8 +122,8 @@ NEXT_PUBLIC_API_URL = [API_URL]
   </tr>
   
   <tr>
-    <td><image src="https://lh3.googleusercontent.com/d/1iX25dT7H54yigSp8oVM0qQUUnQ9Jp2At" alt="Login Page" width=100%></td>
-    <td><image src="https://lh3.googleusercontent.com/d/1JBI_F9bNXfu0wzlNMJWl_2BTRm-k2ST6" alt="Forgot Password Page" width=100%/></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1oag1KBgj-fQAzsmwjvNPCOELoqAeXbEO" alt="Login Page" width=100%></td>
+    <td><image src="https://lh3.googleusercontent.com/d/17yeQqw408hiDDOyFZq17Fw3ovnswsQ7D" alt="Forgot Password Page" width=100%/></td>
   </tr>
    <tr>
     <td>Login Page</td>
@@ -131,8 +131,8 @@ NEXT_PUBLIC_API_URL = [API_URL]
   </tr>
   
   <tr>
-    <td><image src="https://lh3.googleusercontent.com/d/15f6GC5lRUoKc7py73raMT50oDWXEpOFE" alt="Register Worker Page" width=100%></td>
-    <td><image src="https://lh3.googleusercontent.com/d/1v4CXUSDjAQQqEK7wKgFrm4UUTkzc8Wsz" alt="Register Recruiter Page" width=100%/></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1nshaEdAJsPJUPJ4uR1bmM_275Rrf6zlb" alt="Register Worker Page" width=100%></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1ovMJdHmSF2b1MfGMEbXM22YbyJhF1305" alt="Register Recruiter Page" width=100%/></td>
   </tr>
    <tr>
     <td>Register Worker Page</td>
@@ -140,10 +140,21 @@ NEXT_PUBLIC_API_URL = [API_URL]
   </tr>
   
   <tr>
-    <td><image src="https://lh3.googleusercontent.com/d/1cGBjEL5EILy0dOm1_H_Q27pJ1eU_Nf8p" alt="Reset Password Page" width=100%/></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1Rv3GPrjZCZkgf7jJkXTUo7Rq21qT0RWF" alt="Reset Password Page" width=100%/></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1N6jj-k6u1BXW_7X6RM_wTkBR-nTvdCG7" alt="Send Message" width=100%></td>
   </tr>
   <tr>
     <td>Reset Password Page</td>
+    <td>Send Message</td>
+  </tr>
+  
+  <tr>
+    <td><image src="https://lh3.googleusercontent.com/d/1xa6v3_KTTxLq9yENUX5FQ0dDfexhLHhT" alt="List Worker Page" width=100%/></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1FZVX3YHeqNoi7l5Z7gj1EiuAKkyLbqyy" alt="List Recruiter Page" width=100%></td>
+  </tr>
+  <tr>
+    <td>List Worker Page</td>
+    <td>List Recruiter Page</td>
   </tr>
 
 </table>
