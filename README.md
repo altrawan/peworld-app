@@ -61,8 +61,10 @@ This app was built with some technologies below:
 * [Javascript](https://www.javascript.com/)
 * [Next Js](https://nextjs.org/)
 * [Axios](https://axios-http.com/)
-* [React Redux](https://react-redux.js.org/introduction/getting-started)
+* [Redux](https://redux.js.org/)
 * [Bootstrap](https://getbootstrap.com/)
+* [Socket.io](https://socket.io/)
+* [Moment](https://momentjs.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
