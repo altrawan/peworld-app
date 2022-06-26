@@ -13,6 +13,7 @@ import IconGitlab from 'assets/icons/icon-gitlab.svg';
 import IconPencil from 'assets/icons/icon-pencil.svg';
 import IconPhone from 'assets/icons/icon-phone.svg';
 import IconLinkedin from 'assets/icons/icon-linkedin.svg';
+import IconSend from 'assets/icons/icon-send.svg';
 
 export {
   IconCheck,
@@ -30,4 +31,5 @@ export {
   IconPencil,
   IconPhone,
   IconLinkedin,
+  IconSend,
 };

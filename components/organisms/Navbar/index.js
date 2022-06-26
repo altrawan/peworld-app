@@ -37,7 +37,9 @@ const index = ({ token = false }) => {
         navbar ? 'navbar-shrink' : ''
       } ${
         decoded.role === 1 &&
-        (router.pathname === '/recruiter' || router.pathname === '/hire')
+        (router.pathname === '/recruiter' ||
+          router.pathname === '/hire' ||
+          router.pathname === '/chat')
           ? 'navbar-shadow'
           : ''
       }`}
@@ -74,7 +76,9 @@ const index = ({ token = false }) => {
               </li>
               <li className="nav-item">
                 <button className="btn mx-3">
-                  <Image src={IconMail} width={30} height={30} />
+                  <Link href="/chat">
+                    <Image src={IconMail} width={30} height={30} />
+                  </Link>
                 </button>
               </li>
               <UserProfile token={token} />
