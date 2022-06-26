@@ -103,9 +103,9 @@ npm install
 ### Setup .env example
 Create .env file in your root project folder.
 ```
-NEXT_PUBLIC_APP_NAME = [APP_NAME]
-NEXT_PUBLIC_NODE_ENV = [NODE_ENV]
-NEXT_PUBLIC_API_URL = [API_URL]
+NEXT_PUBLIC_APP_NAME = [YOUR_APP_NAME]
+NEXT_PUBLIC_NODE_ENV = [YOUR_CURRENT_ENVIRONMENT]
+NEXT_PUBLIC_API_URL = [YOUR_API_URL]
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
