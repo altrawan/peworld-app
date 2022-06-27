@@ -61,8 +61,10 @@ This app was built with some technologies below:
 * [Javascript](https://www.javascript.com/)
 * [Next Js](https://nextjs.org/)
 * [Axios](https://axios-http.com/)
-* [React Redux](https://react-redux.js.org/introduction/getting-started)
+* [Redux](https://redux.js.org/)
 * [Bootstrap](https://getbootstrap.com/)
+* [Socket.io](https://socket.io/)
+* [Moment](https://momentjs.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -79,7 +81,7 @@ Before going to the installation stage there are some software that must be inst
 
 ### Installation
 
-If you want to run this project locally, We recommend you to configure the [back-end](https://github.com/altrawan/hire-job-api) first before configuring this repo front-end.
+If you want to run this project locally, I recommend you to configure the [back-end](https://github.com/altrawan/hire-job-api) first before configuring this repo front-end.
 - Clone the repo
 ```
 git clone https://github.com/altrawan/peworld-app.git
@@ -101,9 +103,9 @@ npm install
 ### Setup .env example
 Create .env file in your root project folder.
 ```
-NEXT_PUBLIC_APP_NAME = [APP_NAME]
-NEXT_PUBLIC_NODE_ENV = [NODE_ENV]
-NEXT_PUBLIC_API_URL = [API_URL]
+NEXT_PUBLIC_APP_NAME = [YOUR_APP_NAME]
+NEXT_PUBLIC_NODE_ENV = [YOUR_CURRENT_ENVIRONMENT]
+NEXT_PUBLIC_API_URL = [YOUR_API_URL]
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -113,8 +115,8 @@ NEXT_PUBLIC_API_URL = [API_URL]
 
 <table>
  <tr>
-    <td><image src="https://lh3.googleusercontent.com/d/1u_Z3cEGUYH_8uP3CYKp3hLm-bZICErTD" alt="Landing Page" width=100%></td>
-    <td><image src="https://lh3.googleusercontent.com/d/1gnnX8qT4o6fwPjxh4oKzOYr_ZVf49AE3" alt="Landing Page After Login" width=100%/></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1tzS8NBQtMGku6cXficIW5wQClduek1KQ" alt="Landing Page" width=100%></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1vALeDMD_fNkAKQqqqRuFDHt11nGbSBh6" alt="Landing Page After Login" width=100%/></td>
   </tr>
    <tr>
     <td>Landing Page</td>
@@ -122,8 +124,8 @@ NEXT_PUBLIC_API_URL = [API_URL]
   </tr>
   
   <tr>
-    <td><image src="https://lh3.googleusercontent.com/d/1iX25dT7H54yigSp8oVM0qQUUnQ9Jp2At" alt="Login Page" width=100%></td>
-    <td><image src="https://lh3.googleusercontent.com/d/1JBI_F9bNXfu0wzlNMJWl_2BTRm-k2ST6" alt="Forgot Password Page" width=100%/></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1oag1KBgj-fQAzsmwjvNPCOELoqAeXbEO" alt="Login Page" width=100%></td>
+    <td><image src="https://lh3.googleusercontent.com/d/17yeQqw408hiDDOyFZq17Fw3ovnswsQ7D" alt="Forgot Password Page" width=100%/></td>
   </tr>
    <tr>
     <td>Login Page</td>
@@ -131,8 +133,8 @@ NEXT_PUBLIC_API_URL = [API_URL]
   </tr>
   
   <tr>
-    <td><image src="https://lh3.googleusercontent.com/d/15f6GC5lRUoKc7py73raMT50oDWXEpOFE" alt="Register Worker Page" width=100%></td>
-    <td><image src="https://lh3.googleusercontent.com/d/1v4CXUSDjAQQqEK7wKgFrm4UUTkzc8Wsz" alt="Register Recruiter Page" width=100%/></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1nshaEdAJsPJUPJ4uR1bmM_275Rrf6zlb" alt="Register Worker Page" width=100%></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1ovMJdHmSF2b1MfGMEbXM22YbyJhF1305" alt="Register Recruiter Page" width=100%/></td>
   </tr>
    <tr>
     <td>Register Worker Page</td>
@@ -140,10 +142,57 @@ NEXT_PUBLIC_API_URL = [API_URL]
   </tr>
   
   <tr>
-    <td><image src="https://lh3.googleusercontent.com/d/1cGBjEL5EILy0dOm1_H_Q27pJ1eU_Nf8p" alt="Reset Password Page" width=100%/></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1Rv3GPrjZCZkgf7jJkXTUo7Rq21qT0RWF" alt="Reset Password Page" width=100%/></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1N6jj-k6u1BXW_7X6RM_wTkBR-nTvdCG7" alt="Send Message" width=100%></td>
   </tr>
   <tr>
     <td>Reset Password Page</td>
+    <td>Send Message</td>
+  </tr>
+  
+  <tr>
+    <td><image src="https://lh3.googleusercontent.com/d/1xa6v3_KTTxLq9yENUX5FQ0dDfexhLHhT" alt="List Worker Page" width=100%/></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1FZVX3YHeqNoi7l5Z7gj1EiuAKkyLbqyy" alt="List Recruiter Page" width=100%></td>
+  </tr>
+  <tr>
+    <td>List Worker Page</td>
+    <td>List Recruiter Page</td>
+  </tr>
+  
+  <tr>
+    <td><image src="https://lh3.googleusercontent.com/d/1rAB9MAE1YXduQR54z2GV4-LIUjULrlHt" alt="Profile Worker - Portofolio Page" width=100%/></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1kK97he_sI5VXQu386PCdWMa5mIOMrJof" alt="Profile Worker - Experience Page" width=100%></td>
+  </tr>
+  <tr>
+    <td>Profile Worker - Portofolio Page</td>
+    <td>Profile Worker - Experience Page</td>
+  </tr>
+  
+  <tr>
+    <td><image src="https://lh3.googleusercontent.com/d/1oTLyZFCPOmI-X_uFeXBGRpQDWZNByOkT" alt="Detail Worker Page" width=100%/></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1QK4Afeh7zSm9q2x2Rv2qDsX4KZ2DoACB" alt="Edit Profile Worker Page" width=100%></td>
+  </tr>
+  <tr>
+    <td>Detail Worker Page</td>
+    <td>Edit Profile Worker Page</td>
+  </tr>
+  
+  <tr>
+    <td><image src="https://lh3.googleusercontent.com/d/195duVxQ7WRKUqBoCvlh5U0jikw9hHNTG" alt="Profile Recruiter Page" width=100%/></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1jGf0lJsONzDFKwXjV0ymZlPO1tQfdd7j" alt="Detail Recruiter Page" width=100%></td>
+  </tr>
+  <tr>
+    <td>Profile Recruiter Page</td>
+    <td>Detail Recruiter Page</td>
+  </tr>
+  
+  <tr>
+    <td><image src="https://lh3.googleusercontent.com/d/1Mk8190i3EEdXx39ReK12zq23a80gHLeY" alt="Edit Profile Recruiter Page" width=100%/></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1f_AUAzw2cVNNIp7EZ27snqve0ze1udI7" alt="Hire Page" width=100%></td>
+  </tr>
+  <tr>
+    <td>Edit Profile Recruiter Page</td>
+    <td>Hire Page</td>
   </tr>
 
 </table>
