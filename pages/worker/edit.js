@@ -74,6 +74,8 @@ const editUser = ({ data, token, error, message }) => {
   });
   const [skills, setSkills] = useState([]);
   const [loadingSkill, setLoadingSkill] = useState(false);
+  const [logo, setLogo] = useState(null);
+  const [image, setImage] = useState(null);
 
   // Get Skill
   const getSkill = data.skill.map((item) => {
@@ -314,16 +316,15 @@ const editUser = ({ data, token, error, message }) => {
       formData.append('gitlab', form.gitlab);
       formData.append('linkedin', form.linkedin);
       formData.append('experience', JSON.stringify(form.experience));
-      if (form.experience) {
-        for (let i = 0; i < form.experience.length; i++) {
-          formData.append('logo', form.experience[i].image);
+      if (logo) {
+        for (let i = 0; i < logo.length; i++) {
+          formData.append('photo', logo[i]);
         }
       }
-      // formData.append('logo', form.experience.image);
       formData.append('portofolio', JSON.stringify(form.portofolio));
-      if (form.portofolio.image) {
-        for (let i = 0; i < form.portofolio.image.length; i++) {
-          formData.append('photo', form.portofolio.image[i]);
+      if (image) {
+        for (let i = 0; i < image.length; i++) {
+          formData.append('photo', image[i]);
         }
       }
 
@@ -529,13 +530,20 @@ const editUser = ({ data, token, error, message }) => {
                           <div
                             className={`form-group position-relative ${styles.form__input}`}
                           >
-                            <label htmlFor="jobStatus">Job Status</label>
-                            <FormInput
-                              placeholder="Masukan job status"
+                            <label htmlFor="jobStatus">Job Type</label>
+                            <select
+                              className="form-select"
                               id="jobStatus"
                               value={form.jobStatus}
                               onChange={handleInput}
-                            />
+                            >
+                              <option value="" selected>
+                                Select Job Type
+                              </option>
+                              <option value="Freelance">Freelance</option>
+                              <option value="Fulltime">Fulltime</option>
+                              <option value="Intern">Intern</option>
+                            </select>
                           </div>
                           <div
                             className={`form-group position-relative ${styles.form__input}`}
@@ -755,7 +763,9 @@ const editUser = ({ data, token, error, message }) => {
                                   <FormInput
                                     type="file"
                                     id="image"
-                                    onChange={(e) => handleInputExp(e, index)}
+                                    onChange={(e) => {
+                                      setLogo(e.target.files);
+                                    }}
                                   />
                                 </div>
                               </div>
@@ -822,43 +832,19 @@ const editUser = ({ data, token, error, message }) => {
                               className={`form-group position-relative ${styles.form__input}`}
                             >
                               <label htmlFor="type">Type portofolio</label>
-                              <br />
-                              <div className="radio__container">
-                                <ul className="radio__content">
-                                  <li className="radio__custom">
-                                    <input
-                                      type="radio"
-                                      id="type_portofolio"
-                                      name="type"
-                                      onChange={(e) =>
-                                        handleInputPorto(e, index)
-                                      }
-                                      value="Mobile"
-                                      checked={
-                                        item.type_portofolio === 'Mobile'
-                                      }
-                                    />
-                                    <label htmlFor="type_portofolio">
-                                      Aplikasi Mobile
-                                    </label>
-                                  </li>
-                                  <li className="radio__custom">
-                                    <input
-                                      type="radio"
-                                      id="type_portofolio"
-                                      name="type"
-                                      onChange={(e) =>
-                                        handleInputPorto(e, index)
-                                      }
-                                      value="Web"
-                                      checked={item.type_portofolio === 'Web'}
-                                    />
-                                    <label htmlFor="type_portofolio">
-                                      Aplikasi Web
-                                    </label>
-                                  </li>
-                                </ul>
-                              </div>
+                              <select
+                                className="form-select"
+                                id="type_portofolio"
+                                value={item.type_portofolio}
+                                onChange={(e) => handleInputPorto(e, index)}
+                              >
+                                <option value="" selected>
+                                  Select Type Portofolio
+                                </option>
+                                <option value="Mobile">Mobile</option>
+                                <option value="Web">Web</option>
+                                <option value="Desktop">Desktop</option>
+                              </select>
                             </div>
                             <div
                               className={`form-group position-relative ${styles.form__input}`}
@@ -867,7 +853,9 @@ const editUser = ({ data, token, error, message }) => {
                               <FormInput
                                 type="file"
                                 id="image"
-                                onChange={(e) => handleInputPorto(e, index)}
+                                onChange={(e) => {
+                                  setImage(e.target.files);
+                                }}
                                 multiple
                               />
                             </div>

@@ -6,9 +6,9 @@ export default function index(props) {
   return (
     <form onSubmit={props.onSubmit}>
       <div className={`form-group position-relative ${styles.form_input}`}>
-        <label htmlFor="password">Kata Sandi</label>
+        <label htmlFor="password">Password</label>
         <FormInput
-          placeholder="Masukan kata sandi"
+          placeholder="Enter password"
           name="password"
           type="password"
           value={props.valuePassword}
@@ -19,7 +19,7 @@ export default function index(props) {
       <div className={`form-group position-relative ${styles.form_input}`}>
         <label htmlFor="password">Confirmation new password</label>
         <FormInput
-          placeholder="Masukan konfirmasi kata sandi"
+          placeholder="Enter confirmation password"
           name="password"
           type="password"
           value={props.valuePassword}

@@ -29,7 +29,7 @@ export default function index() {
             </p>
             <p className="footer_info">
               <a href="tel:+620123456789" target="_blank" rel="noreferrer">
-                Telepon
+                Phone
               </a>
               <a
                 href="mailto:support@peworld.com"

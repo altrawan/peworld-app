@@ -80,7 +80,7 @@ const index = () => {
 
             <div className="col-md-5 col-lg-5 p-0">
               <SideAuth
-                greeting="Halo, Pewpeople"
+                greeting="Hello, Pewpeople"
                 subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor."
               >
                 <Login
@@ -93,8 +93,8 @@ const index = () => {
                   isLoading={loading}
                 />
                 <div div className={styles.option}>
-                  Anda sudah punya akun?{' '}
-                  <Link href="/auth/register">Daftar disini</Link>
+                  Don&apos;t have an account?{' '}
+                  <Link href="/auth/register">Sign up</Link>
                 </div>
               </SideAuth>
             </div>

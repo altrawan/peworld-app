@@ -8,7 +8,7 @@ export default function index(props) {
       <div className={`form-group position-relative ${styles.form_input}`}>
         <label htmlFor="email">Email</label>
         <FormInput
-          placeholder="Masukan alamat email"
+          placeholder="Enter email address"
           name="email"
           type="email"
           value={props.valueEmail}

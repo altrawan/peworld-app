@@ -201,7 +201,7 @@ const index = () => {
 
             <div className="col-md-5 col-lg-5 p-0">
               <SideAuth
-                greeting="Halo, Pewpeople"
+                greeting="Hello, Pewpeople"
                 subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor."
               >
                 {formRecruiter ? (
@@ -237,12 +237,12 @@ const index = () => {
                   className={`${styles.btn_option}`}
                   onClick={handleShowForm}
                 >
-                  Daftar Sebagai {formRecruiter ? 'Pekerja' : 'Perekrut'}
+                  Sign Up as {formRecruiter ? 'Worker' : 'Recruiter'}
                 </Button>
 
                 <p className={styles.option}>
-                  Anda sudah punya akun?{' '}
-                  <Link href="/auth/login">Masuk disini</Link>
+                  Already have account?{' '}
+                  <Link href="/auth/login">Login in here</Link>
                 </p>
               </SideAuth>
             </div>

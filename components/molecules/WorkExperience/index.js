@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { Card } from 'react-bootstrap';
 import Swal from 'sweetalert2';
-import { Experience } from 'assets';
+import { Experience, Empty } from 'assets';
 import { Image } from 'components';
 import { deleteExperience } from 'store/actions/experience';
 
@@ -42,7 +42,12 @@ export default function index({ data }) {
     <div className="row mt-5">
       <div className="row">
         {!data.length ? (
-          <p className="text-center">Tidak ada pengalaman</p>
+          <div className="d-flex flex-column align-items-center w-100">
+            <Image src={Empty} alt="Empty" width={250} height={450} />
+            <h3 style={{ marginTop: '-90px', fontWeight: '600' }}>
+              Tidak ada pengalaman
+            </h3>
+          </div>
         ) : (
           data.map((item) => (
             <Card className="border-0" key={item.id}>

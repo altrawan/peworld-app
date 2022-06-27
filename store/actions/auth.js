@@ -38,3 +38,29 @@ export const registerRecruiter = (data) => {
       });
   });
 };
+
+export const forgot = (data) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .put('auth/forgot', data)
+      .then((res) => {
+        resolve(res.data);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};
+
+export const reset = (data) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .post('auth/reset', data)
+      .then((res) => {
+        resolve(res.data);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};

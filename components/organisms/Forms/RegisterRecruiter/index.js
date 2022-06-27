@@ -7,9 +7,9 @@ export default function index(props) {
   return (
     <form onSubmit={props.onSubmit}>
       <div className={`form-group position-relative ${styles.form_input}`}>
-        <label htmlFor="name">Nama</label>
+        <label htmlFor="name">Name</label>
         <FormInput
-          placeholder="Masukan nama panjang"
+          placeholder="Enter name"
           name="name"
           type="text"
           value={props.valueName}
@@ -19,7 +19,7 @@ export default function index(props) {
       <div className={`form-group position-relative ${styles.form_input}`}>
         <label htmlFor="email">Email</label>
         <FormInput
-          placeholder="Masukan alamat email"
+          placeholder="Enter email address"
           name="email"
           type="email"
           value={props.valueEmail}
@@ -29,7 +29,7 @@ export default function index(props) {
       <div className={`form-group position-relative ${styles.form_input}`}>
         <label htmlFor="company">Company</label>
         <FormInput
-          placeholder="Masukan nama perusahaan"
+          placeholder="Enter company name"
           name="company"
           type="text"
           value={props.valueCompany}
@@ -37,9 +37,9 @@ export default function index(props) {
         />
       </div>
       <div className={`form-group position-relative ${styles.form_input}`}>
-        <label htmlFor="position">Jabatan</label>
+        <label htmlFor="position">Position</label>
         <FormInput
-          placeholder="Posisi di perusahaan Anda"
+          placeholder="Position in your company"
           name="position"
           type="text"
           value={props.valuePosition}
@@ -49,7 +49,7 @@ export default function index(props) {
       <div className={`form-group position-relative ${styles.form_input}`}>
         <label htmlFor="phoneNumber">Phone Number</label>
         <FormInput
-          placeholder="Masukan no handphone"
+          placeholder="Enter phone number"
           name="phoneNumber"
           type="text"
           value={props.valuePhoneNumber}
@@ -57,9 +57,9 @@ export default function index(props) {
         />
       </div>
       <div className={`form-group position-relative ${styles.form_input}`}>
-        <label htmlFor="password">Kata Sandi</label>
+        <label htmlFor="password">Password</label>
         <FormInput
-          placeholder="Masukan kata sandi"
+          placeholder="Enter password"
           name="password"
           type="password"
           value={props.valuePassword}
@@ -67,9 +67,9 @@ export default function index(props) {
         />
       </div>
       <div className={`form-group position-relative ${styles.form_input}`}>
-        <label htmlFor="passwordConfirmation">Konfirmasi Kata Sandi</label>
+        <label htmlFor="passwordConfirmation">Confirmation Password</label>
         <FormInput
-          placeholder="Masukan konfirmasi kata sandi"
+          placeholder="Enter confirmation password"
           name="passwordConfirmation"
           type="password"
           value={props.valuePasswordConfirmation}
@@ -81,7 +81,7 @@ export default function index(props) {
         className={`btn ${props.classBtn} w-100`}
         isLoading={props.isLoading}
       >
-        Daftar
+        Sign Up
       </Button>
     </form>
   );

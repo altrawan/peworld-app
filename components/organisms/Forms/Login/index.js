@@ -9,7 +9,7 @@ export default function index(props) {
       <div className={`form-group position-relative ${styles.form_input}`}>
         <label htmlFor="email">Email</label>
         <FormInput
-          placeholder="Masukan alamat email"
+          placeholder="Enter email address"
           name="email"
           type="email"
           value={props.valueEmail}
@@ -17,9 +17,9 @@ export default function index(props) {
         />
       </div>
       <div className={`form-group position-relative ${styles.form_input}`}>
-        <label htmlFor="password">Kata Sandi</label>
+        <label htmlFor="password">Password</label>
         <FormInput
-          placeholder="Masukan kata sandi"
+          placeholder="Enter password"
           name="password"
           type="password"
           value={props.valuePassword}
@@ -28,14 +28,14 @@ export default function index(props) {
       </div>
 
       <div className={props.classForgot}>
-        <Link href="/forgot-password">Lupa kata sandi?</Link>
+        <Link href="/forgot-password">Forgot Password?</Link>
       </div>
 
       <Button
         className={`btn ${props.classBtn} w-100`}
         isLoading={props.isLoading}
       >
-        Masuk
+        Sign In
       </Button>
     </form>
   );

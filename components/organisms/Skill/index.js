@@ -8,7 +8,7 @@ export default function index() {
     <section className={styles.skill}>
       <div className="container">
         <div className="row">
-          <div className="col-12 col-md-6 col-lg-6 p-md-0">
+          <div className="col-12 col-md-7 col-lg-7 p-md-0">
             <div className={styles.skill_wrapper}>
               <div className={styles.skill_content}>
                 <h2 className={styles.skill_title}>Skill Tallent</h2>
@@ -105,21 +105,21 @@ export default function index() {
                       />
                     </div>
                     <span className={styles.skill_name}>
-                      10+ Bahasa lainnya
+                      10+ other languages
                     </span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="col-12 col-md-6 col-lg-6 p-md-0">
+          <div className="col-12 col-md-5 col-lg-5 p-md-0">
             <div className={styles.skill_right}>
               <Image
                 src={Skill}
                 alt="Peworld Hire"
                 className={`${styles.skill_image} mx-auto mx-md-0 img-cover`}
-                width={500}
-                height={500}
+                width={400}
+                height={400}
               />
             </div>
           </div>

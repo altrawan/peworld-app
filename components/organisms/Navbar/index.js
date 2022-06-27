@@ -88,12 +88,12 @@ const index = ({ token = false }) => {
               <ul className="navbar-nav me-auto">
                 <li className="nav-item">
                   <Link href="/home/worker">
-                    <a className="nav-link">List Pekerja</a>
+                    <a className="nav-link">Worker List</a>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link href="/home/recruiter">
-                    <a className="nav-link">List Perekrut</a>
+                    <a className="nav-link">Recruiter List</a>
                   </Link>
                 </li>
               </ul>
@@ -106,10 +106,10 @@ const index = ({ token = false }) => {
           ) : (
             <ul className="navbar-nav ms-auto start">
               <Link href="/auth/login">
-                <button className="btn_auth signin">Masuk</button>
+                <button className="btn_auth signin">Sign In</button>
               </Link>
               <Link href="/auth/register">
-                <button className="btn_auth signup">Daftar</button>
+                <button className="btn_auth signup">Sign Up</button>
               </Link>
             </ul>
           )}

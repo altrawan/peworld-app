@@ -16,7 +16,7 @@ export default function index() {
             </h2>
             <Link href="/auth/register">
               <button className={`btn ${styles.subscribe_button}`}>
-                Mulai Dari Sekarang
+                Get started now
               </button>
             </Link>
           </div>

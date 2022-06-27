@@ -134,7 +134,7 @@
 }
 
 .profile__tab {
-  background-color: transparent;
+  background-color: var(--text-white);
   position: relative;
   margin-top: 100px;
   border-radius: 8px;

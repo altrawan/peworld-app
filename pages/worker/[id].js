@@ -1,11 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Tabs, Tab } from 'react-bootstrap';
+import { useRouter } from 'next/router';
+import { Tabs, Tab, Modal, Button, Spinner } from 'react-bootstrap';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import jwtDecode from 'jwt-decode';
+import Swal from 'sweetalert2';
 import { API_URL } from 'helpers/env';
 import styles from 'styles/Profile.module.css';
+import { initialChat } from 'store/actions/chat';
+import { toastr } from 'utils/toastr';
 import {
   Header,
   PurpleBackground,
@@ -45,7 +49,11 @@ export async function getServerSideProps(context) {
 }
 
 const index = ({ data }) => {
-  const [loading, setLoading] = React.useState(true);
+  const router = useRouter();
+  const [loading, setLoading] = useState(true);
+  const [modalShow, setModalShow] = useState(false);
+  const [message, setMessage] = useState('');
+  const [sendMessage, setSendMessage] = useState(false);
 
   useEffect(() => {
     setLoading(false);
@@ -55,6 +63,102 @@ const index = ({ data }) => {
   let decoded = '';
   if (token) {
     decoded = jwtDecode(token);
+  }
+
+  const handleIntialChat = () => {
+    if (!message) {
+      Swal.fire('Failed!', 'Message required!', 'error');
+    } else {
+      setSendMessage(true);
+      initialChat({
+        sender: decoded.user_id,
+        receiver: data.user.id,
+        message,
+      })
+        .then(() => {
+          document.getElementById('close').click();
+          router.push('/chat');
+        })
+        .catch((err) => {
+          if (err.response.data.code === 422) {
+            const { error } = err.response.data;
+            error.map((el) => toastr(el, 'error'));
+          } else {
+            Swal.fire({
+              title: 'Error!',
+              text: err.response.data.message,
+              icon: 'error',
+            });
+          }
+        })
+        .finally(() => {
+          setLoading(false);
+          setMessage('');
+        });
+    }
+  };
+
+  function MyVerticallyCenteredModal(props) {
+    setMessage(
+      `Halo ${data.user.name}, saya sangat tertarik dengan keahlian yang anda miliki dan ingin mengenal anda lebih jauh`
+    );
+    return (
+      <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Send Message
+          </Modal.Title>
+          <button
+            type="button"
+            className="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            onClick={props.onHide}
+            id="close"
+          />
+        </Modal.Header>
+        <Modal.Body>
+          <form>
+            <div className="mb-3">
+              <input
+                type="text"
+                className="form-control"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                id="chatInput"
+                placeholder="Type message"
+              />
+            </div>
+          </form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={props.onHide}>
+            Close
+          </Button>
+          {sendMessage ? (
+            <Button variant="primary" disabled>
+              <Spinner
+                as="span"
+                animation="border"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              />
+              <span className="visually-hidden">Loading...</span>
+            </Button>
+          ) : (
+            <Button variant="primary" onClick={handleIntialChat}>
+              Send
+            </Button>
+          )}
+        </Modal.Footer>
+      </Modal>
+    );
   }
 
   return (
@@ -112,9 +216,17 @@ const index = ({ data }) => {
                 )
               )}
 
-              <button className={`${styles.button__secondary} mt-3`}>
+              <button
+                className={`${styles.button__secondary} mt-3`}
+                onClick={() => setModalShow(true)}
+              >
                 Message
               </button>
+
+              <MyVerticallyCenteredModal
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+              />
 
               <h2 className={styles.profile__skill}>Skill</h2>
 
@@ -137,6 +249,12 @@ const index = ({ data }) => {
                   data.user.instagram
                     ? data.user.instagram
                     : 'User belum menentukan instagram'
+                }
+                phone={data.login[0].phone_number}
+                linkedin={
+                  data.user.linkedin
+                    ? data.user.linkedin
+                    : 'User belum menentukan linkedin'
                 }
                 github={
                   data.user.github
@@ -161,7 +279,7 @@ const index = ({ data }) => {
                 className="mb-3"
               >
                 <Tab eventKey="Portofolio" title="Portofolio">
-                  <Portofolio data={data.portofolio} />
+                  <Portofolio data={data.portofolio_image} />
                 </Tab>
                 <Tab eventKey="WorkExperience" title="Pengalaman Kerja">
                   <WorkExperience data={data.experience} />

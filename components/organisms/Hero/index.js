@@ -13,7 +13,7 @@ export default function index() {
             <div className={styles.hero_left}>
               <div className={styles.hero_wrapper}>
                 <h1 className={styles.hero_title}>
-                  Talenta terbaik negeri untuk perubahan revolusi 4.0
+                  Find the best talent programmer across a wide range of skill
                 </h1>
                 <p className={styles.hero_subtitle}>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
@@ -21,7 +21,7 @@ export default function index() {
                 </p>
                 <Link href="/auth/register">
                   <button className={`btn ${styles.hero_button}`}>
-                    Mulai Dari Sekarang
+                    Get started now
                   </button>
                 </Link>
               </div>

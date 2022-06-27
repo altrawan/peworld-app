@@ -127,6 +127,12 @@ const index = ({ data }) => {
                     ? data.user.instagram
                     : 'Masukan instagram anda'
                 }
+                phone={data.login[0].phone_number}
+                linkedin={
+                  data.user.linkedin
+                    ? data.user.linkedin
+                    : 'User belum menentukan linkedin'
+                }
                 github={
                   data.user.github ? data.user.github : 'Masukan github anda'
                 }
@@ -146,7 +152,7 @@ const index = ({ data }) => {
                 className="mb-3"
               >
                 <Tab eventKey="Portofolio" title="Portofolio">
-                  <Portofolio data={data.portofolio} />
+                  <Portofolio data={data.portofolio_image} />
                 </Tab>
                 <Tab eventKey="WorkExperience" title="Pengalaman Kerja">
                   <WorkExperience data={data.experience} />

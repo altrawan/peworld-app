@@ -15,14 +15,14 @@ export default function index() {
                 alt="Peworld Hire"
                 className={`${styles.reason__image} mx-auto mx-md-0 img-cover`}
                 width={500}
-                height={500}
+                height={450}
               />
             </div>
           </div>
           <div className="col-12 col-md-6 p-md-0">
             <div className={styles.reason_right}>
               <h2 className={styles.reason_title}>
-                Kenapa harus mencari tallent di peworld
+                Why should you search for talent on peworld
               </h2>
               <div className="mt-5">
                 <div className={styles.reason_list}>

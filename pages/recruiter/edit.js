@@ -74,7 +74,7 @@ const index = ({ data }) => {
 
       const photo = e.target.files[0];
       const formData = new FormData();
-      formData.append('photo', photo);
+      formData.append('image', photo);
 
       updatePhoto(formData, decoded.user_id)
         .then((res) => {

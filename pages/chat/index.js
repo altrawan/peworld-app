@@ -1,6 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
+import io from 'socket.io-client';
+import { useDispatch, useSelector } from 'react-redux';
+import Swal from 'sweetalert2';
+import moment from 'moment';
+import InputEmoji from 'react-input-emoji';
 import styles from 'styles/Chat.module.css';
 import { User, EmailCampaign, IconSend } from 'assets';
 import { Header, Image } from 'components';
@@ -13,65 +18,77 @@ import {
   GET_DETAIL_RECRUITER_FAILED,
 } from 'store/types';
 
-// export const getServerSideProps = wrapper.getServerSideProps(
-//   (store) => async (context) => {
-//     try {
-//       const decoded = jwtDecode(context.req.cookies.token);
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) => async (context) => {
+    try {
+      const decoded = jwtDecode(context.req.cookies.token);
 
-//       if (decoded.role === 0) {
-//         const response = await axios.get(
-//           `${API_URL}worker/${decoded.user_id}`,
-//           {
-//             headers: {
-//               Authorization: `Bearer ${context.req.cookies.token}`,
-//             },
-//           }
-//         );
+      if (decoded.role === 0) {
+        const response = await axios.get(
+          `${API_URL}worker/${decoded.user_id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${context.req.cookies.token}`,
+            },
+          }
+        );
 
-//         store.dispatch({
-//           type: GET_DETAIL_WORKER_SUCCESS,
-//           payload: response.data,
-//         });
-//       } else {
-//         const response = await axios.get(
-//           `${API_URL}recruiter/${decoded.user_id}`,
-//           {
-//             headers: {
-//               Authorization: `Bearer ${context.req.cookies.token}`,
-//             },
-//           }
-//         );
-//         store.dispatch({
-//           type: GET_DETAIL_RECRUITER_SUCCESS,
-//           payload: response.data,
-//         });
-//       }
-//     } catch (error) {
-//       const decoded = jwtDecode(context.req.cookies.token);
+        store.dispatch({
+          type: GET_DETAIL_WORKER_SUCCESS,
+          payload: response.data,
+        });
+      } else {
+        const response = await axios.get(
+          `${API_URL}recruiter/${decoded.user_id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${context.req.cookies.token}`,
+            },
+          }
+        );
+        store.dispatch({
+          type: GET_DETAIL_RECRUITER_SUCCESS,
+          payload: response.data,
+        });
+      }
+    } catch (error) {
+      const decoded = jwtDecode(context.req.cookies.token);
 
-//       if (decoded.role === 0) {
-//         store.dispatch({
-//           type: GET_DETAIL_WORKER_FAILED,
-//           payload: error.message,
-//         });
-//       } else {
-//         store.dispatch({
-//           type: GET_DETAIL_RECRUITER_FAILED,
-//           payload: error.message,
-//         });
-//       }
-//     }
+      if (decoded.role === 0) {
+        store.dispatch({
+          type: GET_DETAIL_WORKER_FAILED,
+          payload: error.message,
+        });
+      } else {
+        store.dispatch({
+          type: GET_DETAIL_RECRUITER_FAILED,
+          payload: error.message,
+        });
+      }
+    }
 
-//     return {
-//       props: {
-//         token: contec
-//       }
-//     }
-//   }
-// );
+    return {
+      props: {
+        token: context.req.cookies.token,
+      },
+    };
+  }
+);
 
-const index = () => {
+const index = ({ token }) => {
+  const dispatch = useDispatch();
+  const { listUser, detailUser, detailReceiver } = useSelector(
+    (state) => state
+  );
+  const [socketio, setSocketio] = useState(null);
+  const [message, setMessage] = useState('');
+  const [listChat, setListChat] = useState([]);
+  const [editChat, setEditChat] = useState('');
+  const [editMessage, setEditMessage] = useState(null);
+
   const [empty, setEmpty] = useState(true);
+
+  useEffect(() => {}, []);
 
   return (
     <>
@@ -176,20 +193,23 @@ const index = () => {
                         </div>
                       </div>
                     </div>
-                    <form action="">
-                      <div className="d-flex p-4" style={{ gap: '10px' }}>
-                        <input
-                          className={`${styles.chat_input} form-control`}
-                          id="message"
-                          placeholder="type message..."
-                        />
-                        <button type="submit" className={styles.chat_button}>
-                          <Image src={IconSend} alt="Send Message" />
-                        </button>
-                      </div>
-                    </form>
                   </>
                 )}
+                <form action="">
+                  <div
+                    className="d-flex align-items-center justify-content-center p-4"
+                    style={{ gap: '10px' }}
+                  >
+                    <InputEmoji
+                      value={message}
+                      onChange={setMessage}
+                      placeholder="type message..."
+                    />
+                    <button type="submit" className={styles.chat_button}>
+                      <Image src={IconSend} alt="Send Message" />
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>

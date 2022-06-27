@@ -13,8 +13,7 @@ export default function index() {
           </div>
           <div className={styles.banner_text}>
             <h1 className={styles.banner_heading}>
-              Temukan developer berbakat &amp; terbaik di berbagai bidang
-              keahlian
+              Find talented & best developers in various fields of expertise
             </h1>
           </div>
         </div>

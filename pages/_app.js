@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable global-require */
 import 'styles/globals.css';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
@@ -23,6 +25,12 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     window.scroll(0, 0);
   }, [pathname]);
+
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      require('bootstrap/dist/js/bootstrap');
+    }
+  }, []);
 
   return (
     <>
