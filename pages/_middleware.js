@@ -11,26 +11,28 @@ export default function middleware(req) {
   }
 
   // Private Route
-  if (
-    !token &&
-    pathname !== '/auth/login' &&
-    pathname !== '/auth/register' &&
-    pathname !== '/auth/forgot' &&
-    pathname !== '/auth/reset/:token' &&
-    !pathname.match(/\/auth\/reset\/[\w]*/gi)
-  ) {
-    return NextResponse.redirect(`${origin}/auth/login`);
+  if (!token) {
+    if (
+      pathname !== '/' &&
+      pathname !== '/auth/login' &&
+      pathname !== '/auth/register' &&
+      pathname !== '/auth/forgot' &&
+      !pathname.match(/\/auth\/reset\/[\w]*/gi)
+    ) {
+      return NextResponse.redirect(`${origin}/auth/login`);
+    }
   }
 
   // Public Route
-  if (
-    token &&
-    (pathname === '/auth/login' ||
+  if (token) {
+    if (
+      pathname === '/auth/login' ||
       pathname === '/auth/register' ||
       pathname === '/auth/forgot' ||
-      pathname.match(/\/auth\/reset\/[\w]*/gi))
-  ) {
-    return NextResponse.redirect(`${origin}`);
+      pathname.match(/\/auth\/reset\/[\w]*/gi)
+    ) {
+      return NextResponse.redirect(`${origin}`);
+    }
   }
 
   // Validate Worker
