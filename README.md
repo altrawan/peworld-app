@@ -81,7 +81,7 @@ Before going to the installation stage there are some software that must be inst
 
 ### Installation
 
-If you want to run this project locally, We recommend you to configure the [back-end](https://github.com/altrawan/hire-job-api) first before configuring this repo front-end.
+If you want to run this project locally, I recommend you to configure the [back-end](https://github.com/altrawan/hire-job-api) first before configuring this repo front-end.
 - Clone the repo
 ```
 git clone https://github.com/altrawan/peworld-app.git
