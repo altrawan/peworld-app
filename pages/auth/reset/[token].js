@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
-import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
 import { toastr } from 'utils/toastr';
-import { login } from 'store/actions/auth';
+import { reset } from 'store/actions/auth';
 import styles from 'styles/Auth.module.css';
 import { Header, Banner, SideAuth, ResetPassword } from 'components';
-
-const initialState = {
-  email: '',
-  password: '',
-};
 
 const index = () => {
   const router = useRouter();
 
   const [loading, setLoading] = useState(false);
+  const initialState = {
+    password: '',
+    passwordConfirmation: '',
+  };
+
   const [form, setForm] = useState(initialState);
 
-  const { email, password } = form;
+  const { password, passwordConfirmation } = form;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,24 +27,28 @@ const index = () => {
   const handleSubmitLogged = (e) => {
     e.preventDefault();
 
-    if (!email || !password) {
+    if (!password || !passwordConfirmation) {
       Swal.fire({
         title: 'Error!',
         text: 'All field must be filled!',
         icon: 'error',
       });
+    } else if (password !== passwordConfirmation) {
+      Swal.fire({
+        title: 'Error!',
+        text: 'Password confirmation does not match password!',
+        icon: 'error',
+      });
     } else {
       setLoading(true);
-      login(form)
+      reset(form, router.query.token)
         .then((res) => {
-          Cookies.set('token', res.token);
-
           Swal.fire({
             title: 'Success!',
             text: res.message,
             icon: 'success',
           });
-          router.push('/home');
+          router.push('/auth/login');
         })
         .catch((err) => {
           if (err.response.data.code === 422) {
@@ -61,7 +64,7 @@ const index = () => {
         })
         .finally(() => {
           setLoading(false);
-          setForm({ email: '', password: '' });
+          setForm({ password: '', passwordConfirmation: '' });
         });
     }
   };
@@ -84,10 +87,10 @@ const index = () => {
               >
                 <ResetPassword
                   onSubmit={handleSubmitLogged}
-                  classForgot={styles.forgot_password}
                   classBtn={`btn ${styles.btn_auth}`}
                   onChange={handleChange}
                   valuePassword={form.password}
+                  valuePasswordConfirmation={form.passwordConfirmation}
                   isLoading={loading}
                 />
               </SideAuth>

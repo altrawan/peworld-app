@@ -28,7 +28,7 @@ export default function index(props) {
       </div>
 
       <div className={props.classForgot}>
-        <Link href="/forgot-password">Forgot Password?</Link>
+        <Link href="/auth/forgot">Forgot Password?</Link>
       </div>
 
       <Button

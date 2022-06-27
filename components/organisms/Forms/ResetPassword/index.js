@@ -20,9 +20,9 @@ export default function index(props) {
         <label htmlFor="password">Confirmation new password</label>
         <FormInput
           placeholder="Enter confirmation password"
-          name="password"
+          name="passwordConfirmation"
           type="password"
-          value={props.valuePassword}
+          value={props.valuePasswordConfirmation}
           onChange={props.onChange}
         />
       </div>

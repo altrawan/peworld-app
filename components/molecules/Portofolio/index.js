@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-shadow */
 import React, { useState } from 'react';
@@ -12,7 +13,6 @@ export default function index({ data }) {
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex, e) => {
-    e.preventDefault();
     setIndex(selectedIndex);
   };
 

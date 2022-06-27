@@ -6,22 +6,10 @@ import { forgot } from 'store/actions/auth';
 import styles from 'styles/Auth.module.css';
 import { Header, Banner, SideAuth, ForgotPassword } from 'components';
 
-// const initialState = {
-//   email: '',
-// };
-
 const index = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
-  // const [form, setForm] = useState(initialState);
-
-  // const { email } = form;
-
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setForm({ ...form, [name]: value });
-  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -53,7 +41,7 @@ const index = () => {
 
   return (
     <>
-      <Header title="Login Page" />
+      <Header title="Forgot Password Page" />
 
       <section className={styles.login}>
         <div className="container-fluid">

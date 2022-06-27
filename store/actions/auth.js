@@ -52,10 +52,10 @@ export const forgot = (data) => {
   });
 };
 
-export const reset = (data) => {
+export const reset = (data, token) => {
   return new Promise((resolve, reject) => {
     axios
-      .post('auth/reset', data)
+      .put(`auth/reset/${token}`, data)
       .then((res) => {
         resolve(res.data);
       })

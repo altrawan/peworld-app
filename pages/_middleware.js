@@ -15,9 +15,9 @@ export default function middleware(req) {
     !token &&
     pathname !== '/auth/login' &&
     pathname !== '/auth/register' &&
-    pathname !== '/auth/forgot-password' &&
-    pathname !== '/auth/reset-password' &&
-    pathname !== '/'
+    pathname !== '/auth/forgot' &&
+    pathname !== '/auth/reset/:token' &&
+    !pathname.match(/\/auth\/reset\/[\w]*/gi)
   ) {
     return NextResponse.redirect(`${origin}/auth/login`);
   }
@@ -27,8 +27,8 @@ export default function middleware(req) {
     token &&
     (pathname === '/auth/login' ||
       pathname === '/auth/register' ||
-      pathname === '/auth/forgot-password' ||
-      pathname === '/auth/reset-password')
+      pathname === '/auth/forgot' ||
+      pathname.match(/\/auth\/reset\/[\w]*/gi))
   ) {
     return NextResponse.redirect(`${origin}`);
   }
