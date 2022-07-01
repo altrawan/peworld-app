@@ -170,7 +170,7 @@ NEXT_PUBLIC_API_URL = [YOUR_API_URL]
   
   <tr>
     <td><image src="https://lh3.googleusercontent.com/d/10QlGAEHAQKd7uUjGX7PdEgahAIWdDgEx" alt="Detail Worker Page" width=100%/></td>
-    <td><image src="https://lh3.googleusercontent.com/d/1txKvjbbQCg7N9y9zXbV8Jp191jMpQ3x1" alt="Edit Profile Worker Page" width=100%></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1Lg2xtIj-Bw66hfeiw43UkXWWE-Yl8Suf" alt="Edit Profile Worker Page" width=100%></td>
   </tr>
   <tr>
     <td>Detail Worker Page</td>
