@@ -142,10 +142,7 @@ const index = ({ data }) => {
               />
             </div>
 
-            <div
-              className={`col-lg-8 col-md-8 col-12 ${styles.profile__tab}`}
-              style={{ width: '54.1vw' }}
-            >
+            <div className={`col-lg-8 col-md-8 col-12 ${styles.profile__tab}`}>
               <Tabs
                 defaultActiveKey="Portofolio"
                 id="uncontrolled-tab-example"
