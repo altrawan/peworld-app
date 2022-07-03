@@ -83,7 +83,10 @@ export default function index({ data }) {
   return (
     <Row className="row-cols-1 row-cols-md-2 row-cols-lg-3 mt-5">
       {!data.length ? (
-        <div className="d-flex flex-column align-items-center w-100">
+        <div
+          className="d-flex flex-column align-items-center w-100"
+          style={{ marginTop: '-60px' }}
+        >
           <Image src={Empty} alt="Empty" width={250} height={450} />
           <h3 style={{ marginTop: '-90px', fontWeight: '600' }}>
             Tidak ada portofolio

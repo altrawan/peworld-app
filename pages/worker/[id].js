@@ -99,9 +99,9 @@ const index = ({ data }) => {
   };
 
   function MyVerticallyCenteredModal(props) {
-    setMessage(
-      `Halo ${data.user.name}, saya sangat tertarik dengan keahlian yang anda miliki dan ingin mengenal anda lebih jauh`
-    );
+    // setMessage(
+    //   `Halo ${data.user.name}, saya sangat tertarik dengan keahlian yang anda miliki dan ingin mengenal anda lebih jauh`
+    // );
     return (
       <Modal
         {...props}
