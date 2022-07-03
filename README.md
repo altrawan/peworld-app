@@ -143,7 +143,7 @@ NEXT_PUBLIC_API_URL = [YOUR_API_URL]
   
   <tr>
     <td><image src="https://lh3.googleusercontent.com/d/1Rv3GPrjZCZkgf7jJkXTUo7Rq21qT0RWF" alt="Reset Password Page" width=100%/></td>
-    <td><image src="https://lh3.googleusercontent.com/d/1N6jj-k6u1BXW_7X6RM_wTkBR-nTvdCG7" alt="Send Message" width=100%></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1faiv7WfqKLpWx4fT67ITpTqhg0AGIvma" alt="Send Message" width=100%></td>
   </tr>
   <tr>
     <td>Reset Password Page</td>
@@ -152,7 +152,7 @@ NEXT_PUBLIC_API_URL = [YOUR_API_URL]
   
   <tr>
     <td><image src="https://lh3.googleusercontent.com/d/1xa6v3_KTTxLq9yENUX5FQ0dDfexhLHhT" alt="List Worker Page" width=100%/></td>
-    <td><image src="https://lh3.googleusercontent.com/d/1FZVX3YHeqNoi7l5Z7gj1EiuAKkyLbqyy" alt="List Recruiter Page" width=100%></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1uaE7J2Chz_sd0C546eiUzeiqfZk9KV35" alt="List Recruiter Page" width=100%></td>
   </tr>
   <tr>
     <td>List Worker Page</td>
@@ -169,8 +169,8 @@ NEXT_PUBLIC_API_URL = [YOUR_API_URL]
   </tr>
   
   <tr>
-    <td><image src="https://lh3.googleusercontent.com/d/1oTLyZFCPOmI-X_uFeXBGRpQDWZNByOkT" alt="Detail Worker Page" width=100%/></td>
-    <td><image src="https://lh3.googleusercontent.com/d/1QK4Afeh7zSm9q2x2Rv2qDsX4KZ2DoACB" alt="Edit Profile Worker Page" width=100%></td>
+    <td><image src="https://lh3.googleusercontent.com/d/10QlGAEHAQKd7uUjGX7PdEgahAIWdDgEx" alt="Detail Worker Page" width=100%/></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1Lg2xtIj-Bw66hfeiw43UkXWWE-Yl8Suf" alt="Edit Profile Worker Page" width=100%></td>
   </tr>
   <tr>
     <td>Detail Worker Page</td>
@@ -178,8 +178,8 @@ NEXT_PUBLIC_API_URL = [YOUR_API_URL]
   </tr>
   
   <tr>
-    <td><image src="https://lh3.googleusercontent.com/d/195duVxQ7WRKUqBoCvlh5U0jikw9hHNTG" alt="Profile Recruiter Page" width=100%/></td>
-    <td><image src="https://lh3.googleusercontent.com/d/1jGf0lJsONzDFKwXjV0ymZlPO1tQfdd7j" alt="Detail Recruiter Page" width=100%></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1JC4ey8k86NJ7y6yigBRWV85ca5rZguBh" alt="Profile Recruiter Page" width=100%/></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1_TUFkzjW2SdQOuUdzPFi1yfNus2fdgqX" alt="Detail Recruiter Page" width=100%></td>
   </tr>
   <tr>
     <td>Profile Recruiter Page</td>
@@ -187,7 +187,7 @@ NEXT_PUBLIC_API_URL = [YOUR_API_URL]
   </tr>
   
   <tr>
-    <td><image src="https://lh3.googleusercontent.com/d/1Mk8190i3EEdXx39ReK12zq23a80gHLeY" alt="Edit Profile Recruiter Page" width=100%/></td>
+    <td><image src="https://lh3.googleusercontent.com/d/11rAYOaeWBScl3H8V7zIfIHMwtyWcwBhr" alt="Edit Profile Recruiter Page" width=100%/></td>
     <td><image src="https://lh3.googleusercontent.com/d/1f_AUAzw2cVNNIp7EZ27snqve0ze1udI7" alt="Hire Page" width=100%></td>
   </tr>
   <tr>
